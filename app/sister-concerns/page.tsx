@@ -262,7 +262,7 @@ export default function SisterConcern() {
       {/* =========================================================
           INTRO
       ========================================================== */}
-      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
 
         <div className="grid gap-16 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
 
@@ -346,7 +346,7 @@ export default function SisterConcern() {
       {/* =========================================================
           BUSINESS SECTORS
       ========================================================== */}
-      <section className="bg-[#f6f9fc] py-24">
+      <section className="bg-[#f6f9fc] py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -413,7 +413,7 @@ export default function SisterConcern() {
       ========================================================== */}
       <section
         id="concerns"
-        className="scroll-mt-20 py-28"
+        className="scroll-mt-20 py-10"
       >
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -520,7 +520,7 @@ export default function SisterConcern() {
       {/* =========================================================
           GROUP ECOSYSTEM
       ========================================================== */}
-      <section className="bg-[#06245a] py-28 text-white">
+      <section className="bg-[#06245a] py-10 text-white">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -629,7 +629,7 @@ export default function SisterConcern() {
       {/* =========================================================
           CTA
       ========================================================== */}
-      <section className="px-6 py-24 lg:px-8">
+      <section className="px-6 py-10 lg:px-8">
 
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#06245a] to-[#075985]">
 

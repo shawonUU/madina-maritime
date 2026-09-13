@@ -93,7 +93,7 @@ return (
 
   <section className="relative z-20 mx-auto -mt-12 max-w-7xl px-6 lg:px-8">
 
-    <div className="grid overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.12)] md:grid-cols-3">
+    <div className="grid overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.12)] md:grid-cols-4">
 
       <div className="group p-7 transition hover:bg-blue-50/50">
 
@@ -110,7 +110,7 @@ return (
         </h3>
 
         <p className="mt-2 text-sm leading-6 text-slate-500">
-          Dhaka, Bangladesh
+          Madina Square,64/A Shahid Buddhijibi Monir Chowdhury Sharak (Central road),Dhaka -1205, Bangladesh
         </p>
 
       </div>
@@ -127,12 +127,28 @@ return (
         </div>
 
         <h3 className="mt-2 text-lg font-bold text-[#06245a]">
-          +880-123456789
+          Office: 88 (0222) 3363531, 3368840 Ext :385,HP: +8801730-702927 
         </h3>
 
         <p className="mt-2 text-sm leading-6 text-slate-500">
           Our team is available to assist you.
         </p>
+
+      </div>
+
+      <div className="group p-7 transition hover:bg-blue-50/50">
+
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#06245a] transition group-hover:bg-[#06245a] group-hover:text-white">
+          <Mail size={21} />
+        </div>
+
+        <div className="mt-5 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
+          Email Us
+        </div>
+
+        <h3 className="mt-2 text-lg font-bold text-[#06245a]">
+          operation.head@madina.co
+        </h3>
 
       </div>
 
@@ -163,113 +179,9 @@ return (
 
 
 
-  <section
-    id="contact-form"
-    className="mx-auto max-w-7xl px-6 py-28 lg:px-8"
-  >
+  <section id="contact-form" className="mx-auto max-w-7xl px-6 py-10 lg:px-8"  >
 
     <div className="grid gap-16 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
-
-      <div>
-
-        <div className="mb-4 flex items-center gap-3">
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-            01 — Get In Touch
-          </span>
-
-          <span className="h-px w-12 bg-blue-200" />
-        </div>
-
-        <h2 className="text-4xl font-bold leading-tight text-[#06245a] sm:text-5xl">
-          We&apos;d be glad
-          <br />
-          to hear from you.
-        </h2>
-
-        <p className="mt-7 text-lg leading-8 text-slate-600">
-          Have a question about our marine services or want to discuss a
-          business opportunity? Send us a message and our team will get
-          back to you.
-        </p>
-
-        <div className="mt-10 space-y-6">
-
-          <div className="flex gap-4">
-
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-800">
-              <Mail size={20} />
-            </div>
-
-            <div>
-              <div className="text-sm font-bold text-[#06245a]">
-                Email
-              </div>
-
-              <p className="mt-1 text-sm text-slate-500">
-                info@madinamaritime.com
-              </p>
-            </div>
-
-          </div>
-
-
-          <div className="flex gap-4">
-
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-800">
-              <Phone size={20} />
-            </div>
-
-            <div>
-              <div className="text-sm font-bold text-[#06245a]">
-                Phone
-              </div>
-
-              <p className="mt-1 text-sm text-slate-500">
-                +880-123456789
-              </p>
-            </div>
-
-          </div>
-
-
-          <div className="flex gap-4">
-
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-800">
-              <MapPin size={20} />
-            </div>
-
-            <div>
-              <div className="text-sm font-bold text-[#06245a]">
-                Office
-              </div>
-
-              <p className="mt-1 text-sm text-slate-500">
-                Dhaka, Bangladesh
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        {/* Small corporate card */}
-        <div className="mt-10 rounded-2xl bg-[#06245a] p-7 text-white">
-
-          <Ship size={26} className="text-blue-300" />
-
-          <h3 className="mt-5 text-xl font-bold">
-            Your trusted maritime partner.
-          </h3>
-
-          <p className="mt-2 text-sm leading-6 text-blue-100/70">
-            Reliable service, professional people and long-term
-            relationships.
-          </p>
-
-        </div>
-
-      </div>
 
 
       {/* FORM */}
@@ -296,74 +208,18 @@ return (
 
       </div>
 
-    </div>
-
-  </section>
-
-
- 
-  <section className="bg-[#f5f8fc] py-28">
-
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-      <div className="grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:items-center">
-
+      <div className="rounded-[2rem] border border-slate-100 bg-white p-6 shadow-[0_20px_70px_rgba(15,23,42,0.10)] sm:p-8 lg:p-10">
         <div>
-
           <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-            02 — Our Location
+           Our Location
           </div>
-
-          <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-            Find us in
-            <br />
-            Bangladesh.
-          </h2>
-
-          <p className="mt-6 leading-7 text-slate-600">
-            Our office is located in Dhaka, Bangladesh, providing a
-            central point for communication with our customers and
-            business partners.
-          </p>
-
-          <div className="mt-8 flex items-center gap-3 text-sm font-semibold text-[#06245a]">
-            <MapPin size={19} className="text-blue-700" />
-            Dhaka, Bangladesh
+          <div className="relative h-[380px] overflow-hidden rounded-3xl bg-[#06245a] shadow-lg">
+            <div className="p-3 absolute inset-0 flex flex-col items-center justify-center text-center">
+            <iframe className="w-full h-full border-0 rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.1452292133567!2d90.38259497440747!3d23.742199989092896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b9cc54b1df%3A0x6cc23cb4676be16a!2sMadina%20Group!5e0!3m2!1sen!2sbd!4v1786536774398!5m2!1sen!2sbd"  loading="lazy"></iframe>
+            </div>
           </div>
-
         </div>
-
-
-        <div className="relative h-[380px] overflow-hidden rounded-3xl bg-[#06245a] shadow-lg">
-
-          {/* Replace this block with Google Maps iframe when
-              the exact office location is confirmed. */}
-
-          <div className="p-3 absolute inset-0 flex flex-col items-center justify-center text-center">
-           <iframe className="w-full h-full border-0 rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.1452292133567!2d90.38259497440747!3d23.742199989092896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b9cc54b1df%3A0x6cc23cb4676be16a!2sMadina%20Group!5e0!3m2!1sen!2sbd!4v1786536774398!5m2!1sen!2sbd"  loading="lazy"></iframe>
-          </div>
-
-        </div>
-
       </div>
-
-    </div>
-
-  </section>
-
-  <section className="px-6 py-24 lg:px-8">
-
-    <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#06245a]">
-
-      <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full border border-white/10" />
-
-      <div className="absolute -bottom-32 right-40 h-96 w-96 rounded-full border border-white/5" />
-
-      <Ship
-        size={420}
-        strokeWidth={0.8}
-        className="absolute -right-10 top-1/2 hidden -translate-y-1/2 text-white opacity-[0.06] lg:block"
-      />
 
     </div>
 

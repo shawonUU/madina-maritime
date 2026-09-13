@@ -106,7 +106,7 @@ return (
       }}
     />
 
-    <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-24 lg:px-8">
+    <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-10 lg:px-8">
 
       <div className="max-w-4xl">
 
@@ -218,7 +218,7 @@ return (
   {/* =====================================================
       INTRODUCTION
   ====================================================== */}
-  <section className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+  <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
 
     <div className="grid gap-16 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
 
@@ -311,7 +311,7 @@ return (
   {/* =====================================================
       SERVICE GRID
   ====================================================== */}
-  <section className="bg-[#f5f8fc] py-28">
+  <section className="bg-[#f5f8fc] py-10">
 
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -394,7 +394,7 @@ return (
   {/* =====================================================
       OPERATIONAL EXCELLENCE
   ====================================================== */}
-  <section className="bg-[#06245a] py-28 text-white">
+  <section className="bg-[#06245a] py-10 text-white">
 
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -492,7 +492,7 @@ return (
   {/* =====================================================
       WHY CHOOSE MML
   ====================================================== */}
-  <section className="py-28">
+  <section className="py-10">
 
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -568,7 +568,7 @@ return (
   {/* =====================================================
       CTA
   ====================================================== */}
-  <section className="px-6 pb-24 lg:px-8">
+  <section className="px-6 lg:px-8">
 
     <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#06245a]">
 

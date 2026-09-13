@@ -169,9 +169,6 @@ return ( <main className="bg-white text-slate-900">
   </section>
 
 
-  {/* =====================================================
-      CAREER STATS
-  ====================================================== */}
   <section className="relative z-20 mx-auto -mt-12 max-w-7xl px-6 lg:px-8">
 
     <div className="grid overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.12)] sm:grid-cols-2 lg:grid-cols-4">
@@ -221,97 +218,47 @@ return ( <main className="bg-white text-slate-900">
   </section>
 
 
-  {/* =====================================================
-      INTRODUCTION
-  ====================================================== */}
-  <section className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+  <section className="py-15">
 
-    <div className="grid gap-16 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-      <div className="relative">
+      <div className="mx-auto max-w-3xl text-center">
 
-        <div className="absolute -left-5 -top-5 h-32 w-32 rounded-2xl border border-blue-100" />
-
-        <div className="relative overflow-hidden rounded-3xl">
-
-          <Image
-            src="/images/ship3.jpg"
-            alt="MML team and maritime operations"
-            width={900}
-            height={700}
-            className="h-[500px] w-full object-cover transition duration-700 hover:scale-105"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06245a]/70 to-transparent" />
-
-          <div className="absolute bottom-7 left-7">
-
-            <div className="text-5xl font-bold text-white">
-              MML
-            </div>
-
-            <div className="mt-1 text-sm text-blue-100">
-              People. Progress. Performance.
-            </div>
-
-          </div>
-
+        <div className=" text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
+          03 — Why MML
         </div>
 
       </div>
 
 
-      <div>
+      <div className="mt-5 grid gap-6 md:grid-cols-3">
 
-        <div className="mb-4 flex items-center gap-3">
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-            01 — Life at MML
-          </span>
+        {benefits.map((benefit) => {
 
-          <span className="h-px w-12 bg-blue-200" />
-        </div>
+          const Icon = benefit.icon;
 
-        <h2 className="text-4xl font-bold leading-tight text-[#06245a] sm:text-5xl">
-          Great businesses
-          <br />
-          are built by great people.
-        </h2>
-
-        <p className="mt-7 text-lg leading-8 text-slate-600">
-          At Madina Maritime Limited, we believe people are at the heart
-          of sustainable business growth.
-        </p>
-
-        <p className="mt-5 leading-7 text-slate-500">
-          We aim to create a professional environment where individuals
-          can take responsibility, develop their capabilities and
-          contribute to meaningful business outcomes.
-        </p>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-
-          {[
-            "Professional development",
-            "Collaborative environment",
-            "Technology-driven work",
-            "Meaningful responsibilities",
-          ].map((item) => (
-
+          return (
             <div
-              key={item}
-              className="flex items-center gap-3 text-sm font-semibold text-slate-700"
+              key={benefit.title}
+              className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
-              <CheckCircle2
-                size={18}
-                className="shrink-0 text-blue-700"
-              />
 
-              {item}
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-800 transition group-hover:bg-[#06245a] group-hover:text-white">
+                <Icon size={22} />
+              </div>
+
+              <h3 className="mt-7 text-xl font-bold text-[#06245a]">
+                {benefit.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-slate-500">
+                {benefit.desc}
+              </p>
+
             </div>
+          );
 
-          ))}
-
-        </div>
+        })}
 
       </div>
 
@@ -320,12 +267,9 @@ return ( <main className="bg-white text-slate-900">
   </section>
 
 
-  {/* =====================================================
-      OPEN POSITIONS
-  ====================================================== */}
   <section
     id="open-positions"
-    className="bg-[#f5f8fc] py-28"
+    className="bg-[#f5f8fc] py-0"
   >
 
     <div className="mx-auto max-w-6xl px-6 lg:px-8">
@@ -512,69 +456,6 @@ return ( <main className="bg-white text-slate-900">
                 </div>
 
               )}
-
-            </div>
-          );
-
-        })}
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  {/* =====================================================
-      WHY WORK WITH US
-  ====================================================== */}
-  <section className="py-28">
-
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-      <div className="mx-auto max-w-3xl text-center">
-
-        <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-          03 — Why MML
-        </div>
-
-        <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-          More than a job.
-          <br />
-          A place to grow.
-        </h2>
-
-        <p className="mt-5 leading-7 text-slate-600">
-          We want our people to develop professionally while contributing
-          to the growth of the organization.
-        </p>
-
-      </div>
-
-
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
-
-        {benefits.map((benefit) => {
-
-          const Icon = benefit.icon;
-
-          return (
-            <div
-              key={benefit.title}
-              className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-800 transition group-hover:bg-[#06245a] group-hover:text-white">
-                <Icon size={22} />
-              </div>
-
-              <h3 className="mt-7 text-xl font-bold text-[#06245a]">
-                {benefit.title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-slate-500">
-                {benefit.desc}
-              </p>
 
             </div>
           );

@@ -253,7 +253,7 @@ export default function AboutPage() {
       {/* =========================================================
           WHO WE ARE
       ========================================================== */}
-      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
 
         <div className="grid gap-16 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
 
@@ -429,7 +429,7 @@ export default function AboutPage() {
       {/* =========================================================
           VALUES
       ========================================================== */}
-      <section className="bg-[#f6f9fc] py-28">
+      <section className="bg-[#f6f9fc] py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -505,7 +505,7 @@ export default function AboutPage() {
       {/* =========================================================
           JOURNEY / TIMELINE
       ========================================================== */}
-      <section className="py-28">
+      <section className="py-5">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -594,7 +594,7 @@ export default function AboutPage() {
       {/* =========================================================
           GROWTH DATA
       ========================================================== */}
-      <section className="bg-[#f6f9fc] py-28">
+      <section className="bg-[#f6f9fc] py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -875,69 +875,7 @@ export default function AboutPage() {
       </section>
 
 
-      {/* =========================================================
-          CTA
-      ========================================================== */}
-      <section className="px-6 pb-24 lg:px-8">
 
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#06245a] to-[#075985]">
-
-          <div className="absolute right-0 top-0 opacity-[0.07]">
-            <Ship size={420} strokeWidth={1} />
-          </div>
-
-          <div className="relative px-8 py-16 sm:px-12 lg:px-20 lg:py-20">
-
-            <div className="max-w-3xl">
-
-              <div className="mb-5 flex items-center gap-3 text-blue-200">
-
-                <Sparkles size={18} />
-
-                <span className="text-xs font-bold uppercase tracking-[0.2em]">
-                  The Journey Continues
-                </span>
-
-              </div>
-
-              <h2 className="text-4xl font-bold leading-tight text-white sm:text-5xl">
-                Let&apos;s build the future
-                <br />
-                of maritime business together.
-              </h2>
-
-              <p className="mt-5 max-w-xl leading-7 text-blue-100/70">
-                Explore our services, discover our latest news or get in
-                touch with our team to discuss an opportunity.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-[#06245a] transition hover:bg-blue-50"
-                >
-                  Contact Us
-                  <ArrowRight size={17} />
-                </Link>
-
-                <Link
-                  href="/news"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#06245a]"
-                >
-                  Latest News
-                  <ChevronRight size={17} />
-                </Link>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
 
     </main>
   );

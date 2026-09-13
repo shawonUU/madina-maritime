@@ -249,7 +249,7 @@ export default function CustomersPage() {
           INTRO
       ========================================================== */}
 
-      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
 
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
 
@@ -367,7 +367,7 @@ export default function CustomersPage() {
           INDUSTRIES
       ========================================================== */}
 
-      <section className="bg-[#f6f9fc] py-24">
+      <section className="bg-[#f6f9fc] py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -389,7 +389,7 @@ export default function CustomersPage() {
           </div>
 
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className=" grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
             {industries.map((industry, index) => (
 
@@ -440,7 +440,7 @@ export default function CustomersPage() {
 
       <section
         id="customers"
-        className="scroll-mt-20 py-28"
+        className="scroll-mt-20 py-10"
       >
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -469,7 +469,7 @@ export default function CustomersPage() {
           </div>
 
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className=" grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
             {customers.map((customer) => (
 
@@ -521,117 +521,6 @@ export default function CustomersPage() {
               </div>
 
             ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          TRUST SECTION
-      ========================================================== */}
-
-      <section className="bg-[#06245a] py-28 text-white">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="grid gap-16 lg:grid-cols-[1fr_.8fr] lg:items-center">
-
-            <div>
-
-              <div className="mb-5 flex items-center gap-3 text-blue-300">
-
-                <Users size={19} />
-
-                <span className="text-sm font-bold uppercase tracking-[0.2em]">
-                  Why Customers Choose Us
-                </span>
-
-              </div>
-
-              <h2 className="text-4xl font-bold leading-tight sm:text-5xl">
-                More than a service provider.
-                <br />
-                A trusted partner.
-              </h2>
-
-              <p className="mt-6 max-w-xl leading-7 text-blue-100/70">
-                We believe successful partnerships are built through
-                consistent performance, transparent communication and
-                a commitment to delivering what we promise.
-              </p>
-
-              <div className="mt-9 grid gap-5 sm:grid-cols-2">
-
-                {[
-                  "Operational Reliability",
-                  "Experienced Team",
-                  "Safety First",
-                  "Customer Support",
-                ].map((item) => (
-
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
-                  >
-
-                    <CheckCircle2
-                      size={20}
-                      className="text-blue-300"
-                    />
-
-                    <div className="mt-3 font-semibold">
-                      {item}
-                    </div>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-            </div>
-
-
-            <div className="relative flex min-h-[360px] items-center justify-center">
-
-              <div className="absolute h-[310px] w-[310px] rounded-full border border-white/10" />
-
-              <div className="absolute h-[230px] w-[230px] rounded-full border border-white/10" />
-
-              <div className="relative flex h-36 w-36 flex-col items-center justify-center rounded-full bg-white text-center text-[#06245a] shadow-[0_0_80px_rgba(255,255,255,0.10)]">
-
-                <Handshake size={30} />
-
-                <div className="mt-2 text-2xl font-black">
-                  50+
-                </div>
-
-                <div className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
-                  Partners
-                </div>
-
-              </div>
-
-              <div className="absolute left-4 top-16 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-100">
-                Reliability
-              </div>
-
-              <div className="absolute right-2 top-24 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-100">
-                Safety
-              </div>
-
-              <div className="absolute bottom-10 left-12 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-100">
-                Excellence
-              </div>
-
-              <div className="absolute bottom-5 right-10 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-100">
-                Trust
-              </div>
-
-            </div>
 
           </div>
 

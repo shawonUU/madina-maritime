@@ -433,7 +433,7 @@ export default function Hero() {
       {/* =====================================================
           MISSION / VALUES
       ====================================================== */}
-      <section className="bg-[#f5f8fc] py-28">
+      <section className="bg-[#f5f8fc] py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -521,7 +521,7 @@ export default function Hero() {
       {/* =====================================================
           BUSINESS DIVISIONS
       ====================================================== */}
-      <section className="bg-[#06245a] py-28 text-white">
+      <section className="bg-[#06245a] py-10 text-white">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -606,7 +606,7 @@ export default function Hero() {
       {/* =====================================================
           WHY MML
       ====================================================== */}
-      <section className="py-28">
+      <section className="py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -719,7 +719,7 @@ export default function Hero() {
       {/* =====================================================
           SUSTAINABILITY
       ====================================================== */}
-      <section className="relative overflow-hidden bg-[#eef7f8] py-28">
+      <section className="relative overflow-hidden bg-[#eef7f8] py-10">
 
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full border border-cyan-200/60" />
 
@@ -792,7 +792,7 @@ export default function Hero() {
       {/* =====================================================
           LATEST NEWS
       ====================================================== */}
-      <section className="py-28">
+      <section className="py-5">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
