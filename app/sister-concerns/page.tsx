@@ -28,15 +28,7 @@ const concerns = [
     icon: Wrench,
     number: "01",
   },
-  {
-    title: "Madina Maritime Ltd",
-    shortTitle: "Maritime",
-    category: "Logistics",
-    desc: "Madina Maritime Ltd · Madina Logistics & Shipping Ltd · MMR (Bangladesh) · Bismillah Navigation Ltd ·",
-    img: "/images/Madina Maritime Ltd.png",
-    icon: Package,
-    number: "02",
-  },
+
   {
     title: "Madina Developments Ltd",
     shortTitle: "Developments",
@@ -46,15 +38,7 @@ const concerns = [
     icon: Ship,
     number: "03",
   },
-  {
-    title: "International Dekuan (BD.) Co. Ltd",
-    shortTitle: "Madina Pipe & Fittings",
-    category: "Madina Pipe & Fittings",
-    desc: "Madina Pipe & Fittings · Duroplast BD Ltd",
-    img: "",
-    icon: Building2,
-    number: "04",
-  },
+
   {
     title: "ERZA Plastic Company Ltd",
     shortTitle: "Household",
@@ -72,15 +56,6 @@ const concerns = [
     img: "/images/Madina Trading Corporation.jpg",
     icon: Waves,
     number: "06",
-  },
-  {
-    title: "Madina Fruits Ltd",
-    shortTitle: "Heemagar",
-    category: "Road Transport",
-    desc: "Madina Fruits Ltd · Madina Heemagar Ltd",
-    img: "/images/Madina Fruits Ltd.jpg",
-    icon: Truck,
-    number: "07",
   },
   {
     title: "Duroplast BD Ltd",
@@ -540,23 +515,6 @@ export default function SisterConcern() {
             })}
 
           </div>
-
-        </div>
-
-      </section>
-
-      {/* =========================================================
-          CTA
-      ========================================================== */}
-      <section className="px-6 py-10 lg:px-8">
-
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#06245a] to-[#075985]">
-
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-white/10" />
-
-          <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full border border-white/10" />
-
-
 
         </div>
 

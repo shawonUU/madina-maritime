@@ -38,39 +38,11 @@ const customers = [
       "Delivering efficient logistics and marine transportation solutions for industrial requirements.",
   },
   {
-    name: "PRAN-RFL Group",
+    name: "Bashundhara Group",
     category: "Manufacturing",
-    logo: "/images/customer-4.png",
+    logo: "/images/bashundhara group.png",
     description:
       "Supporting supply-chain movement through reliable transportation and operational services.",
-  },
-  {
-    name: "Abul Khair Group",
-    category: "Industrial",
-    logo: "/images/customer-5.png",
-    description:
-      "Trusted maritime and logistics support for industrial cargo movement.",
-  },
-  {
-    name: "City Group",
-    category: "Consumer & Industrial",
-    logo: "/images/customer-6.png",
-    description:
-      "Providing dependable marine transportation and logistics support.",
-  },
-  {
-    name: "TK Group",
-    category: "Trading & Manufacturing",
-    logo: "/images/customer-7.png",
-    description:
-      "Supporting business operations with efficient maritime transportation solutions.",
-  },
-  {
-    name: "Confidence Group",
-    category: "Infrastructure",
-    logo: "/images/customer-8.png",
-    description:
-      "Maritime and logistics support for infrastructure and industrial operations.",
   },
 ];
 

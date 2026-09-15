@@ -30,8 +30,8 @@ import {
 } from "@/components/ui/card";
 
 const images = [
-  "/images/ship1.jpg",
-  "/images/ship2.jpg",
+  "/images/ship11.jpg",
+  "/images/ship22.jpg",
   "/images/ship3.jpg",
 ];
 
@@ -40,14 +40,14 @@ const missions = [
     number: "01",
     title: "Rapid Progress",
     desc: "Madina Maritime Limited is a concern of Madina Group, one of the leading companies in Bangladesh, with diversified interests across Polymer Industries, Marine Services, Trading, Cement Industries and Property Development.",
-    img: "/images/rapid-progress.jpg",
+    img: "/images/rapid-progress1.jpg",
     icon: MoveUpRight,
   },
   {
     number: "02",
     title: "Trust",
     desc: "We continuously strive to accomplish what has not easily been done before through the ideas, efforts and capabilities of every member of our team. A challenging mindset is fundamental to our approach.",
-    img: "/images/trust.jpg",
+    img: "/images/trust1.jpg",
     icon: ShieldCheck,
   },
   {
