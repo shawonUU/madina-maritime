@@ -54,7 +54,7 @@ const missions = [
     number: "03",
     title: "Action",
     desc: "Economic success is a common objective across industries. At MML, successful results matter, but we also place strong emphasis on the process, discipline and continuous improvement behind those results.",
-    img: "/images/action.jpg",
+    img: "/images/Picture5.png",
     icon: Target,
   },
 ];
@@ -64,7 +64,7 @@ const divisions = [
     title: "Marine Services",
     description:
       "Reliable marine operations supported by experienced teams and modern operational practices.",
-    image: "/images/ship1.jpg",
+    image: "/images/Picture4.png",
     icon: Ship,
   },
   {
@@ -78,7 +78,7 @@ const divisions = [
     title: "Industrial Operations",
     description:
       "Supporting diversified industrial activities through disciplined and reliable operations.",
-    image: "/images/ship3.jpg",
+    image: "/images/Picture3.png",
     icon: Anchor,
   },
 ];
@@ -386,9 +386,9 @@ export default function Hero() {
             </p>
 
             <p className="mt-5 leading-7 text-slate-500">
-              Our maritime operations are built around reliability,
-              professionalism and a continuous commitment to improving how
-              we serve our partners and customers.
+
+              We are a group of  professionals committed to expand services & business in the field of Maritime Trade, Transportation and Logistics,  Supply Chain Management business with an innovative idea through meeting the international standard of best business practice. 
+
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -781,92 +781,6 @@ export default function Hero() {
               ))}
 
             </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          LATEST NEWS
-      ====================================================== */}
-      <section className="py-5">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-
-            <div>
-              <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                06 — News & Media
-              </div>
-
-              <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-                What&apos;s happening
-              </h2>
-            </div>
-
-            <Link
-              href="/news"
-              className="flex items-center gap-2 text-sm font-bold text-blue-700"
-            >
-              View all news
-              <ArrowRight size={16} />
-            </Link>
-
-          </div>
-
-
-          <div className="mt-12 grid gap-7 md:grid-cols-3">
-
-            {news.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/news/${item.slug}`}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-2 hover:shadow-xl"
-              >
-
-                <div className="relative h-60 overflow-hidden">
-
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition duration-700 group-hover:scale-110"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-
-                  <div className="absolute left-5 top-5 rounded-full bg-white px-3 py-1.5 text-[10px] font-bold tracking-wider text-[#06245a]">
-                    {item.category}
-                  </div>
-
-                  <div className="absolute bottom-5 left-5 text-xs font-semibold text-white">
-                    {item.date}
-                  </div>
-
-                </div>
-
-                <div className="p-6">
-
-                  <h3 className="text-xl font-bold leading-snug text-[#06245a] transition group-hover:text-blue-700">
-                    {item.title}
-                  </h3>
-
-                  <div className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-700">
-                    Read Story
-                    <ArrowUpRight
-                      size={16}
-                      className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                    />
-                  </div>
-
-                </div>
-
-              </Link>
-            ))}
 
           </div>
 

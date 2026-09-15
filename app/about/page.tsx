@@ -378,10 +378,7 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-5 leading-7 text-blue-100/70">
-                To deliver reliable maritime solutions that create value
-                for customers and partners while maintaining strong
-                standards of safety, service, innovation and responsible
-                growth.
+                Madina Maritime Ltd. is a concern of Madina Group, strive to develop this venture through its customer driven value-added shipping services by meeting the requirements of its customer/ partner through innovation, strategy and to create competitive edge in growing Maritime Trade development to/from Bangladesh.
               </p>
 
               <div className="mt-7 flex items-center gap-2 text-sm font-bold text-white">
@@ -804,7 +801,7 @@ export default function AboutPage() {
       {/* =========================================================
           LEADERSHIP
       ========================================================== */}
-      <section className="py-28">
+      <section className="py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 

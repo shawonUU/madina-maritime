@@ -17,23 +17,23 @@ import {
 
 const customers = [
   {
-    name: "Bashundhara Group",
+    name: "Rahim Group",
     category: "Industrial",
-    logo: "/images/customer-1.png",
+    logo: "/images/customer_rahim_steel.png",
     description:
       "Supporting large-scale industrial and logistics operations with dependable maritime solutions.",
   },
   {
-    name: "Meghna Group",
+    name: "Awal & Brothers Chemicals Company Limited",
     category: "Industrial",
-    logo: "/images/customer-2.png",
+    logo: "/images/Awal & Brothers Chemicals Company Limited.jpg",
     description:
       "Providing reliable transportation and maritime support for large-scale commercial operations.",
   },
   {
-    name: "Akij Group",
+    name: "Astha Feed Industries Limited",
     category: "Manufacturing",
-    logo: "/images/customer-3.png",
+    logo: "/images/Astha Feed Industries Ltd.png",
     description:
       "Delivering efficient logistics and marine transportation solutions for industrial requirements.",
   },

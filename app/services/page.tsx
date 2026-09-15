@@ -391,102 +391,102 @@ return (
   </section>
 
 
-  {/* =====================================================
-      OPERATIONAL EXCELLENCE
-  ====================================================== */}
   <section className="bg-[#06245a] py-10 text-white">
-
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-      <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-
-        <div>
-
-          <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-300">
-            03 — Operational Excellence
-          </div>
-
-          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">
-            Built around
-            <br />
-            reliability.
-          </h2>
-
-          <p className="mt-6 max-w-xl leading-7 text-blue-100/70">
-            Maritime operations demand precision, coordination and
-            consistency. Our teams work with a clear focus on delivering
-            dependable service at every stage.
-          </p>
-
-          <div className="mt-9 space-y-5">
-
-            {[
-              "Safety-led operational practices",
-              "Experienced maritime professionals",
-              "Clear communication and coordination",
-              "Continuous improvement",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-4"
-              >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
-                  <CheckCircle2
-                    size={17}
-                    className="text-blue-300"
-                  />
-                </div>
-
-                <span className="text-sm font-medium text-blue-50">
-                  {item}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+            <div>
+              <div className="mb-5 flex items-center gap-3 text-blue-300">
+                <Globe2 size={19} />
+                <span className="text-sm font-bold uppercase tracking-[0.2em]">
+                  03 — Our Services
                 </span>
+
               </div>
-            ))}
 
-          </div>
+              <h2 className="text-4xl font-bold leading-tight sm:text-5xl">
+                Reliable Maritime Solutions. One Trusted Partner.
+              </h2>
 
-        </div>
+              <p className="mt-6 max-w-xl leading-7 text-blue-100/70">
+                We provide reliable and efficient maritime services designed to support vessel operations, cargo transportation and logistics. With a strong focus on safety, operational excellence and customer satisfaction, we deliver dependable solutions across every stage of maritime operations.
+              </p>
 
+              <div className="mt-8 flex flex-wrap gap-3">
 
-        <div className="relative">
+                {[
+                  "Shipping Agency",
+                  "C&F Agency",
+                  "Ship Handling Operator",
+                  "Filling Service",
+                  "Lighter Vessel Operator",
+                  "Logistics (Loading / Unloading)  Service",
+                  "International Trading",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-100"
+                  >
+                    {item}
+                  </span>
+                ))}
 
-          <div className="overflow-hidden rounded-3xl">
+              </div>
 
-            <Image
-              src="/images/ship3.jpg"
-              alt="Maritime operational excellence"
-              width={900}
-              height={700}
-              className="h-[520px] w-full object-cover"
-            />
-
-          </div>
-
-          <div className="absolute -bottom-8 -left-8 hidden w-64 rounded-2xl bg-white p-6 text-[#06245a] shadow-2xl sm:block">
-
-            <ShieldCheck
-              size={28}
-              className="text-blue-700"
-            />
-
-            <div className="mt-4 text-lg font-bold">
-              Safety First
             </div>
 
-            <p className="mt-2 text-xs leading-5 text-slate-500">
-              Responsible operations with safety at the centre of
-              everything we do.
-            </p>
+
+            {/* Visual network */}
+            <div className="relative min-h-[420px]">
+
+              <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-300/20 bg-blue-400/10 shadow-[0_0_100px_rgba(59,130,246,0.15)]">
+
+                <div className="flex h-full items-center justify-center text-center">
+
+                  <div>
+                    <div className="text-2xl font-bold">
+                      MML
+                    </div>
+
+                    <div className="mt-1 text-[9px] uppercase tracking-widest text-blue-200">
+                      Maritime
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              {[
+                ["Shipping Agency", "top-0 left-1/2 -translate-x-1/2"],
+                ["C&F Agency", "right-0 top-1/4"],
+                ["Ship Handling Operator", "right-0 bottom-1/4"],
+                ["Filling Service", "bottom-0 left-1/2 -translate-x-1/2"],
+                ["Lighter Vessel Operator", "left-0 bottom-1/5"],
+                ["Logistics (Loading / Unloading)  Service", "left-0 top-1/4"],
+                ["International Trading", "left-10 top-1/2"],
+              ].map(([name, position]) => (
+
+                <div
+                  key={name}
+                  className={`absolute ${position} rounded-full border border-white/10 bg-white/[0.06] px-5 py-3 text-xs font-bold text-blue-100 backdrop-blur-sm`}
+                >
+                  {name}
+                </div>
+
+              ))}
+
+              <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5" />
+
+              <div className="absolute left-1/2 top-1/2 h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5" />
+
+            </div>
 
           </div>
 
         </div>
 
-      </div>
-
-    </div>
-
-  </section>
+      </section>
 
 
   {/* =====================================================

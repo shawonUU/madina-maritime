@@ -225,7 +225,7 @@ return ( <main className="bg-white text-slate-900">
       <div className="mx-auto max-w-3xl text-center">
 
         <div className=" text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-          03 — Why MML
+          01 — Why MML
         </div>
 
       </div>

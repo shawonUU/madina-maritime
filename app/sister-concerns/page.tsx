@@ -20,87 +20,118 @@ import {
 
 const concerns = [
   {
-    title: "Madina Shipyard",
-    shortTitle: "Shipyard",
-    category: "Marine Engineering",
-    desc: "Docking and repairing services supported by modern facilities and experienced maritime professionals.",
-    img: "/images/shipyard.jpg",
+    title: "Madina Polymer Industries Ltd",
+    shortTitle: "Polymer",
+    category: "Polymer",
+    desc: "Madina TANK · Madina PUMP · Madina Kitchen Sink · Madina Gas Stove · Madina HDPE Pipe",
+    img: "/images/Madina Polymer Industries Ltd.jpg",
     icon: Wrench,
     number: "01",
   },
   {
-    title: "Madina Logistics & Shipping Ltd",
-    shortTitle: "Logistics & Shipping",
+    title: "Madina Maritime Ltd",
+    shortTitle: "Maritime",
     category: "Logistics",
-    desc: "Clearing and shipping agency services designed to ensure smooth and efficient cargo operations.",
-    img: "/images/shipyard.jpg",
+    desc: "Madina Maritime Ltd · Madina Logistics & Shipping Ltd · MMR (Bangladesh) · Bismillah Navigation Ltd ·",
+    img: "/images/Madina Maritime Ltd.png",
     icon: Package,
     number: "02",
   },
   {
-    title: "M M R (Bangladesh) Shipping Ltd",
-    shortTitle: "MMR Shipping",
-    category: "Shipping Agency",
-    desc: "A trusted shipping agency supporting international trade and maritime operations.",
-    img: "/images/shipyard.jpg",
+    title: "Madina Developments Ltd",
+    shortTitle: "Developments",
+    category: "Developments",
+    desc: "Madina Maritime Ltd",
+    img: "/images/Madina Developments1.png",
     icon: Ship,
     number: "03",
   },
   {
-    title: "Fleet International Ltd",
-    shortTitle: "Fleet International",
-    category: "Cargo Operations",
-    desc: "Cargo handling operations focused on efficiency, reliability and dependable service delivery.",
-    img: "/images/shipyard.jpg",
+    title: "International Dekuan (BD.) Co. Ltd",
+    shortTitle: "Madina Pipe & Fittings",
+    category: "Madina Pipe & Fittings",
+    desc: "Madina Pipe & Fittings · Duroplast BD Ltd",
+    img: "",
     icon: Building2,
     number: "04",
   },
   {
-    title: "Madina Equipment Ltd",
-    shortTitle: "Equipment",
-    category: "Equipment Services",
-    desc: "Equipment solutions supporting maritime, construction and industrial operational requirements.",
-    img: "/images/shipyard.jpg",
+    title: "ERZA Plastic Company Ltd",
+    shortTitle: "Household",
+    category: "Household",
+    desc: "Household · Plastic Furniture",
+    img: "",
     icon: Wrench,
     number: "05",
   },
   {
-    title: "Bismillah Navigation Ltd",
-    shortTitle: "Navigation",
-    category: "Inland Water Transport",
-    desc: "Inland river transportation services focused on safe and dependable movement of cargo.",
-    img: "/images/shipyard.jpg",
+    title: "Madina Trading Corporation (Pvt.) Ltd",
+    shortTitle: "Trading",
+    category: "Trading",
+    desc: "Trading",
+    img: "/images/Madina Trading Corporation.jpg",
     icon: Waves,
     number: "06",
   },
   {
-    title: "Madina Transport Ltd",
-    shortTitle: "Transport",
+    title: "Madina Fruits Ltd",
+    shortTitle: "Heemagar",
     category: "Road Transport",
-    desc: "Reliable road transportation services connecting businesses and destinations across Bangladesh.",
-    img: "/images/shipyard.jpg",
+    desc: "Madina Fruits Ltd · Madina Heemagar Ltd",
+    img: "/images/Madina Fruits Ltd.jpg",
     icon: Truck,
     number: "07",
   },
   {
-    title: "Madina Petroleum Service Ltd",
-    shortTitle: "Petroleum Services",
-    category: "Energy & Fuel",
-    desc: "Fuel supply solutions serving maritime, transportation and industrial sectors.",
-    img: "/images/shipyard.jpg",
+    title: "Duroplast BD Ltd",
+    shortTitle: "Duroplast",
+    category: "Duroplast",
+    desc: "Duroplast Tank · Duroplast Pipe",
+    img: "",
     icon: Fuel,
     number: "08",
   },
   {
-    title: "Madina Cement Industries Ltd",
-    shortTitle: "Cement Industries",
-    category: "Manufacturing",
-    desc: "Cement manufacturing under the Tiger brand, contributing to infrastructure development.",
-    img: "/images/shipyard.jpg",
+    title: "Madina Logistics & Shipping Ltd ",
+    shortTitle: "Logistics & Shipping",
+    category: "Logistics",
+    desc: "Madina Logistics & Shipping Ltd",
+    img: "",
+    icon: Factory,
+    number: "09",
+  },
+
+  {
+    title: "Chand Sarder Cold Storage Ltd.",
+    shortTitle: "Cold Storage",
+    category: "Cold Storage",
+    desc: "Chand Sarder Cold Storage Ltd",
+    img: "",
+    icon: Factory,
+    number: "09",
+  },
+
+  {
+    title: "Fleet International Ltd ",
+    shortTitle: "Fleet International Ltd",
+    category: "Fleet International Ltd",
+    desc: "Fleet International Ltd",
+    img: "",
+    icon: Factory,
+    number: "09",
+  },
+
+  {
+    title: "Others",
+    shortTitle: "Others",
+    category: "Others",
+    desc: "Madina Filling Services Ltd · Madina Fruits Ltd · Chand Sarder Cold Storage Ltd · Madina Heemagar",
+    img: "",
     icon: Factory,
     number: "09",
   },
 ];
+ 
 
 const sectors = [
   {
@@ -273,7 +304,7 @@ export default function SisterConcern() {
             <div className="relative overflow-hidden rounded-3xl">
 
               <Image
-                src="/images/shipyard.jpg"
+                src="/images/madina-logo.jpeg"
                 alt="Madina Group operations"
                 width={900}
                 height={700}
@@ -318,12 +349,10 @@ export default function SisterConcern() {
             </h2>
 
             <p className="mt-7 text-lg leading-8 text-slate-600">
-              Madina Group operates across multiple industries, bringing
-              together specialized businesses that complement one another
-              and create a stronger overall ecosystem.
+              Since 1978, Madina Group has scaled to 12 business sectors and 27 sister concerns across polymer, development & trading, maritime, and diversified industries. Explore each pillar of the group below — hover a panel to expand it and reveal its sister concerns.
             </p>
 
-            <p className="mt-5 leading-7 text-slate-500">
+            {/* <p className="mt-5 leading-7 text-slate-500">
               Our sister concerns allow us to combine expertise,
               infrastructure and operational capabilities across marine
               services, logistics, transportation, equipment, energy and
@@ -334,7 +363,7 @@ export default function SisterConcern() {
               This diversified structure helps us respond to changing
               market requirements while maintaining a long-term focus on
               reliability, quality and sustainable growth.
-            </p>
+            </p> */}
 
           </div>
 
@@ -515,116 +544,6 @@ export default function SisterConcern() {
         </div>
 
       </section>
-
-
-      {/* =========================================================
-          GROUP ECOSYSTEM
-      ========================================================== */}
-      <section className="bg-[#06245a] py-10 text-white">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-
-            <div>
-
-              <div className="mb-5 flex items-center gap-3 text-blue-300">
-
-                <Globe2 size={19} />
-
-                <span className="text-sm font-bold uppercase tracking-[0.2em]">
-                  02 — Group Ecosystem
-                </span>
-
-              </div>
-
-              <h2 className="text-4xl font-bold leading-tight sm:text-5xl">
-                Different businesses.
-                <br />
-                One shared direction.
-              </h2>
-
-              <p className="mt-6 max-w-xl leading-7 text-blue-100/70">
-                Our businesses operate in different sectors, but they share
-                a common commitment to service quality, operational
-                discipline, innovation and long-term value creation.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-
-                {[
-                  "Marine Services",
-                  "Logistics",
-                  "Transportation",
-                  "Equipment",
-                  "Energy",
-                  "Manufacturing",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-blue-100"
-                  >
-                    {item}
-                  </span>
-                ))}
-
-              </div>
-
-            </div>
-
-
-            {/* Visual network */}
-            <div className="relative min-h-[420px]">
-
-              <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-300/20 bg-blue-400/10 shadow-[0_0_100px_rgba(59,130,246,0.15)]">
-
-                <div className="flex h-full items-center justify-center text-center">
-
-                  <div>
-                    <div className="text-2xl font-bold">
-                      MML
-                    </div>
-
-                    <div className="mt-1 text-[9px] uppercase tracking-widest text-blue-200">
-                      Maritime
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {[
-                ["Marine", "top-0 left-1/2 -translate-x-1/2"],
-                ["Logistics", "right-0 top-1/4"],
-                ["Transport", "right-0 bottom-1/4"],
-                ["Industrial", "bottom-0 left-1/2 -translate-x-1/2"],
-                ["Energy", "left-0 bottom-1/4"],
-                ["Equipment", "left-0 top-1/4"],
-              ].map(([name, position]) => (
-
-                <div
-                  key={name}
-                  className={`absolute ${position} rounded-full border border-white/10 bg-white/[0.06] px-5 py-3 text-xs font-bold text-blue-100 backdrop-blur-sm`}
-                >
-                  {name}
-                </div>
-
-              ))}
-
-              <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5" />
-
-              <div className="absolute left-1/2 top-1/2 h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5" />
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
 
       {/* =========================================================
           CTA
