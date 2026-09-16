@@ -16,6 +16,12 @@ import {
   Truck,
   Users,
   Waves,
+
+  DollarSign,
+  Rocket,
+  Trophy,
+  Gift,
+  MessageCircle,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -64,6 +70,46 @@ description:
 "End-to-end maritime support combining people, processes and operational capabilities under one trusted partner.",
 icon: Globe2,
 },
+];
+
+const services2 = [
+  {
+    icon: DollarSign,
+    color: "#19B5D1",
+    title: "LOREM IPSUM",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.",
+    position: "top",
+  },
+  {
+    icon: Rocket,
+    color: "#5127B9",
+    title: "LOREM IPSUM",
+    description: ["LOREM IPSUM DOLOR", "LOREM IPSUM DOLOR", "LOREM IPSUM DOLOR"],
+    position: "second",
+  },
+  {
+    icon: Trophy,
+    color: "#F9A817",
+    title: "LOREM IPSUM",
+    percentage: "123.000%",
+    position: "middle",
+  },
+  {
+    icon: Gift,
+    color: "#F04B1C",
+    title: "LOREM IPSUM",
+    description: ["LOREM IPSUM DOLOR", "LOREM IPSUM DOLOR", "LOREM IPSUM DOLOR"],
+    position: "fourth",
+  },
+  {
+    icon: MessageCircle,
+    color: "#DC334B",
+    title: "LOREM IPSUM",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.",
+    position: "bottom",
+  },
 ];
 
 const capabilities = [
@@ -222,7 +268,7 @@ return (
 
     <section className="py-10">
 
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
 
       <div className="mx-auto max-w-3xl text-center">
 
@@ -298,19 +344,19 @@ return (
   ====================================================== */}
   <section className="bg-[#f5f8fc] py-10">
 
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-      <div className="max-w-3xl">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
+      
+      <div className=" ">
 
         <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
           02 — What We Do
         </div>
 
-        <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
+        {/* <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
           Comprehensive marine
           <br />
           service capabilities.
-        </h2>
+        </h2> */}
 
         <p className="mt-5 max-w-2xl leading-7 text-slate-600">
           Our services are designed to support the complete operational
@@ -318,10 +364,205 @@ return (
           of safety, reliability and efficiency.
         </p>
 
+        <div className="flex justify-center">
+
+              <div className="relative h-[493px] w-[546px] max-w-full">
+
+                {/* ================= CENTER CIRCLE ================= */}
+                
+                    <div className="absolute left-[46px] top-[153px] h-[195px] w-[195px]">
+                      
+                      {/* Outer colored circular border */}
+                      <div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: `
+                            conic-gradient(
+                              from -45deg,
+                              #5127B9 0deg 65deg,
+                              transparent 65deg 72deg,
+                              #F9A817 72deg 135deg,
+                              transparent 135deg 143deg,
+                              #F04B1C 143deg 208deg,
+                              transparent 208deg 216deg,
+                              #DC334B 216deg 285deg,
+                              transparent 285deg 293deg,
+                              #19B5D1 293deg 360deg
+                            )
+                          `,
+                        }}
+                      />
+
+                      {/* White gap / inner circle */}
+                      <div className="absolute inset-[11px] rounded-full bg-white shadow-[0_0_8px_rgba(0,0,0,0.18)]">
+                        <div className="absolute inset-[10px] flex items-center justify-center rounded-full border border-gray-200 bg-[#f8f8f8] shadow-inner">
+                          <div className="text-center">
+                            <div className="text-[29px] font-extrabold leading-[31px] text-[#555]">
+                              OUR
+                            </div>
+                            <div className="text-[29px] font-extrabold leading-[31px] text-[#555]">
+                              SERVICES
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Outer thin circular line */}
+                      <div className="absolute -inset-[18px] rounded-full border-[7px] border-transparent border-t-[#19B5D1]" />
+
+                      {/* Extra colored arcs */}
+                      <div className="absolute -inset-[18px] rounded-full border-[7px] border-transparent border-r-[#F9A817]" />
+
+                      <div className="absolute -inset-[18px] rounded-full border-[7px] border-transparent border-b-[#DC334B]" />
+                    </div>
+                
+
+                {/* ================= CONNECTOR LINES ================= */}
+
+                {/* Top */}
+                <div
+                  className="absolute left-[187px] top-[77px] w-[77px] border-t-2 border-dotted"
+                  style={{ borderColor: "#19B5D1" }}
+                />
+
+                <div
+                  className="absolute left-[187px] top-[77px] h-[72px] border-l-2 border-dotted"
+                  style={{
+                    borderColor: "#19B5D1",
+                    transform: "skewX(-38deg)",
+                    transformOrigin: "top",
+                  }}
+                />
+
+                {/* Second */}
+                <div
+                  className="absolute left-[237px] top-[164px] w-[78px] border-t-2 border-dotted"
+                  style={{ borderColor: "#5127B9" }}
+                />
+
+                {/* Middle */}
+                <div
+                  className="absolute left-[242px] top-[250px] w-[112px] border-t-2 border-dotted"
+                  style={{ borderColor: "#F9A817" }}
+                />
+
+                {/* Fourth */}
+                <div
+                  className="absolute left-[231px] top-[337px] w-[84px] border-t-2 border-dotted"
+                  style={{ borderColor: "#F04B1C" }}
+                />
+
+                {/* Bottom */}
+                <div
+                  className="absolute left-[188px] top-[407px] w-[77px] border-t-2 border-dotted"
+                  style={{ borderColor: "#DC334B" }}
+                />
+
+                <div
+                  className="absolute left-[150px] top-[360px] h-[50px] border-l-2 border-dotted"
+                  style={{
+                    borderColor: "#DC334B",
+                    transform: "skewX(38deg)",
+                    transformOrigin: "top",
+                  }}
+                />
+
+                {/* ================= SERVICE ITEMS ================= */}
+
+                {services2.map((service) => {
+                  const Icon = service.icon;
+
+                  const positionClasses = {
+                    top: "top-[45px]",
+                    second: "top-[130px]",
+                    middle: "top-[216px]",
+                    fourth: "top-[302px]",
+                    bottom: "top-[388px]",
+                  };
+
+                  return (
+                    <div
+                      key={service.position}
+                      className={`absolute right-0 h-[69px] w-[285px] ${positionClasses[service.position]}`}
+                    >
+                      {/* Main shape */}
+                      <div
+                        className="relative flex h-full w-full items-center overflow-hidden"
+                        style={{
+                          backgroundColor: service.color,
+                          clipPath:
+                            "polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%)",
+                        }}
+                      >
+                        {/* White inner border */}
+                        <div
+                          className="absolute inset-[2px]"
+                          style={{
+                            backgroundColor: service.color,
+                            clipPath:
+                              "polygon(13% 0, 94% 0, 100% 50%, 94% 100%, 13% 100%, 0 50%)",
+                          }}
+                        />
+
+                        {/* Icon circle */}
+                        <div
+                          className="absolute left-[7px] top-1/2 z-10 flex h-[58px] w-[58px] -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-white"
+                          style={{ backgroundColor: service.color }}
+                        >
+                          <Icon
+                            size={31}
+                            strokeWidth={2.5}
+                            className="text-white"
+                          />
+                        </div>
+
+                        {/* Text */}
+                        <div className="relative z-10 ml-[78px] pr-4 text-white">
+                          <div className="text-[13px] font-extrabold leading-[15px]">
+                            {service.title}
+                          </div>
+
+                          {service.percentage && (
+                            <div className="mt-[1px] text-[20px] font-normal leading-5">
+                              {service.percentage}
+                            </div>
+                          )}
+
+                          {Array.isArray(service.description) ? (
+                            <ul className="mt-[3px] list-disc pl-3 text-[7px] font-medium leading-[11px]">
+                              {service.description.map((item, index) => (
+                                <li key={index}>{item}</li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="mt-[2px] max-w-[175px] text-[7px] font-medium leading-[9px]">
+                              {service.description}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* White border effect */}
+                      <div
+                        className="pointer-events-none absolute inset-0"
+                        style={{
+                          border: "2px solid white",
+                          clipPath:
+                            "polygon(13% 0, 94% 0, 100% 50%, 94% 100%, 13% 100%, 0 50%)",
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+
+        </div>
+
+
       </div>
 
 
-      <div className=" grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* <div className=" grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
         {services.map((service) => {
           const Icon = service.icon;
@@ -369,14 +610,14 @@ return (
           );
         })}
 
-      </div>
+      </div> */}
 
     </div>
 
   </section>
 
 
-  <section className="bg-[#06245a] py-10 text-white">
+  <section className="bg-[#06245a] py-10 text-white ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
             <div>

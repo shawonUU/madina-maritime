@@ -95,16 +95,6 @@ const concerns = [
     icon: Factory,
     number: "09",
   },
-
-  {
-    title: "Others",
-    shortTitle: "Others",
-    category: "Others",
-    desc: "Madina Filling Services Ltd · Madina Fruits Ltd · Chand Sarder Cold Storage Ltd · Madina Heemagar",
-    img: "",
-    icon: Factory,
-    number: "09",
-  },
 ];
  
 
