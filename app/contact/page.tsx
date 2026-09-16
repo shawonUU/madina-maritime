@@ -23,7 +23,7 @@ return (
   <section className="relative min-h-[560px] overflow-hidden bg-[#03172f]">
 
     <Image
-      src="/images/ship3.jpg"
+      src="/images/Picture4.png"
       alt="Contact Madina Maritime Limited"
       fill
       priority

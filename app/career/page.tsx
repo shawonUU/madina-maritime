@@ -99,7 +99,7 @@ return ( <main className="bg-white text-slate-900">
   <section className="relative min-h-[600px] overflow-hidden bg-[#03172f]">
 
     <Image
-      src="/images/ship2.jpg"
+      src="/images/ship32.jpeg"
       alt="Careers at Madina Maritime"
       fill
       priority
@@ -240,7 +240,7 @@ return ( <main className="bg-white text-slate-900">
           return (
             <div
               key={benefit.title}
-              className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="group rounded-3xl border border-slate-100 bg-white p-2 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
 
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-800 transition group-hover:bg-[#06245a] group-hover:text-white">
@@ -309,7 +309,7 @@ return ( <main className="bg-white text-slate-900">
             >
 
               {/* Job Header */}
-              <div className="p-7 sm:p-8">
+              <div className="p-4">
 
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 

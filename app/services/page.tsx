@@ -261,360 +261,8 @@ return (
   </section>
 
 
-  {/* =====================================================
-      INTRODUCTION
-  ====================================================== */}
-  
 
-    <section className="py-10">
-
-    <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
-
-      <div className="mx-auto max-w-3xl text-center">
-
-        <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-          01 — Why MML
-        </div>
-
-        <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-          A trusted maritime partner.
-        </h2>
-
-        <p className="mt-5 leading-7 text-slate-600">
-          We combine operational discipline, experienced people and a
-          long-term partnership mindset to deliver dependable maritime
-          solutions.
-        </p>
-
-      </div>
-
-
-      <div className=" grid gap-6 md:grid-cols-3">
-
-        {[
-          {
-            icon: ShieldCheck,
-            title: "Safety & Compliance",
-            desc: "Maintaining a strong safety culture across our operations.",
-          },
-          {
-            icon: Users,
-            title: "Experienced People",
-            desc: "Skilled professionals supporting reliable maritime operations.",
-          },
-          {
-            icon: Globe2,
-            title: "Long-Term Partnership",
-            desc: "Building relationships through trust, consistency and performance.",
-          },
-        ].map((item) => {
-          const Icon = item.icon;
-
-          return (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-            >
-
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-800">
-                <Icon size={22} />
-              </div>
-
-              <h3 className="mt-7 text-xl font-bold text-[#06245a]">
-                {item.title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-slate-500">
-                {item.desc}
-              </p>
-
-            </div>
-          );
-        })}
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  {/* =====================================================
-      SERVICE GRID
-  ====================================================== */}
-  <section className="bg-[#f5f8fc] py-10">
-
-    <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
-      
-      <div className=" ">
-
-        <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-          02 — What We Do
-        </div>
-
-        {/* <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-          Comprehensive marine
-          <br />
-          service capabilities.
-        </h2> */}
-
-        <p className="mt-5 max-w-2xl leading-7 text-slate-600">
-          Our services are designed to support the complete operational
-          needs of maritime businesses while maintaining high standards
-          of safety, reliability and efficiency.
-        </p>
-
-        <div className="flex justify-center">
-
-              <div className="relative h-[493px] w-[546px] max-w-full">
-
-                {/* ================= CENTER CIRCLE ================= */}
-                
-                    <div className="absolute left-[46px] top-[153px] h-[195px] w-[195px]">
-                      
-                      {/* Outer colored circular border */}
-                      <div
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                          background: `
-                            conic-gradient(
-                              from -45deg,
-                              #5127B9 0deg 65deg,
-                              transparent 65deg 72deg,
-                              #F9A817 72deg 135deg,
-                              transparent 135deg 143deg,
-                              #F04B1C 143deg 208deg,
-                              transparent 208deg 216deg,
-                              #DC334B 216deg 285deg,
-                              transparent 285deg 293deg,
-                              #19B5D1 293deg 360deg
-                            )
-                          `,
-                        }}
-                      />
-
-                      {/* White gap / inner circle */}
-                      <div className="absolute inset-[11px] rounded-full bg-white shadow-[0_0_8px_rgba(0,0,0,0.18)]">
-                        <div className="absolute inset-[10px] flex items-center justify-center rounded-full border border-gray-200 bg-[#f8f8f8] shadow-inner">
-                          <div className="text-center">
-                            <div className="text-[29px] font-extrabold leading-[31px] text-[#555]">
-                              OUR
-                            </div>
-                            <div className="text-[29px] font-extrabold leading-[31px] text-[#555]">
-                              SERVICES
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Outer thin circular line */}
-                      <div className="absolute -inset-[18px] rounded-full border-[7px] border-transparent border-t-[#19B5D1]" />
-
-                      {/* Extra colored arcs */}
-                      <div className="absolute -inset-[18px] rounded-full border-[7px] border-transparent border-r-[#F9A817]" />
-
-                      <div className="absolute -inset-[18px] rounded-full border-[7px] border-transparent border-b-[#DC334B]" />
-                    </div>
-                
-
-                {/* ================= CONNECTOR LINES ================= */}
-
-                {/* Top */}
-                <div
-                  className="absolute left-[187px] top-[77px] w-[77px] border-t-2 border-dotted"
-                  style={{ borderColor: "#19B5D1" }}
-                />
-
-                <div
-                  className="absolute left-[187px] top-[77px] h-[72px] border-l-2 border-dotted"
-                  style={{
-                    borderColor: "#19B5D1",
-                    transform: "skewX(-38deg)",
-                    transformOrigin: "top",
-                  }}
-                />
-
-                {/* Second */}
-                <div
-                  className="absolute left-[237px] top-[164px] w-[78px] border-t-2 border-dotted"
-                  style={{ borderColor: "#5127B9" }}
-                />
-
-                {/* Middle */}
-                <div
-                  className="absolute left-[242px] top-[250px] w-[112px] border-t-2 border-dotted"
-                  style={{ borderColor: "#F9A817" }}
-                />
-
-                {/* Fourth */}
-                <div
-                  className="absolute left-[231px] top-[337px] w-[84px] border-t-2 border-dotted"
-                  style={{ borderColor: "#F04B1C" }}
-                />
-
-                {/* Bottom */}
-                <div
-                  className="absolute left-[188px] top-[407px] w-[77px] border-t-2 border-dotted"
-                  style={{ borderColor: "#DC334B" }}
-                />
-
-                <div
-                  className="absolute left-[150px] top-[360px] h-[50px] border-l-2 border-dotted"
-                  style={{
-                    borderColor: "#DC334B",
-                    transform: "skewX(38deg)",
-                    transformOrigin: "top",
-                  }}
-                />
-
-                {/* ================= SERVICE ITEMS ================= */}
-
-                {services2.map((service) => {
-                  const Icon = service.icon;
-
-                  const positionClasses = {
-                    top: "top-[45px]",
-                    second: "top-[130px]",
-                    middle: "top-[216px]",
-                    fourth: "top-[302px]",
-                    bottom: "top-[388px]",
-                  };
-
-                  return (
-                    <div
-                      key={service.position}
-                      className={`absolute right-0 h-[69px] w-[285px] ${positionClasses[service.position]}`}
-                    >
-                      {/* Main shape */}
-                      <div
-                        className="relative flex h-full w-full items-center overflow-hidden"
-                        style={{
-                          backgroundColor: service.color,
-                          clipPath:
-                            "polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%)",
-                        }}
-                      >
-                        {/* White inner border */}
-                        <div
-                          className="absolute inset-[2px]"
-                          style={{
-                            backgroundColor: service.color,
-                            clipPath:
-                              "polygon(13% 0, 94% 0, 100% 50%, 94% 100%, 13% 100%, 0 50%)",
-                          }}
-                        />
-
-                        {/* Icon circle */}
-                        <div
-                          className="absolute left-[7px] top-1/2 z-10 flex h-[58px] w-[58px] -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-white"
-                          style={{ backgroundColor: service.color }}
-                        >
-                          <Icon
-                            size={31}
-                            strokeWidth={2.5}
-                            className="text-white"
-                          />
-                        </div>
-
-                        {/* Text */}
-                        <div className="relative z-10 ml-[78px] pr-4 text-white">
-                          <div className="text-[13px] font-extrabold leading-[15px]">
-                            {service.title}
-                          </div>
-
-                          {service.percentage && (
-                            <div className="mt-[1px] text-[20px] font-normal leading-5">
-                              {service.percentage}
-                            </div>
-                          )}
-
-                          {Array.isArray(service.description) ? (
-                            <ul className="mt-[3px] list-disc pl-3 text-[7px] font-medium leading-[11px]">
-                              {service.description.map((item, index) => (
-                                <li key={index}>{item}</li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <p className="mt-[2px] max-w-[175px] text-[7px] font-medium leading-[9px]">
-                              {service.description}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* White border effect */}
-                      <div
-                        className="pointer-events-none absolute inset-0"
-                        style={{
-                          border: "2px solid white",
-                          clipPath:
-                            "polygon(13% 0, 94% 0, 100% 50%, 94% 100%, 13% 100%, 0 50%)",
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-
-        </div>
-
-
-      </div>
-
-
-      {/* <div className=" grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-        {services.map((service) => {
-          const Icon = service.icon;
-
-          return (
-            <Card
-              key={service.number}
-              className="group overflow-hidden rounded-3xl border-0 bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(15,23,42,0.12)]"
-            >
-
-              <CardContent className="p-8">
-
-                <div className="flex items-start justify-between">
-
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-[#06245a] transition group-hover:bg-[#06245a] group-hover:text-white">
-                    <Icon size={21} />
-                  </div>
-
-                  <span className="text-sm font-bold tracking-[0.2em] text-blue-200">
-                    {service.number}
-                  </span>
-
-                </div>
-
-                <h3 className="mt-8 text-2xl font-bold text-[#06245a]">
-                  {service.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-slate-500">
-                  {service.description}
-                </p>
-
-                <div className="mt-7 flex items-center justify-between border-t border-slate-100 pt-5 text-xs font-bold uppercase tracking-wider text-blue-700">
-                  Marine Capability
-
-                  <ArrowUpRight
-                    size={17}
-                    className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                  />
-                </div>
-
-              </CardContent>
-
-            </Card>
-          );
-        })}
-
-      </div> */}
-
-    </div>
-
-  </section>
+   
 
 
   <section className="bg-[#06245a] py-10 text-white ">
@@ -624,7 +272,7 @@ return (
               <div className="mb-5 flex items-center gap-3 text-blue-300">
                 <Globe2 size={19} />
                 <span className="text-sm font-bold uppercase tracking-[0.2em]">
-                  03 — Our Services
+                  Our Services
                 </span>
 
               </div>
@@ -729,6 +377,79 @@ return (
         strokeWidth={0.8}
         className="absolute -right-10 top-1/2 hidden -translate-y-1/2 text-white opacity-[0.06] lg:block"
       />
+
+    </div>
+
+  </section>
+
+
+   <section className="py-10">
+
+    <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
+
+      <div className="mx-auto max-w-3xl text-center">
+
+        <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
+          Why MML
+        </div>
+
+        <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
+          A trusted maritime partner.
+        </h2>
+
+        <p className="mt-5 leading-7 text-slate-600">
+          We combine operational discipline, experienced people and a
+          long-term partnership mindset to deliver dependable maritime
+          solutions.
+        </p>
+
+      </div>
+
+
+      <div className=" grid gap-6 md:grid-cols-3">
+
+        {[
+          {
+            icon: ShieldCheck,
+            title: "Safety & Compliance",
+            desc: "Maintaining a strong safety culture across our operations.",
+          },
+          {
+            icon: Users,
+            title: "Experienced People",
+            desc: "Skilled professionals supporting reliable maritime operations.",
+          },
+          {
+            icon: Globe2,
+            title: "Long-Term Partnership",
+            desc: "Building relationships through trust, consistency and performance.",
+          },
+        ].map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <div
+              key={item.title}
+              className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-800">
+                <Icon size={22} />
+              </div>
+
+              <h3 className="mt-7 text-xl font-bold text-[#06245a]">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-slate-500">
+                {item.desc}
+              </p>
+
+            </div>
+          );
+        })}
+
+      </div>
 
     </div>
 

@@ -178,13 +178,7 @@ export default function Navbar() {
 
     <div className="hidden xl:block">
 
-      <Link
-        href="/contact"
-        className="inline-flex items-center gap-2 rounded-full bg-[#06245a] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-300 hover:bg-[#083579] hover:shadow-md"
-      >
-        <Ship size={16} />
-        Get in Touch
-      </Link>
+
 
     </div>
 

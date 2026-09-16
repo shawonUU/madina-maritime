@@ -256,91 +256,227 @@ export default function SisterConcern() {
 
 
       {/* =========================================================
-          INTRO
-      ========================================================== */}
-      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+    SISTER CONCERNS
+========================================================= */}
 
-        <div className="grid gap-16 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
+        {/* =========================================================
+    SISTER CONCERNS
+========================================================= */}
+<section id="concerns" className="scroll-mt-20 bg-white py-10">
 
-          <div className="relative">
+  <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-            <div className="absolute -left-5 -top-5 h-32 w-32 rounded-2xl border border-blue-100" />
+    {/* Header */}
+    <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
 
-            <div className="relative overflow-hidden rounded-3xl">
+      <div>
 
-              <Image
-                src="/images/madina-logo.jpeg"
-                alt="Madina Group operations"
-                width={900}
-                height={700}
-                className="h-[500px] w-full object-cover"
-              />
+        <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
+          Sister Organizations
+        </div>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06245a]/75 via-transparent to-transparent" />
+        <h2 className="text-4xl font-bold leading-tight text-[#06245a] sm:text-5xl">
+          Our Sister Organizations.
+        </h2>
 
-              <div className="absolute bottom-7 left-7">
+      </div>
 
-                <div className="text-4xl font-bold text-white">
-                  Madina Group
-                </div>
+    </div>
 
-                <div className="mt-1 text-sm text-blue-100">
-                  Diversified Business Portfolio
-                </div>
 
-              </div>
+    {/* Sister Concerns */}
+    <div className="mt-5 grid gap-5 md:grid-cols-2">
+
+      {[
+        {
+          name: "Madina Shipyard",
+          function: "Docking & Repairing",
+          icon: Ship,
+        },
+        {
+          name: "Madina Logistics & Shipping Ltd",
+          function: "Clearing and Shipping Agent",
+          icon: Package,
+        },
+        {
+          name: "M M R (Bangladesh) Shipping Ltd",
+          function: "Shipping Agent",
+          icon: Ship,
+        },
+        {
+          name: "Fleet International Ltd",
+          function: "Cargo Handling Operator",
+          icon: Truck,
+        },
+        {
+          name: "Madina Equipment Ltd",
+          function: "Equipment Service",
+          icon: Wrench,
+        },
+        {
+          name: "Bismillah Navigation Ltd",
+          function: "Inland River Carrier",
+          icon: Waves,
+        },
+        {
+          name: "Madina Transport Ltd",
+          function: "Road Transport Service",
+          icon: Truck,
+        },
+        {
+          name: "Madina Petroleum Service Ltd",
+          function: "Fuel Supply",
+          icon: Fuel,
+        },
+        {
+          name: "Madina Cement Industries Ltd",
+          function: "Cement Producer (Tiger Brand)",
+          icon: Factory,
+        },
+      ].map((item) => {
+
+        const Icon = item.icon;
+
+        return (
+          <div
+            key={item.name}
+            className="group flex items-center gap-5 rounded-2xl border border-slate-200 bg-white p-1 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_18px_45px_rgba(15,23,42,0.09)]"
+          >
+
+            {/* Icon */}
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-800 transition duration-300 group-hover:bg-[#06245a] group-hover:text-white">
+              <Icon size={24} />
+            </div>
+
+
+            {/* Content */}
+            <div className="min-w-0 flex-1">
+
+              <h3 className="text-lg font-bold leading-snug text-[#06245a]">
+                {item.name}
+              </h3>
+
+              <p className="mt-2 text-sm text-slate-500">
+                {item.function}
+              </p>
 
             </div>
 
-          </div>
 
+            {/* Arrow */}
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-800 transition duration-300 group-hover:bg-[#06245a] group-hover:text-white">
+              <ArrowUpRight size={16} />
+            </div>
+
+          </div>
+        );
+      })}
+
+    </div>
+
+  </div>
+
+</section>
+
+    <section id="concerns" className="scroll-mt-20 py-5 ">
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
 
           <div>
-
-            <div className="mb-4 flex items-center gap-3">
-
-              <span className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                Our Business Network
-              </span>
-
-              <span className="h-px w-12 bg-blue-200" />
-
+            <div className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
+              Sister Concerns
             </div>
 
             <h2 className="text-4xl font-bold leading-tight text-[#06245a] sm:text-5xl">
-              Strength through
-              <br />
-              diversification.
+              Our Group Sister Concerns
             </h2>
-
-            <p className="mt-7 text-lg leading-8 text-slate-600">
-              Since 1978, Madina Group has scaled to 12 business sectors and 27 sister concerns across polymer, development & trading, maritime, and diversified industries. Explore each pillar of the group below — hover a panel to expand it and reveal its sister concerns.
-            </p>
-
-            {/* <p className="mt-5 leading-7 text-slate-500">
-              Our sister concerns allow us to combine expertise,
-              infrastructure and operational capabilities across marine
-              services, logistics, transportation, equipment, energy and
-              manufacturing.
-            </p>
-
-            <p className="mt-5 leading-7 text-slate-500">
-              This diversified structure helps us respond to changing
-              market requirements while maintaining a long-term focus on
-              reliability, quality and sustainable growth.
-            </p> */}
-
           </div>
+
+          <p className="max-w-md text-sm leading-6 text-slate-500">
+            Explore the companies within our wider business network and
+            discover the specialized services each one provides.
+          </p>
 
         </div>
 
-      </section>
+
+        {/* Concerns */}
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+          {concerns.map((item) => {
+
+            const Icon = item.icon;
+
+            return (
+              <article
+                key={item.title}
+                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_15px_40px_rgba(15,23,42,0.08)]"
+              >
+
+                {/* Small Image */}
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+
+                  {item.img ? (
+                    <>
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        sizes="64px"
+                        className="object-cover transition duration-500 group-hover:scale-110"
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+                    </>
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-blue-800">
+                      {/* <Icon size={22} strokeWidth={1.7} /> */}
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        sizes="64px"
+                        className="object-cover transition duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  )}
+
+                </div>
 
 
-      {/* =========================================================
-          BUSINESS SECTORS
-      ========================================================== */}
-      <section className="bg-[#f6f9fc] py-10">
+                {/* Content */}
+                <div className="min-w-0 flex-1">
+
+                  <h3 className="text-sm font-bold leading-5 text-[#06245a]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-1.5 line-clamp-2 text-xs leading-5 text-slate-500">
+                    {item.desc}
+                  </p>
+
+                </div>
+
+
+                {/* Arrow */}
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-800 transition duration-300 group-hover:bg-[#06245a] group-hover:text-white">
+                  <ArrowUpRight size={15} />
+                </div>
+
+              </article>
+            );
+          })}
+
+        </div>
+
+      </div>
+
+    </section>
+
+      <section className="bg-[#f6f9fc]">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -392,115 +528,6 @@ export default function SisterConcern() {
                   </div>
 
                 </div>
-              );
-            })}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          CONCERNS
-      ========================================================== */}
-      <section
-        id="concerns"
-        className="scroll-mt-20 py-10"
-      >
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
-
-            <div>
-
-              <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                01 — Sister Concerns
-              </div>
-
-              <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-                Companies that
-                <br />
-                move us forward.
-              </h2>
-
-            </div>
-
-            <p className="max-w-md text-sm leading-6 text-slate-500">
-              Explore the companies within our wider business network and
-              discover the specialized services each one provides.
-            </p>
-
-          </div>
-
-
-          <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-
-            {concerns.map((item) => {
-
-              const Icon = item.icon;
-
-              return (
-                <article
-                  key={item.title}
-                  className="group overflow-hidden rounded-3xl border border-slate-200 bg-white transition duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(15,23,42,0.12)]"
-                >
-
-                  {/* Image */}
-                  <div className="relative h-[260px] overflow-hidden">
-
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition duration-700 group-hover:scale-105"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#03172f]/80 via-transparent to-transparent" />
-
-                    <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-4 py-2 text-xs font-bold text-white backdrop-blur-md">
-                      <Icon size={14} />
-                      {item.category}
-                    </div>
-
-                    <div className="absolute bottom-5 left-5 text-4xl font-bold text-white/30">
-                      {item.number}
-                    </div>
-
-                  </div>
-
-
-                  {/* Content */}
-                  <div className="p-7">
-
-                    <h3 className="text-xl font-bold leading-snug text-[#06245a]">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-6 text-slate-500">
-                      {item.desc}
-                    </p>
-
-                    <div className="mt-7 flex items-center justify-between border-t border-slate-100 pt-5">
-
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                        {item.shortTitle}
-                      </span>
-
-                      <button
-                        type="button"
-                        className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-50 text-blue-800 transition group-hover:bg-[#06245a] group-hover:text-white"
-                      >
-                        <ArrowUpRight size={16} />
-                      </button>
-
-                    </div>
-
-                  </div>
-
-                </article>
               );
             })}
 

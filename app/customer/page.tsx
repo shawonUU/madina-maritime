@@ -44,6 +44,37 @@ const customers = [
     description:
       "Supporting supply-chain movement through reliable transportation and operational services.",
   },
+
+  {
+    name: "Nabil Group",
+    category: "Manufacturing",
+    logo: "/images/Nabil Group.png",
+    description:
+      "Nabil Group is one of the largest and leading conglomerates in Bangladesh.",
+  },
+
+  {
+    name: "Akij Cement IND. LTD",
+    category: "Cement Manufacturing",
+    logo: "/images/AKIJ CEMENT IND LTD.png",
+    description:
+      "AKIJ Cement Company Limited is currently considered a strategic business unit under AKIJ Resource. We are the first in Bangladesh to implement vertical roller mill technology to provide home builders with the highest quality cement available.",
+  },
+
+    {
+    name: "Index Agro Industries Limited",
+    category: "AGRO INDUSTRIES",
+    logo: "/images/INDEX AGRO INDUSTRIES LIMITED.png",
+    description:
+      "Index Agro Industries Limited (IAIL), a concern of XIC, began operations in the year 2000. IAIL produces poultry feed, fish-feed, and Day-Old Chicks (broiler & layer). Most recently, IAIL has decided to move ahead with Initial.",
+  },
+
+  {
+    name: "RAK Group",
+    category: "Manufacturing",
+    logo: "/images/RAK GROUP.png",
+    description: "RAK Group, leading private sector business conglomerate in country, commenced business the year of 1994 in name and style of Gentech International",
+  },
 ];
 
 const industries = [
@@ -211,195 +242,6 @@ export default function CustomersPage() {
               </div>
             );
           })}
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          INTRO
-      ========================================================== */}
-
-      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
-
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-
-          <div>
-
-            <div className="mb-5 flex items-center gap-3">
-
-              <span className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                Built on Trust
-              </span>
-
-              <span className="h-px w-12 bg-blue-200" />
-
-            </div>
-
-            <h2 className="text-4xl font-bold leading-tight text-[#06245a] sm:text-5xl">
-              Partnerships that
-              <br />
-              create lasting value.
-            </h2>
-
-            <p className="mt-7 text-lg leading-8 text-slate-600">
-              Our customers are at the heart of everything we do. We work
-              closely with businesses across different sectors to provide
-              dependable maritime and logistics solutions.
-            </p>
-
-            <p className="mt-5 leading-7 text-slate-500">
-              From industrial cargo movement to marine transportation,
-              our team works to understand each customer's operational
-              requirements and deliver solutions that are safe, efficient
-              and reliable.
-            </p>
-
-            <div className="mt-8 space-y-4">
-
-              {[
-                "Long-term business relationships",
-                "Reliable maritime operations",
-                "Professional service delivery",
-                "Customer-focused solutions",
-              ].map((item) => (
-
-                <div
-                  key={item}
-                  className="flex items-center gap-3"
-                >
-                  <CheckCircle2
-                    size={19}
-                    className="shrink-0 text-blue-700"
-                  />
-
-                  <span className="text-sm font-medium text-slate-700">
-                    {item}
-                  </span>
-                </div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-
-          <div className="relative">
-
-            <div className="absolute -right-5 -top-5 h-32 w-32 rounded-3xl border border-blue-100" />
-
-            <div className="relative overflow-hidden rounded-[2rem]">
-
-              <Image
-                src="/images/ship2.jpg"
-                alt="Maritime operations"
-                width={900}
-                height={650}
-                className="h-[500px] w-full object-cover"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#03172f]/80 via-transparent to-transparent" />
-
-              <div className="absolute bottom-7 left-7 right-7">
-
-                <div className="flex items-center gap-3 text-white">
-
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md">
-                    <Handshake size={21} />
-                  </div>
-
-                  <div>
-
-                    <div className="font-bold">
-                      Trusted Partnerships
-                    </div>
-
-                    <div className="text-sm text-blue-100/70">
-                      Built for the long term
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          INDUSTRIES
-      ========================================================== */}
-
-      <section className="bg-[#f6f9fc] py-10">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="text-center">
-
-            <div className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-              Customer Industries
-            </div>
-
-            <h2 className="mt-4 text-4xl font-bold text-[#06245a] sm:text-5xl">
-              Serving diverse industries.
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600">
-              Our customer portfolio spans multiple sectors, each with
-              unique operational requirements and challenges.
-            </p>
-
-          </div>
-
-
-          <div className=" grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-            {industries.map((industry, index) => (
-
-              <div
-                key={industry.title}
-                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 transition duration-500 hover:-translate-y-2 hover:border-blue-100 hover:shadow-xl"
-              >
-
-                <div className="absolute right-5 top-5 text-6xl font-black text-slate-100 transition group-hover:text-blue-50">
-                  0{index + 1}
-                </div>
-
-                <div className="relative">
-
-                  <div className="text-4xl font-bold text-[#06245a]">
-                    {industry.count}
-                  </div>
-
-                  <h3 className="mt-6 text-xl font-bold text-[#06245a]">
-                    {industry.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-slate-500">
-                    {industry.description}
-                  </p>
-
-                  <div className="mt-7 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700">
-                    Learn more
-                    <ArrowRight size={14} />
-                  </div>
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
 
         </div>
 

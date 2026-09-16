@@ -32,7 +32,7 @@ import {
 const images = [
   "/images/ship11.jpg",
   "/images/ship22.jpg",
-  "/images/ship3.jpg",
+  "/images/ship32.jpeg",
 ];
 
 const missions = [
@@ -151,7 +151,7 @@ export default function Hero() {
         ))}
 
         {/* Dark cinematic overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#03172f]/95 via-[#062653]/65 to-[#062653]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#03172f]/20 via-[#062653]/65 to-[#062653]/20" />
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#03172f]/80 via-transparent to-transparent" />
 
@@ -323,7 +323,7 @@ export default function Hero() {
       {/* =====================================================
           ABOUT
       ====================================================== */}
-      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
 
         <div className="grid gap-16 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
 
@@ -681,7 +681,7 @@ export default function Hero() {
 
               <div className="overflow-hidden rounded-3xl">
                 <Image
-                  src="/images/ship3.jpg"
+                  src="/images/ship32.jpeg"
                   alt="Maritime operations"
                   width={900}
                   height={700}
@@ -710,28 +710,6 @@ export default function Hero() {
             </div>
 
           </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          FINAL CTA
-      ====================================================== */}
-      <section className="px-6 pb-24 lg:px-8">
-
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#06245a]">
-
-          <div className="absolute right-0 top-0 h-full w-1/2 opacity-[0.07]">
-            <Ship
-              size={500}
-              strokeWidth={1}
-              className="ml-auto"
-            />
-          </div>
-
-
 
         </div>
 
