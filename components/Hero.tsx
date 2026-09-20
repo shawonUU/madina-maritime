@@ -17,7 +17,6 @@ import {
   MoveUpRight,
   ShieldCheck,
   Ship,
-  Sparkles,
   Target,
   Users,
   Waves,
@@ -29,10 +28,35 @@ import {
   CardContent,
 } from "@/components/ui/card";
 
-const images = [
-  "/images/ship11.jpg",
-  "/images/ship22.jpg",
-  "/images/ship32.jpeg",
+const slides = [
+  {
+    type: "video",
+    src: "/videos/ship-video-1.mp4",
+  },
+  {
+    type: "image",
+    src: "/images/ship11.jpg",
+  },
+  {
+    type: "video",
+    src: "/videos/ship-video-2.mp4",
+  },
+  {
+    type: "image",
+    src: "/images/ship11.jpg",
+  },
+  {
+    type: "video",
+    src: "/videos/ship-video-3.mp4",
+  },
+  {
+    type: "image",
+    src: "/images/ship32.jpeg",
+  },
+    {
+    type: "video",
+    src: "/videos/ship-video-4.mp4",
+  },
 ];
 
 const missions = [
@@ -111,16 +135,16 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
+    setCurrent((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      setCurrent((prev) => (prev + 1) % slides.length);
     }, 6000);
 
     return () => clearInterval(interval);
@@ -134,20 +158,35 @@ export default function Hero() {
       ====================================================== */}
       <section className="relative h-[680px] min-h-[650px] overflow-hidden bg-[#041a35]">
 
-        {/* Background image */}
-        {images.map((image, index) => (
-          <Image
-            key={image}
-            src={image}
-            alt="Madina Maritime vessel"
-            fill
-            priority={index === 0}
-            className={`object-cover transition-all duration-[1200ms] ${
+        {/* Background carousel */}
+        {slides.map((slide, index) => (
+          <div
+            key={slide.src}
+            className={`absolute inset-0 transition-all duration-[1200ms] ${
               current === index
                 ? "scale-100 opacity-100"
                 : "scale-110 opacity-0"
             }`}
-          />
+          >
+            {slide.type === "image" ? (
+              <Image
+                src={slide.src}
+                alt="Madina Maritime vessel"
+                fill
+                priority={index === 0}
+                className="object-cover"
+              />
+            ) : (
+              <video
+                src={slide.src}
+                autoPlay={current === index}
+                muted
+                loop
+                playsInline
+                className="h-full w-full object-cover"
+              />
+            )}
+          </div>
         ))}
 
         {/* Dark cinematic overlay */}
@@ -190,9 +229,12 @@ export default function Hero() {
               operational excellence, trust and long-term partnerships.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-4 mb-10">
+            <div className="mt-9 mb-10 flex flex-wrap gap-4">
 
-              <Button  size="lg" className="group rounded-full bg-white px-7 text-[#06245a] hover:bg-blue-50" >
+              <Button
+                size="lg"
+                className="group rounded-full bg-white px-7 text-[#06245a] hover:bg-blue-50"
+              >
                 <Link href="/about" className="flex items-center gap-2">
                   Discover MML
                   <ArrowRight
@@ -202,7 +244,11 @@ export default function Hero() {
                 </Link>
               </Button>
 
-              <Button   size="lg" variant="outline" className="rounded-full border-white/30 bg-white/5 px-7 text-white backdrop-blur-sm hover:bg-white hover:text-[#06245a]">
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full border-white/30 bg-white/5 px-7 text-white backdrop-blur-sm hover:bg-white hover:text-[#06245a]"
+              >
                 <Link href="/contact" className="flex items-center gap-2">
                   Contact Us
                 </Link>
@@ -234,7 +280,7 @@ export default function Hero() {
 
         {/* Slide indicators */}
         <div className="absolute bottom-16 left-6 z-20 flex gap-2 lg:left-10">
-          {images.map((_, index) => (
+          {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
@@ -386,9 +432,11 @@ export default function Hero() {
             </p>
 
             <p className="mt-5 leading-7 text-slate-500">
-
-              We are a group of  professionals committed to expand services & business in the field of Maritime Trade, Transportation and Logistics,  Supply Chain Management business with an innovative idea through meeting the international standard of best business practice. 
-
+              We are a group of professionals committed to expand services &
+              business in the field of Maritime Trade, Transportation and
+              Logistics, Supply Chain Management business with an innovative
+              idea through meeting the international standard of best business
+              practice.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -414,7 +462,6 @@ export default function Hero() {
             </div>
 
             <Button
-              
               className="mt-9 rounded-full bg-[#06245a] px-7 hover:bg-blue-800"
             >
               <Link href="/about" className="flex items-center gap-2">
@@ -444,11 +491,15 @@ export default function Hero() {
             </div>
 
             <h3 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-              Delivering flexible, reliable, and timely shipping solutions across waters.
+              Delivering flexible, reliable, and timely shipping solutions
+              across waters.
             </h3>
 
             <p className="mt-5 leading-7 text-slate-600">
-              We are delighted to introduce ourselves as Madina Maritime Limited (MML). From a modest company to an International conglomerate, take a journey through our historic timeline to learn more about how Madina Maritime come to be how we are today. 
+              We are delighted to introduce ourselves as Madina Maritime Limited
+              (MML). From a modest company to an International conglomerate,
+              take a journey through our historic timeline to learn more about
+              how Madina Maritime come to be how we are today.
             </p>
 
           </div>

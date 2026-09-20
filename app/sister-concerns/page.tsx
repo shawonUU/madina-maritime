@@ -434,13 +434,13 @@ export default function SisterConcern() {
                   ) : (
                     <div className="flex h-full w-full items-center justify-center text-blue-800">
                       {/* <Icon size={22} strokeWidth={1.7} /> */}
-                      <Image
+                      {/* <Image
                         src={item.img}
                         alt={item.title}
                         fill
                         sizes="64px"
                         className="object-cover transition duration-500 group-hover:scale-110"
-                      />
+                      /> */}
                     </div>
                   )}
 
