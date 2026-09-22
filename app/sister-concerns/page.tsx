@@ -44,7 +44,7 @@ const concerns = [
     shortTitle: "Household",
     category: "Household",
     desc: "Household · Plastic Furniture",
-    img: "",
+    img: "/images/ERZA Plastic.png",
     icon: Wrench,
     number: "05",
   },
@@ -62,18 +62,9 @@ const concerns = [
     shortTitle: "Duroplast",
     category: "Duroplast",
     desc: "Duroplast Tank · Duroplast Pipe",
-    img: "",
+    img: "/images/Duroplast BD Ltd.jpg",
     icon: Fuel,
     number: "08",
-  },
-  {
-    title: "Madina Logistics & Shipping Ltd ",
-    shortTitle: "Logistics & Shipping",
-    category: "Logistics",
-    desc: "Madina Logistics & Shipping Ltd",
-    img: "",
-    icon: Factory,
-    number: "09",
   },
 
   {
@@ -81,16 +72,6 @@ const concerns = [
     shortTitle: "Cold Storage",
     category: "Cold Storage",
     desc: "Chand Sarder Cold Storage Ltd",
-    img: "",
-    icon: Factory,
-    number: "09",
-  },
-
-  {
-    title: "Fleet International Ltd ",
-    shortTitle: "Fleet International Ltd",
-    category: "Fleet International Ltd",
-    desc: "Fleet International Ltd",
     img: "",
     icon: Factory,
     number: "09",
@@ -131,7 +112,7 @@ export default function SisterConcern() {
       <section className="relative h-[570px] overflow-hidden bg-[#041a35]">
 
         <Image
-          src="/images/shipyard.jpg"
+          src="/images/trust1.jpg"
           alt="Madina Group business operations"
           fill
           priority
@@ -255,13 +236,104 @@ export default function SisterConcern() {
       </section>
 
 
-      {/* =========================================================
-    SISTER CONCERNS
-========================================================= */}
 
-        {/* =========================================================
-    SISTER CONCERNS
-========================================================= */}
+  <section id="concerns" className="scroll-mt-20 py-5 ">
+
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+      {/* Header */}
+      <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+
+        <div>
+          <div className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
+            Sister Concerns
+          </div>
+
+          <h2 className="text-4xl font-bold leading-tight text-[#06245a] sm:text-5xl">
+            Our Group Sister Concerns
+          </h2>
+        </div>
+
+        
+
+      </div>
+
+
+      {/* Concerns */}
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+        {concerns.map((item) => {
+
+          const Icon = item.icon;
+
+          return (
+            <article
+              key={item.title}
+              className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_15px_40px_rgba(15,23,42,0.08)]"
+            >
+
+              {/* Small Image */}
+              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+
+                {item.img ? (
+                  <>
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      width={64}
+                      height={64}
+                      sizes="64px"
+                      className="object-cover transition duration-500 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+                  </>
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-blue-800">
+                    {/* <Icon size={22} strokeWidth={1.7} /> */}
+                    {/* <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      sizes="64px"
+                      className="object-cover transition duration-500 group-hover:scale-110"
+                    /> */}
+                  </div>
+                )}
+
+              </div>
+
+
+              {/* Content */}
+              <div className="min-w-0 flex-1">
+
+                <h3 className="text-sm font-bold leading-5 text-[#06245a]">
+                  {item.title}
+                </h3>
+
+                <p className="mt-1.5 line-clamp-2 text-xs leading-5 text-slate-500">
+                  {item.desc}
+                </p>
+
+              </div>
+
+
+              {/* Arrow */}
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-800 transition duration-300 group-hover:bg-[#06245a] group-hover:text-white">
+                <ArrowUpRight size={15} />
+              </div>
+
+            </article>
+          );
+        })}
+
+      </div>
+
+    </div>
+
+  </section>
+
+
 <section id="concerns" className="scroll-mt-20 bg-white py-10">
 
   <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -378,164 +450,6 @@ export default function SisterConcern() {
 
 </section>
 
-    <section id="concerns" className="scroll-mt-20 py-5 ">
-
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-        {/* Header */}
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-
-          <div>
-            <div className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-              Sister Concerns
-            </div>
-
-            <h2 className="text-4xl font-bold leading-tight text-[#06245a] sm:text-5xl">
-              Our Group Sister Concerns
-            </h2>
-          </div>
-
-          <p className="max-w-md text-sm leading-6 text-slate-500">
-            Explore the companies within our wider business network and
-            discover the specialized services each one provides.
-          </p>
-
-        </div>
-
-
-        {/* Concerns */}
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-
-          {concerns.map((item) => {
-
-            const Icon = item.icon;
-
-            return (
-              <article
-                key={item.title}
-                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_15px_40px_rgba(15,23,42,0.08)]"
-              >
-
-                {/* Small Image */}
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
-
-                  {item.img ? (
-                    <>
-                      <Image
-                        src={item.img}
-                        alt={item.title}
-                        fill
-                        sizes="64px"
-                        className="object-cover transition duration-500 group-hover:scale-110"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                    </>
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center text-blue-800">
-                      {/* <Icon size={22} strokeWidth={1.7} /> */}
-                      {/* <Image
-                        src={item.img}
-                        alt={item.title}
-                        fill
-                        sizes="64px"
-                        className="object-cover transition duration-500 group-hover:scale-110"
-                      /> */}
-                    </div>
-                  )}
-
-                </div>
-
-
-                {/* Content */}
-                <div className="min-w-0 flex-1">
-
-                  <h3 className="text-sm font-bold leading-5 text-[#06245a]">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-1.5 line-clamp-2 text-xs leading-5 text-slate-500">
-                    {item.desc}
-                  </p>
-
-                </div>
-
-
-                {/* Arrow */}
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-800 transition duration-300 group-hover:bg-[#06245a] group-hover:text-white">
-                  <ArrowUpRight size={15} />
-                </div>
-
-              </article>
-            );
-          })}
-
-        </div>
-
-      </div>
-
-    </section>
-
-      <section className="bg-[#f6f9fc]">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="text-center">
-
-            <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-              Our Capabilities
-            </div>
-
-            <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-              An interconnected business ecosystem.
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600">
-              Each business contributes specialized expertise while
-              strengthening the capabilities of the wider group.
-            </p>
-
-          </div>
-
-
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-            {sectors.map((sector) => {
-
-              const Icon = sector.icon;
-
-              return (
-                <div
-                  key={sector.title}
-                  className="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-500 hover:-translate-y-2 hover:border-blue-100 hover:shadow-xl"
-                >
-
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-800 transition group-hover:bg-[#06245a] group-hover:text-white">
-                    <Icon size={24} />
-                  </div>
-
-                  <h3 className="mt-7 text-xl font-bold text-[#06245a]">
-                    {sector.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-slate-500">
-                    {sector.description}
-                  </p>
-
-                  <div className="mt-7 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700">
-                    Explore sector
-                    <ArrowRight size={14} />
-                  </div>
-
-                </div>
-              );
-            })}
-
-          </div>
-
-        </div>
-
-      </section>
 
     </main>
   );

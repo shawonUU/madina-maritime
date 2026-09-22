@@ -34,16 +34,12 @@ const slides = [
     src: "/videos/ship-video-1.mp4",
   },
   {
-    type: "image",
-    src: "/images/ship11.jpg",
+    type: "video",
+    src: "/videos/ship-video-4.mp4",
   },
   {
     type: "video",
     src: "/videos/ship-video-2.mp4",
-  },
-  {
-    type: "image",
-    src: "/images/ship11.jpg",
   },
   {
     type: "video",
@@ -52,10 +48,6 @@ const slides = [
   {
     type: "image",
     src: "/images/ship32.jpeg",
-  },
-    {
-    type: "video",
-    src: "/videos/ship-video-4.mp4",
   },
 ];
 
@@ -173,6 +165,7 @@ export default function Hero() {
                 src={slide.src}
                 alt="Madina Maritime vessel"
                 fill
+                unoptimized
                 priority={index === 0}
                 className="object-cover"
               />
@@ -382,6 +375,7 @@ export default function Hero() {
               <Image
                 src="/images/ship2.jpg"
                 alt="Madina Maritime"
+                unoptimized
                 width={800}
                 height={650}
                 className="h-[500px] w-full object-cover"
@@ -521,6 +515,7 @@ export default function Hero() {
                     <Image
                       src={item.img}
                       alt={item.title}
+                      unoptimized
                       fill
                       className="object-cover transition duration-700 group-hover:scale-110"
                     />
@@ -614,6 +609,7 @@ export default function Hero() {
                     src={division.image}
                     alt={division.title}
                     fill
+                    unoptimized
                     className="object-cover transition duration-700 group-hover:scale-110"
                   />
 
@@ -734,6 +730,7 @@ export default function Hero() {
                 <Image
                   src="/images/ship32.jpeg"
                   alt="Maritime operations"
+                  unoptimized
                   width={900}
                   height={700}
                   className="h-[560px] w-full object-cover"

@@ -138,7 +138,7 @@ export default function CustomersPage() {
       <section className="relative min-h-[570px] overflow-hidden bg-[#041a35]">
 
         <Image
-          src="/images/ship1.jpg"
+          src="/images/ship22.jpg"
           alt="Madina Maritime Customers"
           fill
           priority
