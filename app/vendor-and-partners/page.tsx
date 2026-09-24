@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -15,104 +14,130 @@ import {
   Users,
 } from "lucide-react";
 
-const customers = [
+const vendors = [
   {
-    name: "Rahim Group",
-    category: "Industrial",
-    logo: "/images/customer_rahim_steel.png",
+    name: "MJL Bangladesh PLC",
+    category: "Lubricant",
+    logo: "/images/MJL Bangladesh PLC.svg",
     description:
-      "Supporting large-scale industrial and logistics operations with dependable maritime solutions.",
+      "MJL Bangladesh PLC is an embodiment of trust when it comes to providing excellence in petroleum products and retaining optimum performance.",
   },
   {
-    name: "Awal & Brothers Chemicals Company Limited",
-    category: "Industrial",
-    logo: "/images/Awal & Brothers Chemicals Company Limited.jpg",
+    name: "Ranks Petroleum Ltd",
+    category: "Lubricant",
+    logo: "/images/Ranks Petroleum Ltd.png",
     description:
-      "Providing reliable transportation and maritime support for large-scale commercial operations.",
+      "Ranks Petroleum Ltd. (RKPL), one of the prominent SBUs of Rancon, has been the Macro Distributor of Shell Lubricants in Bangladesh since 2004.",
   },
   {
-    name: "Astha Feed Industries Limited",
-    category: "Manufacturing",
-    logo: "/images/Astha Feed Industries Ltd.png",
+    name: "ACI Motors",
+    category: "Tyre",
+    logo: "/images/ACI Motors.svg",
     description:
-      "Delivering efficient logistics and marine transportation solutions for industrial requirements.",
+      "ACI Motors Limited provides Complete Farm Mechanization Solution to farmers by offering a wide range of agriculture machineries.",
   },
   {
-    name: "Bashundhara Group",
-    category: "Manufacturing",
-    logo: "/images/bashundhara group.png",
+    name: "Rahimafrooz Batteries Ltd",
+    category: "Battery",
+    logo: "/images/Rahimafrooz Batteries Ltd.png",
     description:
-      "Supporting supply-chain movement through reliable transportation and operational services.",
+      "Rahimafrooz Batteries Ltd. (RBL) is the largest lead-acid battery manufacturer in Bangladesh.",
   },
-
   {
-    name: "Nabil Group",
-    category: "Manufacturing",
-    logo: "/images/Nabil Group.png",
+    name: "Panna Battery Ltd",
+    category: "Battery",
+    logo: "/images/Panna Battery Ltd.png",
     description:
-      "Nabil Group is one of the largest and leading conglomerates in Bangladesh.",
+      "Panna Battery Ltd.(PBL) is the largest lead-acid battery manufacturer in Bangladesh started its journey 2006 with 5,76,000 Sq. Feet area.",
   },
-
   {
-    name: "Akij Cement IND. LTD",
-    category: "Cement Manufacturing",
-    logo: "/images/AKIJ CEMENT IND LTD.png",
+    name: "Hamko Corporation",
+    category: "Tyre",
+    logo: "/images/Hamko Corporation.png",
     description:
-      "AKIJ Cement Company Limited is currently considered a strategic business unit under AKIJ Resource. We are the first in Bangladesh to implement vertical roller mill technology to provide home builders with the highest quality cement available.",
+      "Become the leading battery manufacturer in Bangladesh and offer other daily life products and solutions to customers with highest quality to make HAMKO a chosen brand name in multiple industries.",
+  },
+  {
+    name: "Fuch Lubricant",
+    category: "Lubricant",
+    logo: "/images/Fuch Lubricant.png",
+    description:
+      "FUCHS is a global lubricant supplier offering automotive lubricants, industrial lubricants, lubricating greases, metal processing lubricants.",
+  },
+  {
+    name: "Esab Bangladesh",
+    category: "Welding Electrodes",
+    logo: "/images/Esab Bangladesh.webp",
+    description:
+      "ESAB is a world leader in welding and cutting equipment and consumables. We offer a complete line of fabrication solutions for virtually every application.",
   },
 
     {
-    name: "Index Agro Industries Limited",
-    category: "AGRO INDUSTRIES",
-    logo: "/images/INDEX AGRO INDUSTRIES LIMITED.png",
+    name: "BSRM Wires Ltd",
+    category: "Welding Electrodes",
+    logo: "/images/BSRM Wires Ltd.png",
     description:
-      "Index Agro Industries Limited (IAIL), a concern of XIC, began operations in the year 2000. IAIL produces poultry feed, fish-feed, and Day-Old Chicks (broiler & layer). Most recently, IAIL has decided to move ahead with Initial.",
+      "BSRM ventured into a new business area as part of continuous innovation philosophy and diversification plan and set up BSRM Wires at Mirsarai.",
   },
-
   {
-    name: "RAK Group",
-    category: "Manufacturing",
-    logo: "/images/RAK GROUP.png",
-    description: "RAK Group, leading private sector business conglomerate in country, commenced business the year of 1994 in name and style of Gentech International",
+    name: "Elite Paint",
+    category: "Marine Paint",
+    logo: "/images/Elite Paint.png.svg",
+    description:
+      "We are proud to offer a comprehensive range of premium paints and coatings that will elevate the beauty and protection of your surfaces. product.",
+  },
+  {
+    name: "Berger Bangladesh",
+    category: "Marine Paint",
+    logo: "/images/Berger Bangladesh.png",
+    description:
+      "Transform your home with Berger Paints, the best paint company in Bangladesh.",
+  },
+  {
+    name: "Jotun Bangladesh",
+    category: "Marine Paint",
+    logo: "/images/Jotun Bangladesh.svg",
+    description:
+      "As one of the world's leading paint and coating manufacturers, Jotun protects all types of property - from iconic buildings to beautiful homes.",
   },
 ];
 
-const industries = [
+const partnerCategories = [
   {
-    title: "Industrial",
+    title: "Marine Suppliers",
     count: "20+",
     description:
-      "Supporting Bangladesh's leading industrial organizations with dependable maritime services.",
+      "Reliable suppliers providing marine equipment, tools, spare parts and operational supplies.",
   },
   {
-    title: "Manufacturing",
+    title: "Technical Partners",
     count: "15+",
     description:
-      "Reliable transportation and logistics solutions for manufacturing businesses.",
+      "Experienced technical partners supporting vessel maintenance, inspection and specialized services.",
   },
   {
-    title: "Trading",
+    title: "Logistics Partners",
     count: "12+",
     description:
-      "Helping trading organizations move cargo efficiently across key routes.",
+      "Transportation and logistics partners helping us maintain efficient cargo and supply movement.",
   },
   {
-    title: "Infrastructure",
+    title: "Service Providers",
     count: "10+",
     description:
-      "Supporting major infrastructure and development projects with marine logistics.",
+      "Professional service providers supporting our day-to-day maritime and business operations.",
   },
 ];
 
 const stats = [
   {
-    value: "50+",
-    label: "Corporate Clients",
-    icon: Building2,
+    value: "500+",
+    label: "Trusted Partners",
+    icon: Handshake,
   },
   {
     value: "15+",
-    label: "Industries Served",
+    label: "Service Categories",
     icon: Globe2,
   },
   {
@@ -122,24 +147,22 @@ const stats = [
   },
   {
     value: "98%",
-    label: "Client Satisfaction",
+    label: "Partner Satisfaction",
     icon: Star,
   },
 ];
 
-export default function CustomersPage() {
+export default function VendorsAndPartnersPage() {
   return (
     <main className="bg-white text-slate-900">
-
       {/* =========================================================
           HERO
       ========================================================== */}
 
       <section className="relative min-h-[570px] overflow-hidden bg-[#041a35]">
-
         <Image
           src="/images/ship22.jpg"
-          alt="Madina Maritime Customers"
+          alt="Madina Maritime Vendors and Partners"
           fill
           priority
           className="object-cover"
@@ -150,35 +173,32 @@ export default function CustomersPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#03172f]/70 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[570px] max-w-7xl items-center px-6 lg:px-8">
-
           <div className="max-w-3xl">
-
             <div className="mb-6 flex items-center gap-3 text-sm font-bold uppercase tracking-[0.25em] text-blue-300">
               <span className="h-px w-12 bg-blue-400" />
-              Our Customers
+              Vendors & Partners
             </div>
 
             <h1 className="text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Trusted by
+              Strong partnerships.
               <br />
               <span className="text-blue-300">
-                industry leaders.
+                Reliable operations.
               </span>
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-blue-50/80">
-              We build long-term relationships with organizations that
-              value reliability, operational excellence and dependable
-              maritime solutions.
+              We work with trusted vendors, suppliers and service partners
+              who help us deliver safe, reliable and efficient maritime
+              operations across Bangladesh.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-
               <Link
-                href="#customers"
+                href="#partners"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-[#06245a] transition hover:bg-blue-50"
               >
-                Explore Customers
+                Explore Partners
                 <ArrowRight size={17} />
               </Link>
 
@@ -189,28 +209,20 @@ export default function CustomersPage() {
                 Become a Partner
                 <ArrowUpRight size={17} />
               </Link>
-
             </div>
-
           </div>
-
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-white [clip-path:ellipse(70%_100%_at_50%_100%)]" />
-
       </section>
-
 
       {/* =========================================================
           STATS
       ========================================================== */}
 
       <section className="relative z-20 mx-auto -mt-10 max-w-7xl px-6 lg:px-8">
-
         <div className="grid overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.12)] sm:grid-cols-2 lg:grid-cols-4">
-
           {stats.map((stat, index) => {
-
             const Icon = stat.icon;
 
             return (
@@ -222,13 +234,11 @@ export default function CustomersPage() {
                     : ""
                 }`}
               >
-
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-800">
                   <Icon size={22} />
                 </div>
 
                 <div>
-
                   <div className="text-2xl font-bold text-[#06245a]">
                     {stat.value}
                   </div>
@@ -236,117 +246,85 @@ export default function CustomersPage() {
                   <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
                     {stat.label}
                   </div>
-
                 </div>
-
               </div>
             );
           })}
-
         </div>
-
       </section>
 
-
       {/* =========================================================
-          CUSTOMER LOGOS
+          PARTNER NETWORK
       ========================================================== */}
 
       <section
-        id="customers"
-        className="scroll-mt-20 py-10"
+        id="partners"
+        className="scroll-mt-20 py-5"
       >
-
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-
             <div>
-
               <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                Our Customer Network
+                Our Partner Network
               </div>
 
               <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-                Organizations that
+                Trusted partners
                 <br />
-                trust our services.
+                behind our operations.
               </h2>
-
             </div>
-
-            
-
           </div>
 
+          {/* =====================================================
+              PARTNER CARDS
+          ====================================================== */}
 
-          <div className=" grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-            {customers.map((customer) => (
-
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {vendors.map((vendor) => (
               <div
-                key={customer.name}
+                key={vendor.name}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 transition duration-500 hover:-translate-y-2 hover:border-blue-100 hover:shadow-[0_25px_60px_rgba(15,23,42,0.10)]"
               >
-
                 <div className="flex h-32 items-center justify-center rounded-2xl bg-slate-50 p-6 transition group-hover:bg-blue-50">
-
                   <Image
-                    src={customer.logo}
-                    alt={customer.name}
+                    src={vendor.logo}
+                    alt={vendor.name}
                     width={180}
                     height={90}
                     className="max-h-20 w-auto object-contain grayscale transition duration-500 group-hover:grayscale-0"
                   />
-
                 </div>
 
                 <div className="mt-6">
-
                   <div className="text-xs font-bold uppercase tracking-wider text-blue-700">
-                    {customer.category}
+                    {vendor.category}
                   </div>
 
                   <h3 className="mt-2 text-lg font-bold text-[#06245a]">
-                    {customer.name}
+                    {vendor.name}
                   </h3>
 
                   <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-500">
-                    {customer.description}
+                    {vendor.description}
                   </p>
 
                   <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-5">
-
                     <span className="text-xs font-semibold text-slate-400">
-                      Valued Partner
+                      Trusted Partner
                     </span>
 
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-blue-700 transition group-hover:bg-[#06245a] group-hover:text-white">
                       <ArrowUpRight size={15} />
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
             ))}
-
           </div>
-
         </div>
-
       </section>
-
-
-      {/* =========================================================
-          CTA
-      ========================================================== */}
-
-
 
     </main>
   );
 }
-

@@ -123,7 +123,7 @@ const milestones = [
 
 const leadership = [
   {
-    name: "Erfan Salim",
+    name: "Mohammad Erfan Selim",
     role: "Director",
     image: "",
     email: "e.selim@madina.co"
@@ -406,13 +406,214 @@ export default function AboutPage() {
       </section>
 
 
-      {/* =========================================================
-          JOURNEY / TIMELINE
-      ========================================================== */}
+      <section className="bg-slate-50 py-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-      {/* =========================================================
-          LEADERSHIP
-      ========================================================== */}
+          {/* Section Heading */}
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-end">
+
+            <div>
+              <div className="mb-4 flex items-center gap-3 text-blue-700">
+                <span className="h-px w-10 bg-blue-600" />
+
+                <span className="text-xs font-bold uppercase tracking-[0.2em]">
+                  Operational Performance
+                </span>
+              </div>
+
+              <h2 className="text-3xl font-bold leading-tight text-[#06245a] sm:text-4xl lg:text-5xl">
+                Yearly Tonnage<span className="text-blue-600"> Movement </span>
+              </h2>
+            </div>
+          </div>
+
+
+          {/* Tonnage Summary */}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+            {[
+              {
+                year: "2022",
+                tonnage: "185K",
+                label: "Total Tonnage",
+              },
+              {
+                year: "2023",
+                tonnage: "240K",
+                label: "Total Tonnage",
+              },
+              {
+                year: "2024",
+                tonnage: "315K",
+                label: "Total Tonnage",
+              },
+              {
+                year: "2025",
+                tonnage: "380K",
+                label: "Total Tonnage",
+              },
+            ].map((item) => (
+              <div
+                key={item.year}
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                    {item.year}
+                  </span>
+
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-blue-600">
+                    MT
+                  </span>
+                </div>
+
+                <div className="mt-3 text-3xl font-bold text-[#06245a]">
+                  {item.tonnage}
+                </div>
+
+                <div className="mt-1 text-xs text-slate-500">
+                  {item.label}
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+
+          {/* Commodity Wise Movement */}
+          <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            {/* Header */}
+            <div className="border-b border-slate-100 px-6 py-5">
+              <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+                <div>
+                  <h3 className="text-lg font-bold text-[#06245a]">
+                    Commodity wise Tonnage Movement
+                  </h3>
+
+                  <p className="mt-1 text-xs text-slate-500">
+                    Annual cargo movement by commodity
+                  </p>
+                </div>
+
+                <div className="rounded-full bg-blue-50 px-4 py-2 text-xs font-semibold text-blue-700">
+                  Unit: Metric Ton (MT)
+                </div>
+              </div>
+            </div>
+
+
+            {/* Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[700px] text-left">
+
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50">
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Commodity
+                    </th>
+
+                    <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-slate-500">
+                      2022
+                    </th>
+
+                    <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-slate-500">
+                      2023
+                    </th>
+
+                    <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-slate-500">
+                      2024
+                    </th>
+
+                    <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-slate-500">
+                      2025
+                    </th>
+
+                    
+                  </tr>
+                </thead>
+
+
+                <tbody className="divide-y divide-slate-100">
+
+                  {[
+                    {
+                      commodity: "Cement",
+                      values: ["45K", "60K", "85K", "105K"],
+                      total: "295K",
+                    },
+                    {
+                      commodity: "Coal",
+                      values: ["55K", "72K", "90K", "110K"],
+                      total: "327K",
+                    },
+                    {
+                      commodity: "Clinker",
+                      values: ["35K", "48K", "65K", "78K"],
+                      total: "226K",
+                    },
+                    {
+                      commodity: "Stone",
+                      values: ["30K", "40K", "52K", "60K"],
+                      total: "182K",
+                    },
+                    {
+                      commodity: "Other",
+                      values: ["20K", "20K", "23K", "27K"],
+                      total: "90K",
+                    },
+                  ].map((item) => (
+                    <tr
+                      key={item.commodity}
+                      className="transition hover:bg-slate-50"
+                    >
+
+                      <td className="px-6 py-4">
+                        <div className="font-semibold text-[#06245a]">
+                          {item.commodity}
+                        </div>
+                      </td>
+
+                      {item.values.map((value, index) => (
+                        <td
+                          key={index}
+                          className="px-6 py-4 text-right text-sm text-slate-600"
+                        >
+                          {value}
+                        </td>
+                      ))}
+
+                     
+
+                    </tr>
+                  ))}
+
+                </tbody>
+
+              </table>
+            </div>
+
+
+            {/* Footer */}
+            <div className="flex flex-col justify-between gap-3 border-t border-slate-100 bg-slate-50 px-6 py-4 sm:flex-row sm:items-center">
+
+              <span className="text-xs text-slate-500">
+                Figures represent annual cargo movement by commodity.
+              </span>
+
+              <span className="text-xs font-semibold text-blue-700">
+                Madina Maritime Limited
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
       <section className="py-10">
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -426,17 +627,10 @@ export default function AboutPage() {
               </div>
 
               <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-                People behind
-                <br />
-                our progress.
+                People behind our progress.
               </h2>
 
             </div>
-
-            <p className="max-w-md text-sm leading-6 text-slate-500">
-              Our people bring experience, discipline and a shared
-              commitment to building a stronger organization.
-            </p>
 
           </div>
 

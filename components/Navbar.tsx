@@ -16,6 +16,7 @@ const navItems = [
   { label: "Sister Concerns", href: "/sister-concerns" },
   { label: "Services", href: "/services" },
   { label: "Customer", href: "/customer" },
+  { label: "Vendor & Partners", href: "/vendor-and-partners" },
   // { label: "News & Media", href: "/news-media" },
   { label: "Career", href: "/career" },
   { label: "Contact", href: "/contact" },

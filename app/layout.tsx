@@ -9,6 +9,9 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 export const metadata = {
   title: "Madina Maritime",
   description: "Premium Maritime Services",
+  icons: {
+    icon: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
