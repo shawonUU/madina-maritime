@@ -434,22 +434,22 @@ export default function AboutPage() {
             {[
               {
                 year: "2022",
-                tonnage: "185K",
+                tonnage: "185000",
                 label: "Total Tonnage",
               },
               {
                 year: "2023",
-                tonnage: "240K",
+                tonnage: "240000",
                 label: "Total Tonnage",
               },
               {
                 year: "2024",
-                tonnage: "315K",
+                tonnage: "315000",
                 label: "Total Tonnage",
               },
               {
                 year: "2025",
-                tonnage: "380K",
+                tonnage: "380000",
                 label: "Total Tonnage",
               },
             ].map((item) => (
@@ -538,28 +538,28 @@ export default function AboutPage() {
 
                   {[
                     {
-                      commodity: "Cement",
-                      values: ["45K", "60K", "85K", "105K"],
+                      commodity: "Scrap",
+                      values: ["180000", "200000", "150000", "122000"],
                       total: "295K",
                     },
                     {
-                      commodity: "Coal",
-                      values: ["55K", "72K", "90K", "110K"],
+                      commodity: "Manganese",
+                      values: ["165000", "250000", "170000", "234000"],
                       total: "327K",
                     },
                     {
-                      commodity: "Clinker",
-                      values: ["35K", "48K", "65K", "78K"],
+                      commodity: "Stone",
+                      values: ["240000", "300000", "320000", "370000"],
                       total: "226K",
                     },
                     {
-                      commodity: "Stone",
-                      values: ["30K", "40K", "52K", "60K"],
+                      commodity: "Lime Stone",
+                      values: ["220000", "270000", "220000", "180000"],
                       total: "182K",
                     },
                     {
-                      commodity: "Other",
-                      values: ["20K", "20K", "23K", "27K"],
+                      commodity: "Coal",
+                      values: ["170000", "230000", "180000", "200000"],
                       total: "90K",
                     },
                   ].map((item) => (

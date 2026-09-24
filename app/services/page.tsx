@@ -413,165 +413,459 @@ export default function MarineServicesPage() {
 
       </section>
 
-      <section className="bg-white py-5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="bg-white py-10">
+  <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-          {/* Section Heading */}
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
-              Our Resources
-            </div>
+    {/* Section Heading */}
+    <div className="mx-auto max-w-3xl text-center">
+      <div className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
+        Our Resources
+      </div>
 
-            <h2 className="text-3xl font-bold text-[#06245a] sm:text-4xl">
-              Equipment & Machinery
-            </h2>
+      <h2 className="text-3xl font-bold text-[#06245a] sm:text-4xl">
+        Equipment & Machinery
+      </h2>
 
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              A reliable range of marine and heavy-duty equipment supporting
-              efficient cargo handling, transportation and maritime operations.
-            </p>
+      <p className="mt-3 text-sm leading-6 text-slate-600">
+        Our extensive fleet of marine vessels and heavy equipment supports
+        efficient cargo handling, transportation, dredging and maritime
+        operations.
+      </p>
+    </div>
+
+
+    {/* Equipment List */}
+    <div className="mt-10 space-y-5">
+
+      {/* Lighter Vessel */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/lighter-vessel.jpg"
+              alt="Lighter Vessel"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
           </div>
 
-          {/* Equipment Cards */}
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-
-            {/* Dump Trucks */}
-            <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-
-              <div className="relative h-64 overflow-hidden bg-slate-100">
-                <Image
-                  src="/images/dump-truck.jpg"
-                  alt="Dump Trucks"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03172f]/80 via-transparent to-transparent" />
-
-                <div className="absolute bottom-4 left-5">
-                  <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
-                    Heavy Equipment
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#06245a]">
-                      Dump Trucks
-                    </h3>
-
-                    <p className="mt-2 text-sm leading-6 text-slate-500">
-                      Heavy-duty dump trucks supporting efficient transportation
-                      and handling of bulk materials across operational sites.
-                    </p>
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Marine Vessel
                   </div>
 
-                  <span className="text-xs font-bold tracking-widest text-slate-300">
-                    01
-                  </span>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Lighter Vessel
+                  </h3>
                 </div>
 
-                <div className="mt-5 h-px w-10 bg-blue-600 transition-all duration-300 group-hover:w-16" />
-              </div>
-
-            </div>
-
-
-            {/* Tug Boats */}
-            <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-
-              <div className="relative h-64 overflow-hidden bg-slate-100">
-                <Image
-                  src="/images/tug-boat.jpg"
-                  alt="Tug Boats"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03172f]/80 via-transparent to-transparent" />
-
-                <div className="absolute bottom-4 left-5">
-                  <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
-                    Marine Support
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#06245a]">
-                      Tug Boats
-                    </h3>
-
-                    <p className="mt-2 text-sm leading-6 text-slate-500">
-                      Reliable tug boat support for vessel maneuvering, towing
-                      and safe maritime operations within port areas.
-                    </p>
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">
+                    31
                   </div>
-
-                  <span className="text-xs font-bold tracking-widest text-slate-300">
-                    02
-                  </span>
-                </div>
-
-                <div className="mt-5 h-px w-10 bg-blue-600 transition-all duration-300 group-hover:w-16" />
-              </div>
-
-            </div>
-
-
-            {/* Cranes */}
-            <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-
-              <div className="relative h-64 overflow-hidden bg-slate-100">
-                <Image
-                  src="/images/cranes.jpg"
-                  alt="Cranes"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03172f]/80 via-transparent to-transparent" />
-
-                <div className="absolute bottom-4 left-5">
-                  <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
-                    Cargo Handling
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#06245a]">
-                      Cranes
-                    </h3>
-
-                    <p className="mt-2 text-sm leading-6 text-slate-500">
-                      Heavy lifting and cargo handling equipment supporting
-                      efficient loading, unloading and material movement.
-                    </p>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
                   </div>
-
-                  <span className="text-xs font-bold tracking-widest text-slate-300">
-                    03
-                  </span>
                 </div>
-
-                <div className="mt-5 h-px w-10 bg-blue-600 transition-all duration-300 group-hover:w-16" />
               </div>
 
+              <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-500">
+                A fleet of lighter vessels supporting bulk cargo transportation,
+                loading, unloading and efficient movement of goods through
+                inland and coastal waterways.
+              </p>
             </div>
+          </div>
 
+        </div>
+      </div>
+
+      {/* Hatch Barge */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/hatch-barge.jpg"
+              alt="Hatch Barge"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Marine Vessel
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Hatch Barge
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">10</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Covered cargo barges designed for secure transportation and
+                handling of bulk and general cargo across inland waterways.
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Flat Barge */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/flat-barge.jpg"
+              alt="Flat Barge"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Marine Vessel
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Flat Barge
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">5</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Versatile flat-deck barges suitable for transporting heavy
+                equipment, construction materials and bulk cargo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Conveyor Belt Barge */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/conveyor-belt-barge.jpg"
+              alt="Conveyor Belt Barge"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Cargo Handling
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Conveyor Belt Barge
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">5</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Specialized barges equipped with conveyor systems for efficient
+                loading, unloading and continuous movement of bulk materials.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Tug Boat */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/tug-boat.jpg"
+              alt="Tug Boat"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Marine Support
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Tug Boat
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">4</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Reliable tug boat support for vessel maneuvering, towing,
+                berthing and safe maritime operations within port areas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Crane */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/cranes.jpg"
+              alt="Crane"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Heavy Equipment
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Crane
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">7</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Heavy lifting equipment supporting cargo loading, unloading and
+                material handling across operational and port facilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Excavator */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/excavator.jpg"
+              alt="Excavator"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Heavy Equipment
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Excavator
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">7</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Powerful excavation equipment used for earthwork, dredging
+                support, material handling and construction activities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Payloader */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/payloader.jpg"
+              alt="Payloader"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Heavy Equipment
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Payloader
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">5</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Wheel loaders supporting efficient loading, stockpiling and
+                movement of bulk materials across operational sites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Dump Truck */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/dump-truck.jpg"
+              alt="Dump Truck"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Heavy Equipment
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Dump Truck
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">60</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Heavy-duty dump trucks supporting the transportation of bulk
+                materials, aggregates and cargo across operational sites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Dredger */}
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/dredger.jpg"
+              alt="Dredger"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Marine Equipment
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Dredger
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]">2</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Dredging equipment supporting waterway maintenance, sediment
+                removal and marine infrastructure operations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     </main>
   );
