@@ -31,11 +31,11 @@ import {
 const slides = [
   {
     type: "video",
-    src: "/videos/ship-video-1.mp4",
+    src: "/videos/ship-video-5.mp4",
   },
   {
     type: "video",
-    src: "/videos/ship-video-4.mp4",
+    src: "/videos/ship-video-61.mp4",
   },
   {
     type: "video",
@@ -56,21 +56,21 @@ const missions = [
     number: "01",
     title: "Rapid Progress",
     desc: "Madina Maritime Limited is a concern of Madina Group, one of the leading companies in Bangladesh, with diversified interests across Polymer Industries, Marine Services, Trading, Cement Industries and Property Development.",
-    img: "/images/rapid-progress1.jpg",
+    img: "/images/ship-new4.jpeg",
     icon: MoveUpRight,
   },
   {
     number: "02",
     title: "Trust",
     desc: "We continuously strive to accomplish what has not easily been done before through the ideas, efforts and capabilities of every member of our team. A challenging mindset is fundamental to our approach.",
-    img: "/images/trust1.jpg",
+    img: "/images/ship-new1.jpeg",
     icon: ShieldCheck,
   },
   {
     number: "03",
     title: "Action",
     desc: "Economic success is a common objective across industries. At MML, successful results matter, but we also place strong emphasis on the process, discipline and continuous improvement behind those results.",
-    img: "/images/Picture5.png",
+    img: "/images/ship-new2.jpeg",
     icon: Target,
   },
 ];
@@ -176,6 +176,7 @@ export default function Hero() {
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="h-full w-full object-cover"
               />
             )}
@@ -728,7 +729,7 @@ export default function Hero() {
 
               <div className="overflow-hidden rounded-3xl">
                 <Image
-                  src="/images/ship32.jpeg"
+                  src="/images/ship-new3.jpeg"
                   alt="Maritime operations"
                   unoptimized
                   width={900}

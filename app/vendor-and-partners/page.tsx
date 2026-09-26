@@ -161,7 +161,7 @@ export default function VendorsAndPartnersPage() {
 
       <section className="relative min-h-[570px] overflow-hidden bg-[#041a35]">
         <Image
-          src="/images/ship22.jpg"
+          src="/images/ship-new2.jpeg"
           alt="Madina Maritime Vendors and Partners"
           fill
           priority

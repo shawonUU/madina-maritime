@@ -121,30 +121,57 @@ const milestones = [
   },
 ];
 
-const leadership = [
+const management = [
+  {
+    name: "Mohammad Solaiman Selim",
+    role: "DMD",
+    image: "",
+    email: "e.selim@madina.co"
+  },
   {
     name: "Mohammad Erfan Selim",
     role: "Director",
-    image: "",
+    image:"",
     email: "e.selim@madina.co"
   },
   {
     name: "Zarin Chowdhury Selim",
     role: "Director",
-    image:"",
-    email: "zarin.c@madina.co"
+    image: "",
+     email: "zarin.c@madina.co"
   },
+  {
+    name: "Mohammad Salman Selim",
+    role: "Director",
+    image: "",
+    email: "salman.salim@madina.co"
+  },
+];
+
+const leadership = [
   {
     name: "Mojmeen Akther",
     role: "AGM (A&F)",
     image: "/images/Mojmeen Akther.jpeg",
      email: "mojmeen@madina.co"
   },
-    {
+  {
     name: "Azad Mollik",
     role: "Manager(Operation)",
     image: "/images/Azad Mollik.jpeg",
     email: "mallik@madina.co"
+  },
+  {
+    name: "MD Reaz Uddin",
+    role: "Sr. Manager, SCM",
+    image: "",
+    email: "reaz.uddin@madina.co"
+  },
+  {
+    name: "MD Golam Moktadir",
+    role: "IT Manager",
+    image:"",
+    email: "golam.moktadir@madina.co"
   },
 ];
 
@@ -539,26 +566,31 @@ export default function AboutPage() {
                   {[
                     {
                       commodity: "Scrap",
+                      customer: "Rahim Steel",
                       values: ["180000", "200000", "150000", "122000"],
                       total: "295K",
                     },
                     {
                       commodity: "Manganese",
+                      customer: "Rahim Steel",
                       values: ["165000", "250000", "170000", "234000"],
                       total: "327K",
                     },
                     {
                       commodity: "Stone",
+                      customer: "Awal & Brothers",
                       values: ["240000", "300000", "320000", "370000"],
                       total: "226K",
                     },
                     {
                       commodity: "Lime Stone",
+                      customer: "Awal & Brothers",
                       values: ["220000", "270000", "220000", "180000"],
                       total: "182K",
                     },
                     {
                       commodity: "Coal",
+                      customer: "",
                       values: ["170000", "230000", "180000", "200000"],
                       total: "90K",
                     },
@@ -570,7 +602,8 @@ export default function AboutPage() {
 
                       <td className="px-6 py-4">
                         <div className="font-semibold text-[#06245a]">
-                          {item.commodity}
+                          <p>{item.commodity}</p> 
+                          <p className="text-xs">{item.customer}</p>
                         </div>
                       </td>
 
@@ -613,6 +646,72 @@ export default function AboutPage() {
       </section>
 
 
+            <section className="py-10">
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+          <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
+
+            <div>
+
+              <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
+                05 — Management
+              </div>
+
+              <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
+                Meet Our Management Team
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div className="mt-14 grid gap-7 md:grid-cols-4">
+
+            {management.map((person) => (
+              <div
+                key={person.name}
+                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white transition duration-500 hover:-translate-y-2 hover:shadow-xl"
+              >
+
+                <div className="relative h-[300px] overflow-hidden">
+
+                  <Image
+                    src={person.image}
+                    alt={person.name}
+                    fill
+                    className="object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#06245a]/80 via-transparent to-transparent" />
+
+                  <div className="absolute bottom-6 left-6">
+
+                    <h3 className="text-xl font-bold text-white">
+                      {person.name}
+                    </h3>
+
+                    <p className="mt-1 text-sm text-blue-200">
+                      {person.role}
+                    </p>
+                    <p className="mt-1 text-sm text-blue-200">
+                      Email: {person.email}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
 
       <section className="py-10">
 
@@ -623,7 +722,7 @@ export default function AboutPage() {
             <div>
 
               <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                05 — Leadership
+                06 — Leadership
               </div>
 
               <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">

@@ -112,7 +112,7 @@ export default function SisterConcern() {
       <section className="relative h-[570px] overflow-hidden bg-[#041a35]">
 
         <Image
-          src="/images/trust1.jpg"
+          src="/images/ship-new3.jpeg"
           alt="Madina Group business operations"
           fill
           priority

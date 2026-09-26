@@ -315,9 +315,9 @@ export default function MarineServicesPage() {
                 ["Ship Handling Operator", "right-0 top-[42%]"],
                 ["Filling Service", "right-4 bottom-[8%]"],
                 ["Lighter Vessel Operator", "left-0 bottom-[8%]"],
-                ["Logistics (Loading / Unloading) Service", "left-0 top-[42%]"],
+                ["Logistics (Loading / Unloading) Service", "left-[10%] bottom-[27%]"],
                 ["International Trading", "left-10 top-[16%]"],
-                ["Holding Capacity", "left-[18%] bottom-[27%]"],
+                ["Holding Capacity", "left-0 top-[42%]"],
                 ["Ship Building", "right-[18%] bottom-[27%]"],
               ].map(([name, position]) => (
 
@@ -443,7 +443,7 @@ export default function MarineServicesPage() {
 
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/lighter-vessel.jpg"
+              src="/images/Picture3.png"
               alt="Lighter Vessel"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -490,7 +490,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/hatch-barge.jpg"
+              src="/images/ship3.jpg"
               alt="Hatch Barge"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -532,7 +532,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/flat-barge.jpg"
+              src="/images/Barge Madina-5.jpg"
               alt="Flat Barge"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -574,7 +574,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/conveyor-belt-barge.jpg"
+              src="/images/conveyor-belt-barge.webp"
               alt="Conveyor Belt Barge"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -616,7 +616,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/tug-boat.jpg"
+              src="/images/tug-boat2.jpg"
               alt="Tug Boat"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -658,7 +658,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/cranes.jpg"
+              src="/images/cranes2.jpg"
               alt="Crane"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -848,6 +848,47 @@ export default function MarineServicesPage() {
 
                 <div className="shrink-0 text-right">
                   <div className="text-3xl font-bold text-[#06245a]">2</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Units
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Dredging equipment supporting waterway maintenance, sediment
+                removal and marine infrastructure operations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+        <div className="grid md:grid-cols-[280px_1fr]">
+          <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
+            <Image
+              src="/images/bridge scale.jpg"
+              alt="Dredger"
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex items-center p-6 md:p-8">
+            <div className="w-full">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                    Scale
+                  </div>
+                  <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
+                    Bridge Scale
+                  </h3>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <div className="text-3xl font-bold text-[#06245a]"></div>
                   <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                     Units
                   </div>
