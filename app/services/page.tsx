@@ -532,7 +532,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/Barge Madina-5.jpg"
+              src="/images/Barge Haji Salim-2.jpg"
               alt="Flat Barge"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -658,7 +658,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/cranes2.jpg"
+              src="/images/cranes.jpg"
               alt="Crane"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -826,7 +826,7 @@ export default function MarineServicesPage() {
         <div className="grid md:grid-cols-[280px_1fr]">
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
-              src="/images/dredger.jpg"
+              src="/images/Dredger.jpg"
               alt="Dredger"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
@@ -868,7 +868,7 @@ export default function MarineServicesPage() {
           <div className="relative h-56 overflow-hidden bg-slate-100 md:h-auto">
             <Image
               src="/images/bridge scale.jpg"
-              alt="Dredger"
+              alt="Bridge Scale"
               fill
               sizes="(max-width: 768px) 100vw, 280px"
               className="object-cover transition duration-700 group-hover:scale-105"
@@ -896,8 +896,7 @@ export default function MarineServicesPage() {
               </div>
 
               <p className="mt-4 text-sm leading-6 text-slate-500">
-                Dredging equipment supporting waterway maintenance, sediment
-                removal and marine infrastructure operations.
+                Accurately measures the weight of trucks and cargo, ensuring efficient and transparent weighing operations for bulk materials and goods.
               </p>
             </div>
           </div>

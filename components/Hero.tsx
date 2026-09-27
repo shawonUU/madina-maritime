@@ -35,7 +35,7 @@ const slides = [
   },
   {
     type: "video",
-    src: "/videos/ship-video-61.mp4",
+    src: "/videos/ship-video-6.mp4",
   },
   {
     type: "video",
@@ -137,7 +137,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);

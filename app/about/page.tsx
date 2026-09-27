@@ -590,7 +590,7 @@ export default function AboutPage() {
                     },
                     {
                       commodity: "Coal",
-                      customer: "",
+                      customer: "QNS Shipping Logistics Lts",
                       values: ["170000", "230000", "180000", "200000"],
                       total: "90K",
                     },
