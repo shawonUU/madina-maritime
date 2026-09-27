@@ -38,16 +38,16 @@ const slides = [
     src: "/videos/ship-video-6.mp4",
   },
   {
-    type: "video",
-    src: "/videos/ship-video-2.mp4",
-  },
-  {
-    type: "video",
-    src: "/videos/ship-video-3.mp4",
+    type: "image",
+    src: "/images/Picture3.png",
   },
   {
     type: "image",
-    src: "/images/ship32.jpeg",
+    src: "/images/Picture4.png",
+  },
+  {
+    type: "image",
+    src: "/images//ship2.jpg",
   },
 ];
 
