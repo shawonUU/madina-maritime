@@ -15,6 +15,63 @@ import {
 } from "lucide-react";
 
 const vendors = [
+
+      {
+      name: "Combined Mining Shipping",
+      category: "Mother Vessel",
+      logo: "/images/Combined Mining Shipping.png",
+      description:
+        "Combined Mining and Shipping is a mining and maritime operations company founded in 2010 in Fujairah, United Arab Emirates.",
+    },
+
+    {
+      name: "Mashafi Crusher",
+      category: "Mother Vessel",
+      logo: "/images/Masafi Crusher.png",
+      description:
+        "Masafi Crusher was founded in 2001 in the Emirate of Fujairah Masafi area and Licensed by the Government of Fujairah Emirate under license number (14721)",
+    },
+
+    {
+      name: "South West Mining",
+      category: "Mother Vessel",
+      logo: "/images/South West Mining.jpg",
+      description:
+        "South West Mining most prominently refers to South West Mining Limited (SWML) in India",
+    },
+
+    {
+      name: "Ali Musa",
+      category: "Mother Vessel",
+      logo: "/images/TDB.png",
+      description:
+        "The vessel TDB (IMO 9503811, MMSI 414535000) is a Bulk Carrier built in 2011 (15 years old) and currently sailing under the flag of China. ",
+    },
+
+    {
+      name: "TDB",
+      category: "Mother Vessel",
+      logo: "/images/SOLE.png",
+      description:
+        "The vessel SOLE (IMO 9650145, MMSI 210238000) is a Bulk Carrier built in 2013 (13 years old) and currently sailing under the flag of Cyprus",
+    },
+
+    {
+      name: "Abdur Rashid",
+      category: "Mother Vessel",
+      logo: "/images/New Horizon.png",
+      description:
+        " The vessel NEW HORIZON (IMO 9420318, MMSI 538008295) is a Bulk Carrier built in 2010 (16 years old) and currently sailing under the flag of Marshall Islands",
+    },
+
+    {
+      name: "CMH",
+      category: "Mother Vessel",
+      logo: "/images/MV Kosom.png",
+      description:
+        " The vessel COSMOS (IMO 9574171, MMSI 538007691) is a Bulk Carrier built in 2010 (16 years old) and currently sailing under the flag of Marshall Islands",
+    },
+
   {
     name: "MJL Bangladesh PLC",
     category: "Lubricant",
@@ -100,6 +157,16 @@ const vendors = [
     description:
       "As one of the world's leading paint and coating manufacturers, Jotun protects all types of property - from iconic buildings to beautiful homes.",
   },
+
+        {
+      name: "Fujairah National Quarry (FNQ)",
+      category: "Mother Vessel",
+      logo: "/images/Fujairah National Quarry (FNQ).jpeg",
+      description:
+        "Fujairah National Quarry (FNQ), one of its subsidiaries and segregated in 2007 from one of its divisions Fujairah Concrete Products, is its main producer of high quality aggregate and crushed sand producing a total of 2.9 million tonnes of quarry products per annum.",
+    },
+
+
 ];
 
 const partnerCategories = [
