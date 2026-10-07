@@ -16,6 +16,15 @@ import {
 
 const vendors = [
 
+    
+      {
+        name: "Fujairah National Quarry (FNQ)",
+        category: "Mother Vessel",
+        logo: "/images/Fujairah National Quarry (FNQ).jpeg",
+        description:
+          "Fujairah National Quarry (FNQ), one of its subsidiaries and segregated in 2007 from one of its divisions Fujairah Concrete Products, is its main producer of high quality aggregate and crushed sand producing a total of 2.9 million tonnes of quarry products per annum.",
+      },
+
       {
       name: "Combined Mining Shipping",
       category: "Mother Vessel",
@@ -158,13 +167,6 @@ const vendors = [
       "As one of the world's leading paint and coating manufacturers, Jotun protects all types of property - from iconic buildings to beautiful homes.",
   },
 
-        {
-      name: "Fujairah National Quarry (FNQ)",
-      category: "Mother Vessel",
-      logo: "/images/Fujairah National Quarry (FNQ).jpeg",
-      description:
-        "Fujairah National Quarry (FNQ), one of its subsidiaries and segregated in 2007 from one of its divisions Fujairah Concrete Products, is its main producer of high quality aggregate and crushed sand producing a total of 2.9 million tonnes of quarry products per annum.",
-    },
 
 
 ];
