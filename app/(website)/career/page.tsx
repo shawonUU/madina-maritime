@@ -38,29 +38,40 @@ interface JobPost {
     sort_order: number;
 }
 
-interface Benefit {
-    icon: typeof GraduationCap;
+interface CareerStat {
+    value: string;
+    label: string;
+}
+
+interface CareerBenefit {
+    icon: string;
     title: string;
     desc: string;
 }
 
-const benefits: Benefit[] = [
-    {
-        icon: GraduationCap,
-        title: "Professional Growth",
-        desc: "Opportunities to learn, develop new skills and grow with the organization.",
-    },
-    {
-        icon: Sparkles,
-        title: "Innovation",
-        desc: "Work on modern digital solutions and technology-driven business initiatives.",
-    },
-    {
-        icon: Users,
-        title: "Collaborative Culture",
-        desc: "A professional environment where people, ideas and teamwork are valued.",
-    },
-];
+interface CareerData {
+    id?: number;
+
+    hero_label: string | null;
+    hero_title: string | null;
+    hero_highlight: string | null;
+    hero_description: string | null;
+    hero_image: string | null;
+    hero_button_text: string | null;
+    hero_button_url: string | null;
+    bottom_caption: string | null;
+
+    stats: CareerStat[] | null;
+
+    why_label: string | null;
+    why_benefits: CareerBenefit[] | null;
+
+    jobs_label: string | null;
+    jobs_title: string | null;
+    jobs_description: string | null;
+
+    status?: boolean;
+}
 
 const formatList = (value: string | null) => {
     if (!value) {
@@ -85,11 +96,55 @@ const formatDeadline = (date: string | null) => {
     });
 };
 
+const getBenefitIcon = (icon: string | null | undefined) => {
+    switch (icon) {
+        case "GraduationCap":
+            return GraduationCap;
+
+        case "Sparkles":
+            return Sparkles;
+
+        case "Users":
+            return Users;
+
+        case "BriefcaseBusiness":
+            return BriefcaseBusiness;
+
+        default:
+            return GraduationCap;
+    }
+};
+
 export default function CareerPage() {
+    const [career, setCareer] = useState<CareerData | null>(null);
+    const [careerLoading, setCareerLoading] = useState(true);
+    const [careerError, setCareerError] = useState("");
+
     const [jobs, setJobs] = useState<JobPost[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [selectedJob, setSelectedJob] = useState<number | null>(null);
+
+    const loadCareer = async () => {
+        try {
+            setCareerLoading(true);
+            setCareerError("");
+
+            const response = await api.get("/career");
+
+            const data = response.data;
+
+            setCareer(data.data ?? null);
+        } catch (error) {
+            console.error("Failed to load career page content:", error);
+
+            setCareerError(
+                "Unable to load career page content. Please try again later."
+            );
+        } finally {
+            setCareerLoading(false);
+        }
+    };
 
     const loadJobs = async () => {
         try {
@@ -113,8 +168,23 @@ export default function CareerPage() {
     };
 
     useEffect(() => {
+        loadCareer();
         loadJobs();
     }, []);
+
+    const heroImage = career?.hero_image || "/images/ship32.jpeg";
+
+    const stats: CareerStat[] = [
+        {
+            value: jobs.length.toString().padStart(2, "0"),
+            label:
+                career?.stats?.[0]?.label ||
+                "Open Positions",
+        },
+        ...(career?.stats?.slice(1) || []),
+    ];
+
+    const benefits = career?.why_benefits || [];
 
     return (
         <main className="bg-white text-slate-900">
@@ -123,8 +193,11 @@ export default function CareerPage() {
             ====================================================== */}
             <section className="relative min-h-[600px] overflow-hidden bg-[#03172f]">
                 <Image
-                    src="/images/ship32.jpeg"
-                    alt="Careers at Madina Maritime"
+                    src={heroImage}
+                    alt={
+                        career?.hero_title ||
+                        "Careers at Madina Maritime"
+                    }
                     fill
                     priority
                     className="object-cover"
@@ -147,21 +220,24 @@ export default function CareerPage() {
                     <div className="max-w-4xl">
                         <div className="mb-7 flex items-center gap-3 text-sm font-bold uppercase tracking-[0.25em] text-blue-300">
                             <span className="h-px w-12 bg-blue-400" />
-                            Careers at MML
+
+                            {career?.hero_label || "Careers at MML"}
                         </div>
 
                         <h1 className="text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
-                            Build your
+                            {career?.hero_title || "Build your"}
+
                             <br />
+
                             <span className="text-blue-300">
-                                future with us.
+                                {career?.hero_highlight ||
+                                    "future with us."}
                             </span>
                         </h1>
 
                         <p className="mt-7 max-w-2xl text-base leading-8 text-blue-50/80 sm:text-lg">
-                            Join a growing maritime organization where talented
-                            people, technology and operational excellence come
-                            together.
+                            {career?.hero_description ||
+                                "Join a growing maritime organization where talented people, technology and operational excellence come together."}
                         </p>
 
                         <div className="mt-9 flex flex-wrap gap-4">
@@ -170,10 +246,14 @@ export default function CareerPage() {
                                 className="group rounded-full bg-white px-7 text-[#06245a] hover:bg-blue-50"
                             >
                                 <Link
-                                    href="#open-positions"
+                                    href={
+                                        career?.hero_button_url ||
+                                        "#open-positions"
+                                    }
                                     className="flex items-center gap-2"
                                 >
-                                    Explore Opportunities
+                                    {career?.hero_button_text ||
+                                        "Explore Opportunities"}
 
                                     <ArrowRight
                                         size={18}
@@ -187,7 +267,9 @@ export default function CareerPage() {
 
                 <div className="absolute bottom-8 left-6 z-20 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/50 lg:left-10">
                     <BriefcaseBusiness size={15} />
-                    Careers & Opportunities
+
+                    {career?.bottom_caption ||
+                        "Careers & Opportunities"}
                 </div>
             </section>
 
@@ -196,26 +278,9 @@ export default function CareerPage() {
             ====================================================== */}
             <section className="relative z-20 mx-auto -mt-12 max-w-7xl px-6 lg:px-8">
                 <div className="grid overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.12)] sm:grid-cols-2 lg:grid-cols-4">
-                    {[
-                        {
-                            value: jobs.length.toString().padStart(2, "0"),
-                            label: "Open Positions",
-                        },
-                        {
-                            value: "24/7",
-                            label: "Operational Environment",
-                        },
-                        {
-                            value: "100%",
-                            label: "Commitment to People",
-                        },
-                        {
-                            value: "∞",
-                            label: "Opportunities to Grow",
-                        },
-                    ].map((item, index) => (
+                    {stats.map((item, index) => (
                         <div
-                            key={item.label}
+                            key={`${item.label}-${index}`}
                             className={`p-7 ${
                                 index !== 3
                                     ? "border-b border-slate-100 lg:border-b-0 lg:border-r"
@@ -241,17 +306,17 @@ export default function CareerPage() {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-3xl text-center">
                         <div className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                            01 — Why MML
+                            {career?.why_label || "01 — Why MML"}
                         </div>
                     </div>
 
                     <div className="mt-5 grid gap-6 md:grid-cols-3">
-                        {benefits.map((benefit) => {
-                            const Icon = benefit.icon;
+                        {benefits.map((benefit, index) => {
+                            const Icon = getBenefitIcon(benefit.icon);
 
                             return (
                                 <div
-                                    key={benefit.title}
+                                    key={`${benefit.title}-${index}`}
                                     className="group rounded-3xl border border-slate-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
                                 >
                                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-800 transition group-hover:bg-[#06245a] group-hover:text-white">
@@ -282,16 +347,18 @@ export default function CareerPage() {
                 <div className="mx-auto max-w-6xl px-6 lg:px-8">
                     <div className="max-w-3xl">
                         <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                            02 — Open Positions
+                            {career?.jobs_label ||
+                                "02 — Open Positions"}
                         </div>
 
                         <h2 className="text-4xl font-bold text-[#06245a] sm:text-5xl">
-                            Find your next opportunity.
+                            {career?.jobs_title ||
+                                "Find your next opportunity."}
                         </h2>
 
                         <p className="mt-5 leading-7 text-slate-600">
-                            Explore our current openings and find a role where
-                            your skills and experience can make an impact.
+                            {career?.jobs_description ||
+                                "Explore our current openings and find a role where your skills and experience can make an impact."}
                         </p>
                     </div>
 
@@ -411,6 +478,7 @@ export default function CareerPage() {
                                                                 <MapPin
                                                                     size={14}
                                                                 />
+
                                                                 {job.location}
                                                             </span>
 
@@ -418,6 +486,7 @@ export default function CareerPage() {
                                                                 <Clock3
                                                                     size={14}
                                                                 />
+
                                                                 {
                                                                     job.employment_type
                                                                 }
@@ -430,6 +499,7 @@ export default function CareerPage() {
                                                                             14
                                                                         }
                                                                     />
+
                                                                     {
                                                                         job.experience
                                                                     }
@@ -495,10 +565,8 @@ export default function CareerPage() {
                                                             {job.description ||
                                                                 "No detailed description has been provided for this position."}
                                                         </p>
-
                                                     </div>
                                                 </div>
-
 
                                                 {/* Key Responsibilities */}
                                                 {responsibilities.length >
@@ -609,7 +677,6 @@ export default function CareerPage() {
                                                         </div>
                                                     </div>
                                                 )}
-
 
                                                 {deadline && (
                                                     <div className="mt-6">
