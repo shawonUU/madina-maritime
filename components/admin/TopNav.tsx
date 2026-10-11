@@ -82,7 +82,7 @@ export default function TopNav({
 
             sessionStorage.removeItem("current_menu");
 
-            router.replace("/admin/login");
+            router.replace("/mml-admin/login");
         }
     };
 
@@ -130,25 +130,7 @@ export default function TopNav({
             </div>
 
             <div className="flex items-center gap-2 sm:gap-3">
-                <button
-                    type="button"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-[#06245a]"
-                    aria-label="Search"
-                >
-                    <Search size={18} />
-                </button>
-
-                <button
-                    type="button"
-                    className="relative flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-[#06245a]"
-                    aria-label="Notifications"
-                >
-                    <Bell size={18} />
-
-                    <span className="absolute right-1.5 top-1.5 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-red-500 px-1 text-[8px] font-bold text-white">
-                        3
-                    </span>
-                </button>
+               
 
                 <div
                     ref={profileRef}

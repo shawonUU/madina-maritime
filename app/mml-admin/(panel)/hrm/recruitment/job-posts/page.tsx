@@ -87,7 +87,7 @@ export default function JobPostsPage() {
     const [saving, setSaving] = useState(false);
 
     const [modalOpen, setModalOpen] = useState(false);
-    const [editingId, setEditingId] = useState<number | null>(null);
+    const [editingId, setEditingId] = useState<string | null>(null);
 
     const [form, setForm] = useState<JobForm>(initialForm);
 
@@ -159,7 +159,7 @@ export default function JobPostsPage() {
     };
 
     const openEditModal = (job: JobPost) => {
-        setEditingId(job.id);
+        setEditingId(job.slug);
 
         setForm({
             title: job.title ?? "",

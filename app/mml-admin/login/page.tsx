@@ -66,7 +66,7 @@ export default function AdminLoginPage() {
                 const redirect =
                     new URLSearchParams(window.location.search).get("redirect");
 
-                router.replace(redirect || "/admin/dashboard");
+                router.replace(redirect || "/mml-admin/dashboard");
 
                 return;
             }
@@ -272,7 +272,7 @@ export default function AdminLoginPage() {
 
 
                             {/* Forgot Password */}
-                            <div className="flex justify-end">
+                            <div className="flex justify-end hidden">
 
                                 <Link
                                     href="/admin/forgot-password"

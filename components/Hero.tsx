@@ -289,7 +289,7 @@ export default function Hero() {
   const fetchHomeContent = async () => {
     try {
       const response =
-        await api.get<HomeApiResponse>("/website/home");
+        await api.get<HomeApiResponse>("/website/admin/home");
 
       if (response.data?.status) {
         setHome(response.data.data);

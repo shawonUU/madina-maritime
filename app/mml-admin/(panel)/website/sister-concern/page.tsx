@@ -270,7 +270,7 @@ export default function SisterConcernsAdminPage() {
             }
 
             const response = await api.post(
-                "/website/admin/sister-concerns/stats",
+                "/website/admin/sister-concerns/sectors",
                 formData
             );
 

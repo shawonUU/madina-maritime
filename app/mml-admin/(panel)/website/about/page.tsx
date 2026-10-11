@@ -578,7 +578,7 @@ const saveAbout = async () => {
             }
 
             if (editingTeam) {
-                formData.append("_method", "PUT");
+                formData.append("_method", "POST");
 
                 await api.post(
                     `/website/about/team/${editingTeam.id}`,

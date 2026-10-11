@@ -45,6 +45,7 @@ interface StatItem {
 }
 
 interface MissionItem {
+    file?: File | null;
     number: string;
     title: string;
     desc: string;
@@ -53,6 +54,7 @@ interface MissionItem {
 }
 
 interface DivisionItem {
+    file?: File | null;
     title: string;
     description: string;
     image: string;
@@ -345,6 +347,15 @@ export default function HomePageAdmin() {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [newSlide, setNewSlide] = useState<HeroSlide>({
+        title: "",
+        subtitle: "",
+        media_type: "image",
+        media: "",
+        sort_order: 1,
+        status: true,
+        file: null,
+    });
 
     const [formData, setFormData] =
         useState<FormData>(emptyForm);
@@ -371,10 +382,8 @@ export default function HomePageAdmin() {
 
                         stats: data.stats || [],
                         about_points: data.about_points || [],
-                        philosophy_items:
-                            data.philosophy_items || [],
-                        business_divisions:
-                            data.business_divisions || [],
+                        philosophy_items: (data.philosophy_items || []).map((item: MissionItem) => ({ ...item, file: null })),
+                        business_divisions: (data.business_divisions || []).map((item: DivisionItem) => ({ ...item, file: null })),
                         why_items: data.why_items || [],
 
                         about_image: null,
@@ -437,9 +446,7 @@ export default function HomePageAdmin() {
             why_image: null,
         });
 
-        setSlides([]);
         setDeletedSlideIds([]);
-        setShowModal(true);
     };
 
     const openEditModal = () => {
@@ -499,8 +506,7 @@ export default function HomePageAdmin() {
                 home.philosophy_title || "",
             philosophy_description:
                 home.philosophy_description || "",
-            philosophy_items:
-                home.philosophy_items || [],
+            philosophy_items: (home.philosophy_items || []).map((item) => ({ ...item, file: null })),
 
             business_label:
                 home.business_label || "",
@@ -510,8 +516,7 @@ export default function HomePageAdmin() {
                 home.business_highlight || "",
             business_description:
                 home.business_description || "",
-            business_divisions:
-                home.business_divisions || [],
+            business_divisions: (home.business_divisions || []).map((item) => ({ ...item, file: null })),
 
             why_label: home.why_label || "",
             why_title: home.why_title || "",
@@ -533,7 +538,6 @@ export default function HomePageAdmin() {
         });
 
         setDeletedSlideIds([]);
-        setShowModal(true);
     };
 
     const closeModal = () => {
@@ -783,19 +787,89 @@ export default function HomePageAdmin() {
         }));
     };
 
+    const handleNestedImageChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        type: "mission" | "division",
+        index: number
+    ) => {
+        const file = e.target.files?.[0] || null;
+        if (!file) return;
+
+        const allowed = ["image/jpeg", "image/png", "image/webp"];
+        if (!allowed.includes(file.type)) {
+            alert("Please select a JPG, JPEG, PNG or WEBP image.");
+            e.target.value = "";
+            return;
+        }
+        if (file.size > 10 * 1024 * 1024) {
+            alert("Image size must not exceed 10 MB.");
+            e.target.value = "";
+            return;
+        }
+
+        setFormData((prev) => {
+            if (type === "mission") {
+                const items = [...prev.philosophy_items];
+                items[index] = { ...items[index], file };
+                return { ...prev, philosophy_items: items };
+            }
+            const items = [...prev.business_divisions];
+            items[index] = { ...items[index], file };
+            return { ...prev, business_divisions: items };
+        });
+    };
+
     const addSlide = () => {
+        setNewSlide({
+            title: "",
+            subtitle: "",
+            media_type: "image",
+            media: "",
+            sort_order: slides.length + 1,
+            status: true,
+            file: null,
+        });
+        setShowModal(true);
+    };
+
+    const handleNewSlideFileChange = (file: File | null) => {
+        if (!file) return;
+
+        if (newSlide.media_type === "image") {
+            const allowed = ["image/jpeg", "image/png", "image/webp"];
+            if (!allowed.includes(file.type)) {
+                alert("Please select a JPG, JPEG, PNG or WEBP image.");
+                return;
+            }
+            if (file.size > 10 * 1024 * 1024) {
+                alert("Image size must not exceed 10 MB.");
+                return;
+            }
+        } else {
+            if (file.type !== "video/mp4") {
+                alert("Please select an MP4 video.");
+                return;
+            }
+            if (file.size > 100 * 1024 * 1024) {
+                alert("Video size must not exceed 100 MB.");
+                return;
+            }
+        }
+
+        setNewSlide((prev) => ({ ...prev, file }));
+    };
+
+    const saveNewSlide = () => {
+        if (!newSlide.file) {
+            alert("Please select slider media before adding the slide.");
+            return;
+        }
+
         setSlides((prev) => [
             ...prev,
-            {
-                title: "",
-                subtitle: "",
-                media_type: "image",
-                media: "",
-                sort_order: prev.length + 1,
-                status: true,
-                file: null,
-            },
+            { ...newSlide, sort_order: prev.length + 1 },
         ]);
+        setShowModal(false);
     };
 
     const updateSlide = (
@@ -1070,10 +1144,11 @@ export default function HomePageAdmin() {
 
         data.append(
             "philosophy_items",
-            JSON.stringify(
-                formData.philosophy_items
-            )
+            JSON.stringify(formData.philosophy_items.map(({ file, ...item }) => item))
         );
+        formData.philosophy_items.forEach((item, index) => {
+            if (item.file) data.append(`philosophy_images[${index}]`, item.file);
+        });
 
         data.append(
             "business_label",
@@ -1097,10 +1172,11 @@ export default function HomePageAdmin() {
 
         data.append(
             "business_divisions",
-            JSON.stringify(
-                formData.business_divisions
-            )
+            JSON.stringify(formData.business_divisions.map(({ file, ...item }) => item))
         );
+        formData.business_divisions.forEach((item, index) => {
+            if (item.file) data.append(`business_division_images[${index}]`, item.file);
+        });
 
         data.append(
             "why_label",
@@ -1154,12 +1230,6 @@ export default function HomePageAdmin() {
         await api.post(
             "/website/admin/home/update",
             data,
-            {
-                headers: {
-                    "Content-Type":
-                        "multipart/form-data",
-                },
-            }
         );
     };
 
@@ -1220,23 +1290,11 @@ export default function HomePageAdmin() {
                 await api.post(
                     `/website/hero-slides/${slide.id}`,
                     data,
-                    {
-                        headers: {
-                            "Content-Type":
-                                "multipart/form-data",
-                        },
-                    }
                 );
             } else {
                 await api.post(
                     "/website/hero-slides",
                     data,
-                    {
-                        headers: {
-                            "Content-Type":
-                                "multipart/form-data",
-                        },
-                    }
                 );
             }
         }
@@ -1257,8 +1315,6 @@ export default function HomePageAdmin() {
             alert(
                 "Home page content updated successfully."
             );
-
-            setShowModal(false);
 
             await fetchHome();
         } catch (error: any) {
@@ -1343,24 +1399,13 @@ export default function HomePageAdmin() {
                 </div>
 
                 <button
-                    onClick={
-                        home
-                            ? openEditModal
-                            : openCreateModal
-                    }
-                    className="flex items-center gap-2 rounded-lg bg-[#06245a] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#041b45]"
+                    type="submit"
+                    form="home-page-form"
+                    disabled={saving || loading}
+                    className="flex items-center gap-2 rounded-lg bg-[#06245a] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#041b45] disabled:opacity-50"
                 >
-                    {home ? (
-                        <>
-                            <Pencil size={18} />
-                            Edit Home Page
-                        </>
-                    ) : (
-                        <>
-                            <Plus size={18} />
-                            Create Home Page
-                        </>
-                    )}
+                    <Save size={18} />
+                    {saving ? "Saving..." : home ? "Save Home Page" : "Create Home Page"}
                 </button>
 
             </div>
@@ -1546,41 +1591,8 @@ export default function HomePageAdmin() {
 
             </div>
 
-            {showModal && (
-
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-
-                    <div className="max-h-[94vh] w-full max-w-7xl overflow-y-auto rounded-xl bg-white shadow-xl">
-
-                        <div className="sticky top-0 z-20 flex items-center justify-between border-b border-gray-200 bg-white px-6 py-4">
-
-                            <div>
-                                <h2 className="text-lg font-semibold text-gray-800">
-                                    {home
-                                        ? "Edit Home Page"
-                                        : "Create Home Page"}
-                                </h2>
-
-                                <p className="mt-1 text-xs text-gray-500">
-                                    Manage hero slider and all home page content.
-                                </p>
-                            </div>
-
-                            <button
-                                onClick={
-                                    closeModal
-                                }
-                                disabled={
-                                    saving
-                                }
-                                className="rounded-lg p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                <X size={22} />
-                            </button>
-
-                        </div>
-
-                        <form
+            <form
+                id="home-page-form"
                             onSubmit={
                                 handleSubmit
                             }
@@ -2796,26 +2808,16 @@ export default function HomePageAdmin() {
                                                         )}
                                                     </select>
 
-                                                    <input
-                                                        value={
-                                                            item.img
-                                                        }
-                                                        onChange={(
-                                                            e
-                                                        ) =>
-                                                            updateMission(
-                                                                index,
-                                                                "img",
-                                                                e
-                                                                    .target
-                                                                    .value
-                                                            )
-                                                        }
-                                                        placeholder="/images/ship.jpg"
-                                                        className={
-                                                            inputClass
-                                                        }
-                                                    />
+                                                    <div className="space-y-2">
+                                                        <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-600 hover:border-[#06245a]">
+                                                            <Upload size={16} />
+                                                            {item.file ? item.file.name : "Upload Mission Image"}
+                                                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => handleNestedImageChange(e, "mission", index)} className="hidden" />
+                                                        </label>
+                                                        {(item.file || item.img) && (
+                                                            <img src={item.file ? URL.createObjectURL(item.file) : item.img} alt={item.title || "Mission"} className="h-24 w-full rounded-lg object-cover" />
+                                                        )}
+                                                    </div>
 
                                                 </div>
 
@@ -3047,26 +3049,16 @@ export default function HomePageAdmin() {
                                                         )}
                                                     </select>
 
-                                                    <input
-                                                        value={
-                                                            item.image
-                                                        }
-                                                        onChange={(
-                                                            e
-                                                        ) =>
-                                                            updateDivision(
-                                                                index,
-                                                                "image",
-                                                                e
-                                                                    .target
-                                                                    .value
-                                                            )
-                                                        }
-                                                        placeholder="/images/Picture4.png"
-                                                        className={
-                                                            inputClass
-                                                        }
-                                                    />
+                                                    <div className="space-y-2">
+                                                        <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-600 hover:border-[#06245a]">
+                                                            <Upload size={16} />
+                                                            {item.file ? item.file.name : "Upload Division Image"}
+                                                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => handleNestedImageChange(e, "division", index)} className="hidden" />
+                                                        </label>
+                                                        {(item.file || item.image) && (
+                                                            <img src={item.file ? URL.createObjectURL(item.file) : item.image} alt={item.title || "Division"} className="h-24 w-full rounded-lg object-cover" />
+                                                        )}
+                                                    </div>
 
                                                     <input
                                                         value={
@@ -3504,19 +3496,6 @@ export default function HomePageAdmin() {
                             <div className="sticky bottom-0 flex justify-end gap-3 border-t border-gray-200 bg-white pt-5">
 
                                 <button
-                                    type="button"
-                                    onClick={
-                                        closeModal
-                                    }
-                                    disabled={
-                                        saving
-                                    }
-                                    className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                                >
-                                    Cancel
-                                </button>
-
-                                <button
                                     type="submit"
                                     disabled={
                                         saving
@@ -3544,10 +3523,73 @@ export default function HomePageAdmin() {
 
                             </div>
 
-                        </form>
+            </form>
 
+            {showModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/50 p-3 sm:p-4">
+                    <div className="flex max-h-[calc(100dvh-1.5rem)] w-full max-w-2xl flex-col overflow-hidden rounded-xl bg-white shadow-xl sm:max-h-[90dvh]">
+                        <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
+                            <div>
+                                <h2 className="text-lg font-semibold text-gray-800">Add Hero Slide</h2>
+                                <p className="mt-1 text-xs text-gray-500">Choose an image or MP4 video and enter slide details.</p>
+                            </div>
+                            <button type="button" onClick={closeModal} className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-700">
+                                <X size={22} />
+                            </button>
+                        </div>
+
+                        <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4 sm:p-6">
+                            <div>
+                                <label className="mb-1.5 block text-sm font-medium text-gray-700">Media Type</label>
+                                <select value={newSlide.media_type} onChange={(e) => setNewSlide((prev) => ({ ...prev, media_type: e.target.value as "image" | "video", file: null }))} className={inputClass}>
+                                    <option value="image">Image</option>
+                                    <option value="video">MP4 Video</option>
+                                </select>
+                            </div>
+
+                            <div className="grid gap-4 md:grid-cols-2">
+                                <div>
+                                    <label className="mb-1.5 block text-sm font-medium text-gray-700">Slide Title</label>
+                                    <input value={newSlide.title} onChange={(e) => setNewSlide((prev) => ({ ...prev, title: e.target.value }))} className={inputClass} placeholder="Enter slide title" />
+                                </div>
+                                <div>
+                                    <label className="mb-1.5 block text-sm font-medium text-gray-700">Subtitle</label>
+                                    <input value={newSlide.subtitle} onChange={(e) => setNewSlide((prev) => ({ ...prev, subtitle: e.target.value }))} className={inputClass} placeholder="Enter subtitle" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="mb-1.5 block text-sm font-medium text-gray-700">{newSlide.media_type === "video" ? "MP4 Video" : "Slider Image"}</label>
+                                <label className="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 px-4 py-8 text-sm text-gray-600 hover:border-[#06245a]">
+                                    {newSlide.file ? newSlide.file.name : `Choose ${newSlide.media_type === "video" ? "MP4 Video" : "Image"}`}
+                                    <input type="file" accept={newSlide.media_type === "video" ? "video/mp4" : "image/jpeg,image/png,image/webp"} onChange={(e) => handleNewSlideFileChange(e.target.files?.[0] || null)} className="hidden" />
+                                </label>
+                                {newSlide.file && (newSlide.media_type === "video" ? (
+                                    <video src={URL.createObjectURL(newSlide.file)} controls className="mt-3 max-h-40 w-full rounded-lg object-contain sm:max-h-48" />
+                                ) : (
+                                    <img src={URL.createObjectURL(newSlide.file)} alt="New slide preview" className="mt-3 max-h-40 w-full rounded-lg object-contain sm:max-h-48" />
+                                ))}
+                            </div>
+
+                            <div className="grid gap-4 md:grid-cols-2">
+                                <div>
+                                    <label className="mb-1.5 block text-sm font-medium text-gray-700">Sort Order</label>
+                                    <input type="number" min="1" value={newSlide.sort_order} onChange={(e) => setNewSlide((prev) => ({ ...prev, sort_order: Number(e.target.value) || 1 }))} className={inputClass} />
+                                </div>
+                                <div className="flex items-center gap-3 pt-7">
+                                    <input id="new-slide-status" type="checkbox" checked={newSlide.status} onChange={(e) => setNewSlide((prev) => ({ ...prev, status: e.target.checked }))} className="h-4 w-4 rounded border-gray-300 text-[#06245a]" />
+                                    <label htmlFor="new-slide-status" className="text-sm font-medium text-gray-700">Active Slide</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex shrink-0 justify-end gap-3 border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+                            <button type="button" onClick={closeModal} className="rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50">Cancel</button>
+                            <button type="button" onClick={saveNewSlide} className="flex items-center gap-2 rounded-lg bg-[#06245a] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#041b45]">
+                                <Plus size={17} /> Add Slide
+                            </button>
+                        </div>
                     </div>
-
                 </div>
             )}
 

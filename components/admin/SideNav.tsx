@@ -279,7 +279,7 @@ export default function SideNav({
                         <button
                             type="button"
                             onClick={() =>
-                                handleNavigate("/admin/dashboard")
+                                handleNavigate("/mml-admin/dashboard")
                             }
                             className={`
                                 group
@@ -295,7 +295,7 @@ export default function SideNav({
                                 transition-all
                                 duration-200
                                 ${
-                                    isActiveRoute("/admin/dashboard")
+                                    isActiveRoute("/mml-admin/dashboard")
                                         ? "bg-[#06245a] text-white shadow-md shadow-blue-900/10"
                                         : "text-slate-600 hover:bg-slate-100 hover:text-[#06245a]"
                                 }
@@ -312,7 +312,7 @@ export default function SideNav({
                                     rounded-lg
                                     transition
                                     ${
-                                        isActiveRoute("/admin/dashboard")
+                                        isActiveRoute("/mml-admin/dashboard")
                                             ? "bg-white/15 text-white"
                                             : "bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-[#06245a]"
                                     }
@@ -503,7 +503,7 @@ export default function SideNav({
                                                                     ] ?? false;
 
                                                                 const menuRoute =
-                                                                    "/admin/" +
+                                                                    "/mml-admin/" +
                                                                     module.slug +
                                                                     "/" +
                                                                     menu.slug;
@@ -651,7 +651,7 @@ export default function SideNav({
                                                                                             (childMenu) => {
 
                                                                                                 const childRoute =
-                                                                                                    "/admin/" +
+                                                                                                    "/mml-admin/" +
                                                                                                     module.slug +
                                                                                                     "/" +
                                                                                                     menu.slug +

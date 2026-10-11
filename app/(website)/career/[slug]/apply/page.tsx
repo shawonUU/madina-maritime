@@ -225,15 +225,13 @@ export default function JobApplyPage() {
                         {error}
                     </p>
 
-                    <Button
-                        asChild
-                        className="mt-6 rounded-full bg-[#06245a] px-6 hover:bg-blue-800"
+                    <Link
+                        href="/careers"
+                        className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[#06245a] px-6 py-2 text-white transition-colors hover:bg-blue-800"
                     >
-                        <Link href="/careers">
-                            <ArrowLeft size={17} />
-                            Back to Careers
-                        </Link>
-                    </Button>
+                        <ArrowLeft size={17} />
+                        Back to Careers
+                    </Link>
                 </div>
             </main>
         );
