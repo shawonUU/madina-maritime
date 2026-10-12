@@ -7,9 +7,11 @@ import {
     Users,
     Boxes,
     Activity,
+    Trash2,
+    RefreshCw,
 } from "lucide-react";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import {
@@ -35,35 +37,78 @@ interface Access {
     can_delete: boolean;
 }
 
+interface PermissionStat {
+    label: string;
+    count: number;
+    color: string;
+}
+
 export default function DashboardPage() {
     const router = useRouter();
 
     const [user, setUser] = useState<User | null>(null);
     const [accesses, setAccesses] = useState<Access[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    const loadDashboard = useCallback(() => {
+        try {
+            setLoading(true);
+            setError("");
+
+            const token = getToken();
+
+            if (!token) {
+                router.replace("/admin/login");
+                return;
+            }
+
+            const currentUser = getUser();
+            const currentAccesses = getUserAccess();
+
+            setUser(currentUser || null);
+            setAccesses(
+                Array.isArray(currentAccesses)
+                    ? currentAccesses
+                    : []
+            );
+        } catch (err) {
+            console.error("Dashboard loading failed:", err);
+            setError("Unable to load dashboard information.");
+        } finally {
+            setLoading(false);
+        }
+    }, [router]);
 
     useEffect(() => {
-        const token = getToken();
-
-        if (!token) {router.replace("/admin/login");return;}
-
-        setUser(getUser());
-        setAccesses(getUserAccess());
-        setLoading(false);
-    }, [router]);
+        loadDashboard();
+    }, [loadDashboard]);
 
     if (loading) {
         return (
             <div className="flex min-h-[300px] items-center justify-center">
                 <div className="flex items-center gap-3 text-gray-500">
-
                     <span className="h-5 w-5 animate-spin rounded-full border-2 border-gray-300 border-t-[#06245a]" />
-
                     <span className="text-sm">
                         Loading dashboard...
                     </span>
-
                 </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="rounded-xl border border-red-200 bg-white p-8 text-center">
+                <p className="text-sm text-red-600">{error}</p>
+
+                <button
+                    onClick={loadDashboard}
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#06245a] px-4 py-2 text-sm text-white"
+                >
+                    <RefreshCw size={16} />
+                    Retry
+                </button>
             </div>
         );
     }
@@ -82,32 +127,72 @@ export default function DashboardPage() {
         (item) => item.can_update
     ).length;
 
+    const deletePermissions = accesses.filter(
+        (item) => item.can_delete
+    ).length;
+
+    const permissionStats: PermissionStat[] = [
+        {
+            label: "View",
+            count: viewPermissions,
+            color: "bg-[#06245a]",
+        },
+        {
+            label: "Create",
+            count: createPermissions,
+            color: "bg-purple-500",
+        },
+        {
+            label: "Update",
+            count: updatePermissions,
+            color: "bg-orange-500",
+        },
+        {
+            label: "Delete",
+            count: deletePermissions,
+            color: "bg-red-500",
+        },
+    ];
+
+    const getPercentage = (count: number) =>
+        totalPermissions > 0
+            ? Math.min(
+                  (count / totalPermissions) * 100,
+                  100
+              )
+            : 0;
+
+    const accountStatus = user?.status || "Active";
+
     return (
         <div>
+            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h1 className="text-2xl font-bold text-gray-900">
+                        Dashboard
+                    </h1>
 
-            {/* Page Header */}
-            <div className="mb-6">
+                    <p className="mt-1 text-sm text-gray-500">
+                        Welcome back,{" "}
+                        <span className="font-medium text-gray-700">
+                            {user?.name || "Administrator"}
+                        </span>
+                        . Here is your administration overview.
+                    </p>
+                </div>
 
-                <h1 className="text-2xl font-bold text-gray-900">
-                    Dashboard
-                </h1>
-
-                <p className="mt-1 text-sm text-gray-500">
-                    Welcome back,{" "}
-                    <span className="font-medium text-gray-700">
-                        {user?.name || "Administrator"}
-                    </span>
-                    . Here is your administration overview.
-                </p>
-
+                <button
+                    onClick={loadDashboard}
+                    className="inline-flex items-center justify-center gap-2 self-start rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-600 hover:bg-gray-50"
+                >
+                    <RefreshCw size={16} />
+                    Refresh
+                </button>
             </div>
 
-            {/* Statistics */}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5">
                 <div className="rounded-xl border border-gray-200 bg-white p-5">
                     <div className="flex items-start justify-between">
-
                         <div>
                             <p className="text-sm text-gray-500">
                                 Total Access
@@ -128,13 +213,11 @@ export default function DashboardPage() {
                                 className="text-[#06245a]"
                             />
                         </div>
-
                     </div>
                 </div>
 
                 <div className="rounded-xl border border-gray-200 bg-white p-5">
                     <div className="flex items-start justify-between">
-
                         <div>
                             <p className="text-sm text-gray-500">
                                 View Access
@@ -155,13 +238,11 @@ export default function DashboardPage() {
                                 className="text-green-600"
                             />
                         </div>
-
                     </div>
                 </div>
 
                 <div className="rounded-xl border border-gray-200 bg-white p-5">
                     <div className="flex items-start justify-between">
-
                         <div>
                             <p className="text-sm text-gray-500">
                                 Create Access
@@ -182,13 +263,11 @@ export default function DashboardPage() {
                                 className="text-purple-600"
                             />
                         </div>
-
                     </div>
                 </div>
 
                 <div className="rounded-xl border border-gray-200 bg-white p-5">
                     <div className="flex items-start justify-between">
-
                         <div>
                             <p className="text-sm text-gray-500">
                                 Update Access
@@ -209,20 +288,38 @@ export default function DashboardPage() {
                                 className="text-orange-500"
                             />
                         </div>
-
                     </div>
                 </div>
 
+                <div className="rounded-xl border border-gray-200 bg-white p-5">
+                    <div className="flex items-start justify-between">
+                        <div>
+                            <p className="text-sm text-gray-500">
+                                Delete Access
+                            </p>
+
+                            <h2 className="mt-2 text-2xl font-bold text-gray-900">
+                                {deletePermissions}
+                            </h2>
+
+                            <p className="mt-2 text-xs text-gray-400">
+                                Records with delete permission
+                            </p>
+                        </div>
+
+                        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-red-50">
+                            <Trash2
+                                size={21}
+                                className="text-red-500"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            {/* Main Content */}
             <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-3">
-
-                {/* System Overview */}
                 <div className="rounded-xl border border-gray-200 bg-white xl:col-span-2">
-
                     <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
-
                         <div>
                             <h2 className="text-base font-semibold text-gray-900">
                                 System Overview
@@ -237,17 +334,12 @@ export default function DashboardPage() {
                             size={20}
                             className="text-[#06245a]"
                         />
-
                     </div>
 
                     <div className="p-5">
-
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-
                             <div className="rounded-lg border border-gray-100 p-4">
-
                                 <div className="flex items-center gap-3">
-
                                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50">
                                         <Users
                                             size={19}
@@ -256,26 +348,19 @@ export default function DashboardPage() {
                                     </div>
 
                                     <div>
-
                                         <p className="text-xs text-gray-500">
                                             Administrator
                                         </p>
 
                                         <p className="mt-0.5 text-sm font-semibold text-gray-900">
-                                            {user?.name ||
-                                                "Administrator"}
+                                            {user?.name || "Administrator"}
                                         </p>
-
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <div className="rounded-lg border border-gray-100 p-4">
-
                                 <div className="flex items-center gap-3">
-
                                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-50">
                                         <CheckCircle2
                                             size={19}
@@ -284,151 +369,59 @@ export default function DashboardPage() {
                                     </div>
 
                                     <div>
-
                                         <p className="text-xs text-gray-500">
                                             Account Status
                                         </p>
 
-                                        <p className="mt-0.5 text-sm font-semibold text-green-600">
-                                            {user?.status ||
-                                                "Active"}
+                                        <p className="mt-0.5 text-sm font-semibold text-gray-900">
+                                            {accountStatus}
                                         </p>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
 
-                        {/* Permission Summary */}
                         <div className="mt-5">
-
-                            <h3 className="mb-3 text-sm font-semibold text-gray-800">
+                            <h3 className="mb-4 text-sm font-semibold text-gray-800">
                                 Permission Summary
                             </h3>
 
-                            <div className="space-y-3">
+                            <div className="space-y-4">
+                                {permissionStats.map((stat) => (
+                                    <div key={stat.label}>
+                                        <div className="mb-1.5 flex items-center justify-between">
+                                            <span className="text-xs text-gray-500">
+                                                {stat.label}
+                                            </span>
 
-                                <div>
+                                            <span className="text-xs font-medium text-gray-700">
+                                                {stat.count} (
+                                                {getPercentage(
+                                                    stat.count
+                                                ).toFixed(0)}
+                                                %)
+                                            </span>
+                                        </div>
 
-                                    <div className="mb-1.5 flex items-center justify-between">
-
-                                        <span className="text-xs text-gray-500">
-                                            View
-                                        </span>
-
-                                        <span className="text-xs font-medium text-gray-700">
-                                            {viewPermissions}
-                                        </span>
-
+                                        <div className="h-2 overflow-hidden rounded-full bg-gray-100">
+                                            <div
+                                                className={`h-full rounded-full transition-all duration-300 ${stat.color}`}
+                                                style={{
+                                                    width: `${getPercentage(
+                                                        stat.count
+                                                    )}%`,
+                                                }}
+                                            />
+                                        </div>
                                     </div>
-
-                                    <div className="h-2 overflow-hidden rounded-full bg-gray-100">
-
-                                        <div
-                                            className="h-full rounded-full bg-[#06245a]"
-                                            style={{
-                                                width:
-                                                    totalPermissions > 0
-                                                        ? `${Math.min(
-                                                              (viewPermissions /
-                                                                  totalPermissions) *
-                                                                  100,
-                                                              100
-                                                          )}%`
-                                                        : "0%",
-                                            }}
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <div>
-
-                                    <div className="mb-1.5 flex items-center justify-between">
-
-                                        <span className="text-xs text-gray-500">
-                                            Create
-                                        </span>
-
-                                        <span className="text-xs font-medium text-gray-700">
-                                            {createPermissions}
-                                        </span>
-
-                                    </div>
-
-                                    <div className="h-2 overflow-hidden rounded-full bg-gray-100">
-
-                                        <div
-                                            className="h-full rounded-full bg-purple-500"
-                                            style={{
-                                                width:
-                                                    totalPermissions > 0
-                                                        ? `${Math.min(
-                                                              (createPermissions /
-                                                                  totalPermissions) *
-                                                                  100,
-                                                              100
-                                                          )}%`
-                                                        : "0%",
-                                            }}
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <div>
-
-                                    <div className="mb-1.5 flex items-center justify-between">
-
-                                        <span className="text-xs text-gray-500">
-                                            Update
-                                        </span>
-
-                                        <span className="text-xs font-medium text-gray-700">
-                                            {updatePermissions}
-                                        </span>
-
-                                    </div>
-
-                                    <div className="h-2 overflow-hidden rounded-full bg-gray-100">
-
-                                        <div
-                                            className="h-full rounded-full bg-orange-500"
-                                            style={{
-                                                width:
-                                                    totalPermissions > 0
-                                                        ? `${Math.min(
-                                                              (updatePermissions /
-                                                                  totalPermissions) *
-                                                                  100,
-                                                              100
-                                                          )}%`
-                                                        : "0%",
-                                            }}
-                                        />
-
-                                    </div>
-
-                                </div>
-
+                                ))}
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-                {/* Profile */}
                 <div className="rounded-xl border border-gray-200 bg-white">
-
                     <div className="border-b border-gray-100 px-5 py-4">
-
                         <h2 className="text-base font-semibold text-gray-900">
                             Account Information
                         </h2>
@@ -436,13 +429,10 @@ export default function DashboardPage() {
                         <p className="mt-1 text-xs text-gray-500">
                             Logged in administrator
                         </p>
-
                     </div>
 
                     <div className="p-5">
-
                         <div className="flex flex-col items-center text-center">
-
                             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#06245a] text-2xl font-bold text-white">
                                 {user?.name
                                     ?.charAt(0)
@@ -450,8 +440,7 @@ export default function DashboardPage() {
                             </div>
 
                             <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                                {user?.name ||
-                                    "Administrator"}
+                                {user?.name || "Administrator"}
                             </h3>
 
                             <p className="mt-1 break-all text-sm text-gray-500">
@@ -459,73 +448,55 @@ export default function DashboardPage() {
                             </p>
 
                             <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1.5 text-xs font-medium text-green-600">
-
                                 <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-
-                                {user?.status ||
-                                    "Active"}
-
+                                {accountStatus}
                             </div>
-
                         </div>
 
                         <div className="mt-6 border-t border-gray-100 pt-5">
+                            {[
+                                {
+                                    label: "Total Access",
+                                    value: totalPermissions,
+                                },
+                                {
+                                    label: "View Access",
+                                    value: viewPermissions,
+                                },
+                                {
+                                    label: "Create Access",
+                                    value: createPermissions,
+                                },
+                                {
+                                    label: "Update Access",
+                                    value: updatePermissions,
+                                },
+                                {
+                                    label: "Delete Access",
+                                    value: deletePermissions,
+                                },
+                            ].map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="flex items-center justify-between py-2"
+                                >
+                                    <span className="text-xs text-gray-500">
+                                        {item.label}
+                                    </span>
 
-                            <div className="flex items-center justify-between py-2">
-                                <span className="text-xs text-gray-500">
-                                    Total Access
-                                </span>
-
-                                <span className="text-sm font-semibold text-gray-800">
-                                    {totalPermissions}
-                                </span>
-                            </div>
-
-                            <div className="flex items-center justify-between py-2">
-                                <span className="text-xs text-gray-500">
-                                    View Access
-                                </span>
-
-                                <span className="text-sm font-semibold text-gray-800">
-                                    {viewPermissions}
-                                </span>
-                            </div>
-
-                            <div className="flex items-center justify-between py-2">
-                                <span className="text-xs text-gray-500">
-                                    Create Access
-                                </span>
-
-                                <span className="text-sm font-semibold text-gray-800">
-                                    {createPermissions}
-                                </span>
-                            </div>
-
-                            <div className="flex items-center justify-between py-2">
-                                <span className="text-xs text-gray-500">
-                                    Update Access
-                                </span>
-
-                                <span className="text-sm font-semibold text-gray-800">
-                                    {updatePermissions}
-                                </span>
-                            </div>
-
+                                    <span className="text-sm font-semibold text-gray-800">
+                                        {item.value}
+                                    </span>
+                                </div>
+                            ))}
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-            {/* Bottom Status */}
             <div className="mt-5 rounded-xl border border-gray-200 bg-white px-5 py-4">
-
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-
                     <div className="flex items-center gap-3">
-
                         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-green-50">
                             <CheckCircle2
                                 size={18}
@@ -534,31 +505,22 @@ export default function DashboardPage() {
                         </div>
 
                         <div>
-
                             <p className="text-sm font-medium text-gray-800">
-                                System is operational
+                                Dashboard loaded
                             </p>
 
                             <p className="mt-0.5 text-xs text-gray-500">
-                                Your account is active and authenticated.
+                                Displaying the current account and access information.
                             </p>
-
                         </div>
-
                     </div>
 
                     <div className="flex items-center gap-2 text-xs text-gray-500">
-
                         <span className="h-2 w-2 rounded-full bg-green-500" />
-
-                        Connected
-
+                        Authenticated
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     );
 }

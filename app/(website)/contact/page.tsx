@@ -24,7 +24,7 @@ interface ContactSettings {
   hero_title: string | null;
   hero_highlight: string | null;
   hero_description: string | null;
-  hero_image: string | null;
+  hero_image_url: string | null;
   hero_button_text: string | null;
   hero_button_url: string | null;
 
@@ -82,47 +82,47 @@ export default function Contact() {
     retry: 1,
   });
 
-  if (isLoading) {
-    return (
-      <main className="bg-white text-slate-900">
-        <section className="relative min-h-[560px] overflow-hidden bg-[#03172f]">
-          <div className="absolute inset-0 bg-[#03172f]" />
+  // if (isLoading) {
+  //   return (
+  //     <main className="bg-white text-slate-900">
+  //       <section className="relative min-h-[560px] overflow-hidden bg-[#03172f]">
+  //         <div className="absolute inset-0 bg-[#03172f]" />
 
-          <div className="relative z-10 mx-auto flex min-h-[640px] max-w-7xl items-center px-6 lg:px-8">
-            <div className="h-48 w-full max-w-3xl animate-pulse rounded-2xl bg-white/10" />
-          </div>
-        </section>
+  //         <div className="relative z-10 mx-auto flex min-h-[640px] max-w-7xl items-center px-6 lg:px-8">
+  //           <div className="h-48 w-full max-w-3xl animate-pulse rounded-2xl bg-white/10" />
+  //         </div>
+  //       </section>
 
-        <section className="relative z-20 mx-auto -mt-12 max-w-7xl px-6 lg:px-8">
-          <div className="h-52 animate-pulse rounded-2xl bg-white shadow-[0_20px_70px_rgba(15,23,42,0.12)]" />
-        </section>
-      </main>
-    );
-  }
+  //       <section className="relative z-20 mx-auto -mt-12 max-w-7xl px-6 lg:px-8">
+  //         <div className="h-52 animate-pulse rounded-2xl bg-white shadow-[0_20px_70px_rgba(15,23,42,0.12)]" />
+  //       </section>
+  //     </main>
+  //   );
+  // }
 
-  if (isError || !page) {
-    return (
-      <main className="bg-white text-slate-900">
-        <section className="flex min-h-[500px] items-center justify-center px-6">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-[#06245a]">
-              Contact information is currently unavailable.
-            </h1>
+  // if (isError || !page) {
+  //   return (
+  //     <main className="bg-white text-slate-900">
+  //       <section className="flex min-h-[500px] items-center justify-center px-6">
+  //         <div className="text-center">
+  //           <h1 className="text-3xl font-bold text-[#06245a]">
+  //             Contact information is currently unavailable.
+  //           </h1>
 
-            <p className="mt-3 text-slate-500">
-              Please try again later.
-            </p>
-          </div>
-        </section>
-      </main>
-    );
-  }
+  //           <p className="mt-3 text-slate-500">
+  //             Please try again later.
+  //           </p>
+  //         </div>
+  //       </section>
+  //     </main>
+  //   );
+  // }
 
   return (
     <main className="bg-white text-slate-900">
       <section className="relative min-h-[560px] overflow-hidden bg-[#03172f]">
         <Image
-          src={page.hero_image || "/images/Picture4.png"}
+          src={page?.hero_image_url || "/images/Picture4.png"}
           alt="Contact Madina Maritime Limited"
           fill
           priority
@@ -148,23 +148,23 @@ export default function Contact() {
             <div className="mb-7 flex items-center gap-3 text-sm font-bold uppercase tracking-[0.25em] text-blue-300">
               <span className="h-px w-12 bg-blue-400" />
 
-              {page.hero_label || "Madina Maritime Limited"}
+              {page?.hero_label || "Madina Maritime Limited"}
             </div>
 
             <h1 className="text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              {page.hero_title}
-              {page.hero_highlight && (
+              {page?.hero_title}
+              {page?.hero_highlight && (
                 <>
                   <br />
                   <span className="text-blue-300">
-                    {page.hero_highlight}
+                    {page?.hero_highlight}
                   </span>
                 </>
               )}
             </h1>
 
             <p className="mt-7 max-w-2xl text-base leading-8 text-blue-50/80 sm:text-lg">
-              {page.hero_description}
+              {page?.hero_description}
             </p>
 
             <div className="mt-9">
@@ -173,10 +173,10 @@ export default function Contact() {
                 className="group rounded-full bg-white px-7 text-[#06245a] hover:bg-blue-50"
               >
                 <Link
-                  href={page.hero_button_url || "#contact-form"}
+                  href={page?.hero_button_url || "#contact-form"}
                   className="flex items-center gap-2"
                 >
-                  {page.hero_button_text || "Send an Enquiry"}
+                  {page?.hero_button_text || "Send an Enquiry"}
 
                   <ArrowRight
                     size={18}
@@ -191,7 +191,7 @@ export default function Contact() {
         <div className="absolute bottom-8 left-6 z-20 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/50 lg:left-10">
           <Ship size={15} />
 
-          {page.bottom_caption || "Connecting Through The Sea"}
+          {page?.bottom_caption || "Connecting Through The Sea"}
         </div>
       </section>
 
@@ -203,15 +203,15 @@ export default function Contact() {
             </div>
 
             <div className="mt-5 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
-              {page.address_label || "Visit Us"}
+              {page?.address_label || "Visit Us"}
             </div>
 
             <h3 className="mt-2 text-lg font-bold text-[#06245a]">
-              {page.office_title || "Head Office"}
+              {page?.office_title || "Head Office"}
             </h3>
 
             <p className="mt-2 text-sm leading-6 text-slate-500">
-              {page.address}
+              {page?.address}
             </p>
           </div>
 
@@ -221,15 +221,15 @@ export default function Contact() {
             </div>
 
             <div className="mt-5 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
-              {page.phone_label || "Call Us"}
+              {page?.phone_label || "Call Us"}
             </div>
 
             <h3 className="mt-2 text-lg font-bold text-[#06245a]">
-              {page.phone_title}
+              {page?.phone_title}
             </h3>
 
             <p className="mt-2 text-sm leading-6 text-slate-500">
-              {page.phone_description || "Our team is available to assist you."}
+              {page?.phone_description || "Our team is available to assist you."}
             </p>
           </div>
 
@@ -239,11 +239,11 @@ export default function Contact() {
             </div>
 
             <div className="mt-5 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
-              {page.email_label || "Email Us"}
+              {page?.email_label || "Email Us"}
             </div>
 
             <h3 className="mt-2 break-words text-lg font-bold text-[#06245a]">
-              {page.email}
+              {page?.email}
             </h3>
           </div>
 
@@ -253,15 +253,15 @@ export default function Contact() {
             </div>
 
             <div className="mt-5 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
-              {page.hours_label || "Working Hours"}
+              {page?.hours_label || "Working Hours"}
             </div>
 
             <h3 className="mt-2 text-lg font-bold text-[#06245a]">
-              {page.working_days}
+              {page?.working_days}
             </h3>
 
             <p className="mt-2 text-sm leading-6 text-slate-500">
-              {page.working_hours}
+              {page?.working_hours}
             </p>
           </div>
         </div>
@@ -275,15 +275,15 @@ export default function Contact() {
           <div className="rounded-[2rem] border border-slate-100 bg-white p-6 shadow-[0_20px_70px_rgba(15,23,42,0.10)] sm:p-8 lg:p-10">
             <div className="mb-8">
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
-                {page.form_label || "Send a Message"}
+                {page?.form_label || "Send a Message"}
               </div>
 
               <h3 className="mt-2 text-2xl font-bold text-[#06245a]">
-                {page.form_title || "Tell us how we can help."}
+                {page?.form_title || "Tell us how we can help."}
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-500">
-                {page.form_description ||
+                {page?.form_description ||
                   "Fill out the form below and our team will respond as soon as possible."}
               </p>
             </div>
@@ -294,17 +294,17 @@ export default function Contact() {
           <div className="rounded-[2rem] border border-slate-100 bg-white p-6 shadow-[0_20px_70px_rgba(15,23,42,0.10)] sm:p-8 lg:p-10">
             <div>
               <div className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
-                {page.map_title || "Our Location"}
+                {page?.map_title || "Our Location"}
               </div>
 
               <div className="relative h-[380px] overflow-hidden rounded-3xl bg-[#06245a] shadow-lg">
                 <div className="absolute inset-0 flex items-center justify-center p-3 text-center">
-                  {page.map_embed_url ? (
+                  {page?.map_embed_url ? (
                     <iframe
                       className="h-full w-full rounded-xl border-0"
-                      src={page.map_embed_url}
+                      src={page?.map_embed_url}
                       loading="lazy"
-                      title={page.map_title || "Madina Maritime Location"}
+                      title={page?.map_title || "Madina Maritime Location"}
                     />
                   ) : (
                     <div className="text-white">

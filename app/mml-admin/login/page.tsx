@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -106,14 +107,14 @@ export default function AdminLoginPage() {
                 <div className="text-center mb-7">
 
                     <div className="flex justify-center mb-4">
-
-                        <div className="w-14 h-14 rounded-xl bg-[#06245a] flex items-center justify-center shadow-lg shadow-[#06245a]/20">
-                            <Building2
-                                size={27}
-                                className="text-white"
-                            />
-                        </div>
-
+                        <Image
+                            src="/images/favicon.png"
+                            alt="Madina Maritime Logo"
+                            width={105}
+                            height={70}
+                            priority
+                            className="h-auto w-[82px] object-contain transition duration-300 group-hover:scale-105 sm:w-[92px] lg:w-[105px]"
+                        />
                     </div>
 
                     <h1 className="text-xl font-bold text-[#06245a]">

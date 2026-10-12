@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
 import {
   ArrowDown,
   ArrowRight,
@@ -250,41 +251,43 @@ const defaultWhyItems: WhyItem[] = [
   },
 ];
 
-export default function Hero() {
-  const [slides, setSlides] = useState<HeroSlide[]>([]);
-  const [current, setCurrent] = useState(0);
-  const [loading, setLoading] = useState(true);
+async function getHeroSlides(): Promise<HeroSlide[]> {
+  const response = await api.get("/website/hero-slides");
 
+  if (!response.data?.status) {
+    throw new Error("Failed to load hero slides");
+  }
+
+  return (response.data.data || [])
+    .filter((slide: HeroSlide) => slide.status)
+    .sort(
+      (a: HeroSlide, b: HeroSlide) =>
+        a.sort_order - b.sort_order
+    );
+}
+
+export default function Hero() {
+
+  const [current, setCurrent] = useState(0);
   const [home, setHome] = useState<HomeSettings | null>(null);
 
+  const {
+    data: slides = [],
+    isLoading: loading,
+  } = useQuery({
+    queryKey: ["hero-slides"],
+    queryFn: getHeroSlides,
+    staleTime: Infinity,
+    gcTime: Infinity,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchOnMount: false,
+    retry: 1,
+  });
+
   useEffect(() => {
-    fetchHeroSlides();
     fetchHomeContent();
   }, []);
-
-  const fetchHeroSlides = async () => {
-    try {
-      setLoading(true);
-
-      const response = await api.get("/website/hero-slides");
-
-      if (response.data?.status) {
-        const activeSlides = (response.data.data || [])
-          .filter((slide: HeroSlide) => slide.status)
-          .sort(
-            (a: HeroSlide, b: HeroSlide) =>
-              a.sort_order - b.sort_order
-          );
-
-        setSlides(activeSlides);
-        setCurrent(0);
-      }
-    } catch (error) {
-      console.error("Failed to load hero slides:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const fetchHomeContent = async () => {
     try {

@@ -250,13 +250,14 @@ const viewApplication = async (
     }
 };
 
-const updateApplicationStatus = async () => {
-    if (!selectedApplication || !newStatus) {
+const updateApplicationStatus = async (application: Application, newStatus :string, openModal: boolean | true) => {
+    setNewStatus(newStatus);
+    if (!application || !newStatus) {
         return;
     }
 
     if (
-        selectedApplication.status ===
+        application.status ===
         newStatus
     ) {
         return;
@@ -266,7 +267,7 @@ const updateApplicationStatus = async () => {
         setUpdatingStatus(true);
 
         const response = await api.put(
-            `/hrm/recruitment/applications/${selectedApplication.id}/status`,
+            `/hrm/recruitment/applications/${application.id}/status`,
             {
                 status: newStatus,
                 note: statusNote || null,
@@ -276,9 +277,7 @@ const updateApplicationStatus = async () => {
         const updatedApplication =
             response.data.data;
 
-        setSelectedApplication(
-            updatedApplication
-        );
+       if(openModal) setSelectedApplication( updatedApplication );
 
         setStatusNote("");
 
@@ -295,16 +294,14 @@ const updateApplicationStatus = async () => {
     }
 };
 
-const viewCv = async () => {
-    if (!selectedApplication) {
-        return;
-    }
+const viewCv = async (application: Application) => {
+    if(!application) return;
 
     try {
         setCvLoading(true);
 
         const response = await api.get(
-            `/hrm/recruitment/applications/${selectedApplication.id}/cv`,
+            `/hrm/recruitment/applications/${application.id}/cv`,
             {
                 responseType: "blob",
             }
@@ -332,8 +329,8 @@ const viewCv = async () => {
     }
 };
 
-const downloadCv = async () => {
-    if (!selectedApplication) {
+const downloadCv = async (application: Application) => {
+    if (!application) {
         return;
     }
 
@@ -341,7 +338,7 @@ const downloadCv = async () => {
         setCvLoading(true);
 
         const response = await api.get(
-            `/hrm/recruitment/applications/${selectedApplication.id}/cv`,
+            `/hrm/recruitment/applications/${application.id}/cv`,
             {
                 responseType: "blob",
             }
@@ -360,8 +357,8 @@ const downloadCv = async () => {
         link.href = url;
 
         link.download =
-            selectedApplication.cv_original_name ||
-            `CV-${selectedApplication.application_no}`;
+            application.cv_original_name ||
+            `CV-${application.application_no}`;
 
         document.body.appendChild(link);
 
@@ -416,16 +413,10 @@ const resetEmailForm = () => {
     setInterviewNote("");
 };
 
-const openEmailModal = async (
-    applicationIds: number[]
-) => {
-    if (!applicationIds.length) {
-        return;
-    }
+const openEmailModal = async ( applicationIds: number[] ) => {
+    if (!applicationIds.length) { return; }
 
-    setSelectedApplicationIds(
-        applicationIds
-    );
+    setSelectedApplicationIds( applicationIds );
 
     resetEmailForm();
 
@@ -498,57 +489,24 @@ const toggleAllApplications = () => {
     }
 };
 
-const previewEmail = async () => {
-    if (
-        !selectedTemplateId ||
-        !selectedApplicationIds.length
-    ) {
-        return;
-    }
-
+const previewEmail = async (selectedTemplateId: string, selectedApplicationIds: number[]) => {
+    if (!selectedTemplateId || !selectedApplicationIds.length ) { return; }
     try {
         setEmailLoading(true);
-
-        const response = await api.post(
-            "/hrm/recruitment/email/preview",
+        const response = await api.post("/hrm/recruitment/email/preview",
             {
-                application_id:
-                    selectedApplicationIds[0],
-
-                template_id:
-                    Number(
-                        selectedTemplateId
-                    ),
-
-                interview_date:
-                    interviewDate ||
-                    null,
-
-                interview_time:
-                    interviewTime ||
-                    null,
-
-                interview_mode:
-                    interviewMode ||
-                    null,
-
-                interview_location:
-                    interviewLocation ||
-                    null,
-
-                meeting_link:
-                    meetingLink ||
-                    null,
-
-                interview_note:
-                    interviewNote ||
-                    null,
+                application_id: selectedApplicationIds[0],
+                template_id: Number( selectedTemplateId ),
+                interview_date: interviewDate || null,
+                interview_time: interviewTime || null,
+                interview_mode: interviewMode ||  null,
+                interview_location: interviewLocation || null,
+                meeting_link: meetingLink || null,
+                interview_note: interviewNote ||  null,
             }
         );
 
-        setEmailPreview(
-            response.data?.data ?? null
-        );
+        setEmailPreview(response.data?.data ?? null);
     } catch (error) {
         console.error(
             "Failed to preview email:",
@@ -1115,15 +1073,19 @@ return (
                                             Contact
                                         </th>
 
-                                        <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        <th className="px-5 py-3 text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
                                             Applied
                                         </th>
 
-                                        <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        <th className="px-5 py-3 text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
                                             Status
                                         </th>
 
-                                        <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        <th className="px-5 py-3 text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                            CV
+                                        </th>
+
+                                        <th className="px-5 py-3 text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
                                             Action
                                         </th>
                                     </tr>
@@ -1214,18 +1176,63 @@ return (
                                                 </td>
 
                                                 <td className="px-5 py-4">
-                                                    <span
-                                                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${getStatusClass(
-                                                            application.status
-                                                        )}`}
-                                                    >
-                                                        {
-                                                            application.status
+                                                    <select
+                                                        value={
+                                                            application?.status
                                                         }
-                                                    </span>
+                                                        onChange={(
+                                                            event
+                                                        ) =>
+                                                            updateApplicationStatus(application, event.target.value, false)
+                                                        }
+                                                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-[#06245a] focus:ring-1 focus:ring-[#06245a]"
+                                                    >
+                                                        {statuses.map(
+                                                            (
+                                                                item
+                                                            ) => (
+                                                                <option
+                                                                    key={
+                                                                        item
+                                                                    }
+                                                                    value={
+                                                                        item
+                                                                    }
+                                                                >
+                                                                    {
+                                                                        item
+                                                                    }
+                                                                </option>
+                                                            )
+                                                        )}
+                                                    </select>
                                                 </td>
 
-                                                <td className="px-5 py-4 text-right">
+                                                <td className="px-5 py-4">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => viewCv(application)}
+                                                        disabled={
+                                                            cvLoading
+                                                        }
+                                                        className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                                                    >
+                                                        <Eye size={ 16 } />
+                                                    </button>
+
+                                                    {/* <button
+                                                        type="button"
+                                                        onClick={() => downloadCv(application)}
+                                                        disabled={
+                                                            cvLoading
+                                                        }
+                                                        className="inline-flex items-center gap-2 rounded-lg bg-[#06245a] px-3 py-2 text-sm font-medium text-white hover:bg-[#041b45] disabled:opacity-50"
+                                                    >
+                                                        <Download size={ 16}/>
+                                                    </button> */}
+                                                </td>
+
+                                                <td className="w-40 px-5 py-4 text-right">
                                                     <button
                                                         type="button"
                                                         onClick={() =>
@@ -1233,7 +1240,7 @@ return (
                                                                 application.id
                                                             )
                                                         }
-                                                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#06245a] px-3 py-2 text-xs font-medium text-white hover:bg-[#041b45]"
+                                                        className="mr-1 inline-flex items-center gap-1.5 rounded-lg bg-[#06245a] px-3 py-2 text-xs font-medium text-white hover:bg-[#041b45]"
                                                     >
                                                         <Eye
                                                             size={
@@ -1241,7 +1248,15 @@ return (
                                                             }
                                                         />
 
-                                                        View
+                                                    </button>
+
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => openEmailModal( [ application.id, ] ) }
+                                                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#06245a] px-3 py-2 text-xs font-medium text-white hover:bg-[#041b45]"
+                                                    >
+                                                        <Mail size={ 15 } />
+
                                                     </button>
                                                 </td>
                                             </tr>
@@ -1532,9 +1547,7 @@ return (
                                         <div className="ml-auto flex gap-2">
                                             <button
                                                 type="button"
-                                                onClick={
-                                                    viewCv
-                                                }
+                                                onClick={() => viewCv(selectedApplication)}
                                                 disabled={
                                                     cvLoading
                                                 }
@@ -1551,9 +1564,7 @@ return (
 
                                             <button
                                                 type="button"
-                                                onClick={
-                                                    downloadCv
-                                                }
+                                               onClick={() => downloadCv(selectedApplication)}
                                                 disabled={
                                                     cvLoading
                                                 }
@@ -1587,13 +1598,7 @@ return (
                                 <div className="flex justify-end">
                                     <button
                                         type="button"
-                                        onClick={() =>
-                                            openEmailModal(
-                                                [
-                                                    selectedApplication.id,
-                                                ]
-                                            )
-                                        }
+                                        onClick={() => openEmailModal( [ selectedApplication.id, ] ) }
                                         className="inline-flex items-center gap-2 rounded-lg border border-[#06245a] px-4 py-2.5 text-sm font-medium text-[#06245a] hover:bg-blue-50"
                                     >
                                         <Mail
@@ -1681,9 +1686,7 @@ return (
                                     <div className="mt-4 flex justify-end">
                                         <button
                                             type="button"
-                                            onClick={
-                                                updateApplicationStatus
-                                            }
+                                            onClick={() => updateApplicationStatus(selectedApplication, newStatus)}
                                             disabled={
                                                 updatingStatus ||
                                                 newStatus ===
@@ -1818,25 +1821,12 @@ return (
                                 </label>
 
                                 <select
-                                    value={
-                                        selectedTemplateId
-                                    }
-                                    onChange={(
-                                        event
-                                    ) => {
-                                        setSelectedTemplateId(
-                                            event
-                                                .target
-                                                .value
-                                        );
-
-                                        setEmailPreview(
-                                            null
-                                        );
+                                    value={selectedTemplateId}
+                                    onChange={(event) => {
+                                        setSelectedTemplateId(event.target.value);
+                                        previewEmail(event.target.value, selectedApplicationIds);
                                     }}
-                                    disabled={
-                                        emailLoading
-                                    }
+                                    disabled={emailLoading}
                                     className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-[#06245a] focus:ring-1 focus:ring-[#06245a]"
                                 >
                                     <option value="">
@@ -1844,20 +1834,9 @@ return (
                                     </option>
 
                                     {emailTemplates.map(
-                                        (
-                                            template
-                                        ) => (
-                                            <option
-                                                key={
-                                                    template.id
-                                                }
-                                                value={
-                                                    template.id
-                                                }
-                                            >
-                                                {
-                                                    template.name
-                                                }
+                                        (template) => (
+                                            <option key={template.id}value={template.id}>
+                                                {template.name}
                                             </option>
                                         )
                                     )}
@@ -2128,12 +2107,10 @@ return (
                         >
                             Cancel
                         </button>
-
+{/* 
                         <button
                             type="button"
-                            onClick={
-                                previewEmail
-                            }
+                            onChange={(event) => {previewEmail(selectedTemplateId, selectedApplicationIds);}}
                             disabled={
                                 emailLoading ||
                                 !selectedTemplateId ||
@@ -2144,7 +2121,7 @@ return (
                             <Eye size={16} />
 
                             Preview
-                        </button>
+                        </button> */}
 
                         <button
                             type="button"

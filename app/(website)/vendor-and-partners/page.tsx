@@ -86,15 +86,15 @@ export default function VendorsAndPartnersPage() {
 
   const vendors = data?.partners || [];
 
-  if (isLoading) {
-    return (
-      <main className="min-h-screen bg-white">
-        <div className="flex min-h-[600px] items-center justify-center">
-          <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-200 border-t-[#06245a]" />
-        </div>
-      </main>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <main className="min-h-screen bg-white">
+  //       <div className="flex min-h-[600px] items-center justify-center">
+  //         <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-200 border-t-[#06245a]" />
+  //       </div>
+  //     </main>
+  //   );
+  // }
 
   return (
     <main className="bg-white text-slate-900">

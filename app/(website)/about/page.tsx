@@ -338,15 +338,15 @@ export default function AboutPage() {
         return icons[index] || Award;
     };
 
-    if (isLoading) {
-        return (
-            <main className="flex min-h-[600px] items-center justify-center bg-white">
-                <div className="text-sm text-slate-500">
-                    Loading...
-                </div>
-            </main>
-        );
-    }
+    // if (isLoading) {
+    //     return (
+    //         <main className="flex min-h-[600px] items-center justify-center bg-white">
+    //             <div className="text-sm text-slate-500">
+    //                 Loading...
+    //             </div>
+    //         </main>
+    //     );
+    // }
 
     if (isError) {
         return (
