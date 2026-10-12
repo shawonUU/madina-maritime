@@ -273,10 +273,10 @@ export default function AdminLoginPage() {
 
 
                             {/* Forgot Password */}
-                            <div className="flex justify-end hidden">
+                            <div className="flex justify-end">
 
                                 <Link
-                                    href="/admin/forgot-password"
+                                    href="/mml-admin/forgot-password"
                                     className="text-sm font-medium text-[#06245a] hover:text-blue-700 transition"
                                 >
                                     Forgot Password?
