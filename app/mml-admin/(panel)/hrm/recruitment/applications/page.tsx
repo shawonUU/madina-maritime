@@ -1686,7 +1686,7 @@ return (
                                     <div className="mt-4 flex justify-end">
                                         <button
                                             type="button"
-                                            onClick={() => updateApplicationStatus(selectedApplication, newStatus)}
+                                            onClick={() => updateApplicationStatus(selectedApplication, newStatus, true)}
                                             disabled={
                                                 updatingStatus ||
                                                 newStatus ===
