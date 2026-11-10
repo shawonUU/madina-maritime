@@ -41,16 +41,14 @@ export default function ForgotPasswordPage() {
         <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">
             <div className="w-full max-w-md rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
                 <Link
-                    href="/admin/login"
+                    href="/mml-admin/login"
                     className="mb-8 inline-flex items-center gap-2 text-sm text-gray-600 transition hover:text-[#06245a]"
                 >
                     <ArrowLeft size={16} />
                     Back to Login
                 </Link>
 
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-[#06245a]">
-                    <Mail size={26} />
-                </div>
+
 
                 <h1 className="text-2xl font-bold text-gray-900">
                     Forgot Password?
@@ -108,7 +106,7 @@ export default function ForgotPasswordPage() {
                 <p className="mt-6 text-center text-sm text-gray-500">
                     Remember your password?{" "}
                     <Link
-                        href="/admin/login"
+                        href="/mml-admin/login"
                         className="font-semibold text-[#06245a] hover:text-blue-700"
                     >
                         Sign in

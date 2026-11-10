@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken, getCurrentMenu } from "../lib/storage";
 
-const api = axios.create({ baseURL: "https://mml-admin.madinamaritime.com/",});
+const api = axios.create({ baseURL: "https://mml-admin.madinamaritime.com/api",});
 
 api.interceptors.request.use(
     (config) => {

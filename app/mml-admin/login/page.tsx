@@ -121,10 +121,6 @@ export default function AdminLoginPage() {
                         Madina Maritime
                     </h1>
 
-                    <p className="text-sm text-gray-500 mt-1">
-                        Administration Portal
-                    </p>
-
                 </div>
 
 
@@ -316,32 +312,6 @@ export default function AdminLoginPage() {
                     </div>
 
 
-                    {/* Security Footer */}
-                    <div className="border-t border-gray-100 bg-gray-50 px-7 sm:px-9 py-4">
-
-                        <div className="flex items-start gap-3">
-
-                            <ShieldCheck
-                                size={18}
-                                className="text-[#06245a] mt-0.5 shrink-0"
-                            />
-
-                            <div>
-
-                                <p className="text-xs font-semibold text-gray-700">
-                                    Secure Administration
-                                </p>
-
-                                <p className="text-xs text-gray-500 mt-1 leading-5">
-                                    This portal is restricted to authorized
-                                    personnel only.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
 
                 </div>
 

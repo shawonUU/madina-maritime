@@ -7,6 +7,7 @@ import {
     Search,
     User,
     Settings,
+    Key,
     LogOut,
     UserCircle,
 } from "lucide-react";
@@ -37,6 +38,7 @@ export default function TopNav({
 
     const [user, setUser] = useState<UserData | null>(null);
     const [profileOpen, setProfileOpen] = useState(false);
+    const [passwordChangeOpen, setPasswordChangeOpen] = useState(false);
 
     const profileRef = useRef<HTMLDivElement>(null);
 
@@ -55,6 +57,7 @@ export default function TopNav({
                 !profileRef.current.contains(event.target as Node)
             ) {
                 setProfileOpen(false);
+                setPasswordChangeOpen(false);
             }
         };
 
@@ -94,6 +97,11 @@ export default function TopNav({
     const handleSettings = () => {
         setProfileOpen(false);
         router.push("/admin/settings");
+    };
+
+    const handleChangePassword = () => {
+        setPasswordChangeOpen(false);
+        router.push("/mml-admin/change-password");
     };
 
     const displayName = user?.name || "Administrator";
@@ -180,7 +188,7 @@ export default function TopNav({
                             </div>
 
                             <div className="p-2">
-                                <button
+                                {/* <button
                                     type="button"
                                     onClick={handleProfile}
                                     className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 transition hover:bg-slate-50 hover:text-[#06245a]"
@@ -196,6 +204,15 @@ export default function TopNav({
                                 >
                                     <Settings size={17} />
                                     <span>Settings</span>
+                                </button> */}
+
+                                <button
+                                    type="button"
+                                    onClick={handleChangePassword}
+                                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 transition hover:bg-slate-50 hover:text-[#06245a]"
+                                >
+                                    <Key size={17} />
+                                    <span>Change Password</span>
                                 </button>
                             </div>
 

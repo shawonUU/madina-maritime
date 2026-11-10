@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -22,7 +23,9 @@ export default function AdminLayout({
         const token = getToken();
 
         if (!token) {
-            router.replace( `/admin/login?redirect=${encodeURIComponent(pathname)}`);
+            router.replace(
+                `/mml-admin/login?redirect=${encodeURIComponent(pathname)}`
+            );
             return;
         }
 

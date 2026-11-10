@@ -77,7 +77,7 @@ export default function UserAccessPage() {
         try {
             setLoadingUsers(true);
 
-            const res = await api.get("/admin/users");
+            const res = await api.get("/admin/users-list");
 
             setUsers(res.data.data ?? res.data);
         } catch (error) {
